@@ -8,13 +8,13 @@ public class PlayerController : MonoBehaviour
 {
     // Start is called before the first frame update
     Vector2 moveInput;
-    Rigidbody2D rb;
+    Rigidbody rb;
     public bool isMoving { get; private set; }
     [SerializeField] private float walkSpeed = 5f;
 
     public void Awake()
     {
-        rb = GetComponent<Rigidbody2D>(); 
+        rb = GetComponent<Rigidbody>(); 
     }
 
     void Start() 

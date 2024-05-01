@@ -40,6 +40,14 @@ public class Rope : MonoBehaviour
             // Debug.DrawRay(currentPosition, end - currentPosition, Color.red, 5f);
             if (hit.collider != null)
             {
+                GameObject hitObject = hit.collider.gameObject;
+            
+            // Change the color of the hit object (for example)
+            Renderer renderer = hitObject.GetComponent<Renderer>();
+            if (renderer != null)
+            {
+                renderer.material.color = Color.red; // Change color to red (example)
+            }
                 return true;
             }
         }
@@ -61,6 +69,7 @@ public class Rope : MonoBehaviour
         for (int i = index-2; i >= 0 ; i--)
         {
             if(AreVector2Equal(position, line.GetPosition(i), tolerance)){
+                // BUG: oggetto esterno a curva 
                 if (CheckForObstaclesV2(position, i))
                 {
                     // attorno ad un oggetto, non rimovere
