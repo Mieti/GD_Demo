@@ -223,12 +223,58 @@ public class WireController : MonoBehaviour
         undoSegments.Add(undoCount);
         #endregion
     }
+    
+    /// <summary>
+    /// Add 1 segment in the direction of the target
+    /// </summary>
+    public void AddSegmentIncremental(Vector3 targetPos)
+    {
+
+        //The last current segment is rotated in the direction of selected position.
+        int lastSegment = segments.Count - 1;
+        segments[lastSegment].LookAt(targetPos);
+        if (usePhysics)
+            {
+                //Instantiate new segment.
+                Transform newSegment = Instantiate(segment, segments[lastSegment].position + (segments[lastSegment].forward * segmentsSeparation), segments[lastSegment].rotation, transform);
+                newSegment.GetComponent<ConfigurableJoint>().connectedBody = segments[lastSegment].GetComponent<Rigidbody>();
+                segments.Add(newSegment);
+                endAnchorTemp.GetComponent<ConfigurableJoint>().connectedBody = newSegment.GetComponent<Rigidbody>();
+                Debug.Log("Added segment");
+            }
+        else
+            {
+                //Instantiate new segment.
+                Transform newSegment = Instantiate(segmentNoPhysics, segments[lastSegment].position + (segments[lastSegment].forward * segmentsSeparation), segments[lastSegment].rotation, transform);
+                segments.Add(newSegment);
+            }
+
+        RenderWireMesh();
+    }
+
+    /// <summary>
+    /// Calculates the tension of the last n segments
+    /// </summary>
+    public float RopeTension(int numSeg){
+        float t=0f;
+        int size = segments.Count;
+        int count = Mathf.Min(numSeg, size);
+        if (count == 0) return 0;
+        // can change from half rope to last n elements
+        for (int i = size-count; i < size; i++)
+        {
+            ConfigurableJoint j = segments[i].GetComponent<ConfigurableJoint>();
+            t += j.currentForce.magnitude;
+        }
+        t /= count;
+        return t; 
+    }
 
     public void AddEnd()
     {
         //Adds the final anchor point.
         int lastSegment = segments.Count - 1;
-        endAnchorTemp = Instantiate(endAnchorPoint, segments[lastSegment].position + (segments[lastSegment].forward * .0005f), segments[lastSegment].rotation, transform);
+        endAnchorTemp = Instantiate(endAnchorPoint, segments[lastSegment].position + (segments[lastSegment].forward * .0005f), Quaternion.identity, transform);
         //The ConfigurableJoint is added to the anchor point and anchored with the end segment.
         endAnchorTemp.GetComponent<ConfigurableJoint>().connectedBody = segments[lastSegment].GetComponent<Rigidbody>();
 
@@ -236,11 +282,12 @@ public class WireController : MonoBehaviour
 
         if (usePhysics)
         {
-            //Another ConfigurableJoint joint is added to the "final segment" and configured with the preset.
+            // removed this joint to allow dinamicly adding new segments
+            /* //Another ConfigurableJoint joint is added to the "final segment" and configured with the preset.
             ConfigurableJoint newComponent = segments[lastSegment].gameObject.AddComponent<ConfigurableJoint>();
             presetJoint.ApplyTo(newComponent);
             //Connects to the end anchor point.
-            newComponent.connectedBody = endAnchorTemp.GetComponent<Rigidbody>();
+            newComponent.connectedBody = endAnchorTemp.GetComponent<Rigidbody>(); */
         }
         else
         {
