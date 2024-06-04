@@ -13,7 +13,7 @@ public class EnemyDumbChasing : MonoBehaviour
     private bool movingRight;
     private bool inizioPattugliamento;
     
-    private Rigidbody2D myRigidBody;
+    private Rigidbody myRigidBody;
     private Vector2 myStartingPosition;
     
     //varaibili di supporto
@@ -28,7 +28,7 @@ public class EnemyDumbChasing : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        myRigidBody = this.GetComponent<Rigidbody2D>();
+        myRigidBody = this.GetComponent<Rigidbody>();
         myStartingPosition = this.transform.position;
         movingRight = true;
         inizioPattugliamento = true;
@@ -106,6 +106,20 @@ public class EnemyDumbChasing : MonoBehaviour
         {
             movingRight = true;
         }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        GameObject collidedObj = collision.gameObject;
+        if (collidedObj == player)
+        {
+            PlayerController playerScript = collidedObj.GetComponent<PlayerController>();
+            if (playerScript != null)
+            {
+                playerScript.Retreat();
+            }
+        }
+        
     }
     
 }

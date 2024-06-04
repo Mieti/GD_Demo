@@ -15,13 +15,14 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private WireController wc;
 
-    [SerializeField] float maxTension = 200f;
+    [SerializeField] float maxTension = 100f;
     [SerializeField] float minTension = 150f;
 
     [SerializeField] float stuckThreshold = 0.005f;
+
+    [SerializeField] float retreatDistance = 5f;
     private Vector2 previousPosition;
 
-    private bool notPressed = true;
 
     public void Awake()
     {
@@ -93,5 +94,8 @@ public class PlayerController : MonoBehaviour
         {
             wc.RemoveLastSegment();
         }
+    }
+    public void Retreat(){
+        wc.RemoveSegmentsRadius(retreatDistance);
     }
 }
