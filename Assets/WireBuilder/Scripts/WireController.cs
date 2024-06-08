@@ -251,6 +251,90 @@ public class WireController : MonoBehaviour
 
         RenderWireMesh();
     }
+    /// <summary>
+    /// Removes the last segment
+    /// </summary>
+    public void RemoveLastSegment()
+    {
+        // can be added here a check on minimun number of segments
+
+        int lastSegmentIdx = segments.Count - 1;
+
+        segments[lastSegmentIdx-1].transform.position = endAnchorTemp.transform.position;
+
+        if (usePhysics)
+            {
+                // connect end with previous seg
+                endAnchorTemp.GetComponent<ConfigurableJoint>().connectedBody = segments[lastSegmentIdx-1].GetComponent<Rigidbody>();
+            }
+        else
+            {
+                //Do nothing.
+            }
+        // destroy segment and remove from the list
+        Destroy(segments[lastSegmentIdx].gameObject);
+        segments.RemoveAt(lastSegmentIdx);
+        RenderWireMesh();
+    }
+    /// <summary>
+    /// Removes the last n segments
+    /// </summary>
+    public void RemoveLastNSegments(int n)
+    {
+        // can be added here a check on minimun number of segments
+        int toRemove = Mathf.Min(n, segments.Count);
+        int newlast = segments.Count - toRemove - 1;
+
+        // move the player to the position
+        endAnchorTemp.transform.position = segments[newlast].transform.position;
+        if (usePhysics)
+            {
+                // connect player to the new last segment
+                endAnchorTemp.GetComponent<ConfigurableJoint>().connectedBody = segments[newlast].GetComponent<Rigidbody>();
+            }
+        else
+            {
+                //Do nothing.
+            }
+            
+        for (int i = 0; i < toRemove; i++)
+        {
+            Destroy(segments[segments.Count - 1].gameObject);
+            segments.RemoveAt(segments.Count - 1);
+        }
+        RenderWireMesh();
+    }
+    /// <summary>
+    /// Removes the segments included in radius
+    /// </summary>
+    public void RemoveSegmentsRadius(float radius)
+    {
+        int newlast;
+        for (newlast = segments.Count-1; newlast > 0; newlast--)
+        {
+            if(Vector2.Distance(endAnchorTemp.transform.position, segments[newlast].position) >= radius)
+                break;
+        }
+
+        // move the player to the position
+        endAnchorTemp.transform.position = segments[newlast].transform.position;
+        if (usePhysics)
+            {
+                // connect player to the new last segment
+                endAnchorTemp.GetComponent<ConfigurableJoint>().connectedBody = segments[newlast].GetComponent<Rigidbody>();
+            }
+        else
+            {
+                //Do nothing.
+            }
+        int toRemove = segments.Count - 1- newlast;   
+        for (int i = 0; i < toRemove; i++)
+        {
+            Destroy(segments[segments.Count - 1].gameObject);
+            segments.RemoveAt(segments.Count - 1);
+        }
+        RenderWireMesh();
+    }
 
     /// <summary>
     /// Calculates the tension of the last n segments
