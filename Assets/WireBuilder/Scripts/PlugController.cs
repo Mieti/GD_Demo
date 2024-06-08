@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-
 public class PlugController : MonoBehaviour
 {
     public bool isConected = false;
     public UnityEvent OnWirePlugged;
+    public UnityEvent OnWireUnplugged;
     public Transform plugPosition;
 
     [HideInInspector]
@@ -16,22 +16,29 @@ public class PlugController : MonoBehaviour
     public Rigidbody endAnchorRB;
     [HideInInspector]
     public WireController wireController;
+
+    private bool wasConnectedLastFrame = false;
+
     public void OnPlugged()
     {
         OnWirePlugged.Invoke();
+        CheckCorrectPoles();
     }
 
+    public void OnUnplugged()
+    {
+        OnWireUnplugged.Invoke();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.name);
         if (other.gameObject == endAnchor.gameObject)
         {
             isConected = true;
             endAnchorRB.isKinematic = true;
             endAnchor.transform.position = plugPosition.position;
             endAnchor.transform.rotation = transform.rotation;
-
+            wasConnectedLastFrame = true;
 
             OnPlugged();
         }
@@ -39,13 +46,48 @@ public class PlugController : MonoBehaviour
 
     private void Update()
     {
-
         if (isConected)
         {
             endAnchorRB.isKinematic = true;
             endAnchor.transform.position = plugPosition.position;
             Vector3 eulerRotation = new Vector3(this.transform.eulerAngles.x + 90, this.transform.eulerAngles.y, this.transform.eulerAngles.z);
             endAnchor.transform.rotation = Quaternion.Euler(eulerRotation);
+
+            CheckCorrectPoles();
+
+            // Handle disconnection if player tried to move
+            isConected = false;
+            endAnchorRB.isKinematic = false;
+            OnUnplugged();
         }
+
+        wasConnectedLastFrame = isConected;
+    }
+
+    private void CheckCorrectPoles()
+    {
+        GameObject[] correctPoleObjects = GameObject.FindGameObjectsWithTag("Correct1A");
+        GameObject[] wrongPoleObjects = GameObject.FindGameObjectsWithTag("Wrong1A");
+        foreach (GameObject poleObject in correctPoleObjects)
+        {
+            PoleCollision pole = poleObject.GetComponent<PoleCollision>();
+            if (pole != null && !pole.active)
+            {
+                Debug.Log("Wrong");
+                return;
+            }
+        }
+
+        foreach (GameObject poleObject in wrongPoleObjects)
+        {
+            PoleCollision pole = poleObject.GetComponent<PoleCollision>();
+
+            if (pole != null && pole.active)
+            {
+                Debug.Log("Wrong");
+                return;
+            }
+        }
+        Debug.Log("Right");
     }
 }
