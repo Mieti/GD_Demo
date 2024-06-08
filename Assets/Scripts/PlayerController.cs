@@ -10,7 +10,8 @@ public class PlayerController : MonoBehaviour
     Vector2 moveInput;
     Rigidbody rb;
     public bool isMoving { get; private set; }
-    public bool isRewinding;
+    private bool isRewinding = false;
+    private bool isLengthening = false;
     [SerializeField] private float walkSpeed = 5f;
 
     [SerializeField] private WireController wc;
@@ -44,6 +45,9 @@ public class PlayerController : MonoBehaviour
     {
         rb.velocity = new Vector2(moveInput.x * walkSpeed, moveInput.y * walkSpeed);
         AddSegment();
+        if(isLengthening){
+            wc.AddSegmentIncremental(transform.position);
+        }
         if (isRewinding){
             RewindRope();
         }
@@ -63,6 +67,17 @@ public class PlayerController : MonoBehaviour
         else if (context.canceled)
         {
             isRewinding = false;
+        }
+    }
+    public void OnLengthen(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            isLengthening = true;
+        }
+        else if (context.canceled)
+        {
+            isLengthening = false;
         }
     }
 
