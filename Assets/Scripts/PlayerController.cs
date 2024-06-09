@@ -42,15 +42,24 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (wc == null)
+        {
+            Debug.LogError("WireController (wc) is not assigned.");
+            return;
+        }
+
         rb.velocity = new Vector2(moveInput.x * walkSpeed, moveInput.y * walkSpeed);
         AddSegment();
-        if(isLengthening){
+        if (isLengthening)
+        {
             wc.AddSegmentIncremental(transform.position);
         }
-        if (isRewinding){
+        if (isRewinding)
+        {
             RewindRope();
         }
     }
+
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -112,5 +121,10 @@ public class PlayerController : MonoBehaviour
     }
     public void Retreat(){
         wc.RemoveSegmentsRadius(retreatDistance);
+    }
+
+    public void SetWireController(WireController wireController)
+    {
+        wc = wireController;
     }
 }

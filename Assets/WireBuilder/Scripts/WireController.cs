@@ -356,33 +356,28 @@ public class WireController : MonoBehaviour
 
     public void AddEnd()
     {
-        //Adds the final anchor point.
         int lastSegment = segments.Count - 1;
         endAnchorTemp = Instantiate(endAnchorPoint, segments[lastSegment].position + (segments[lastSegment].forward * .0005f), Quaternion.identity, transform);
-        //The ConfigurableJoint is added to the anchor point and anchored with the end segment.
         endAnchorTemp.GetComponent<ConfigurableJoint>().connectedBody = segments[lastSegment].GetComponent<Rigidbody>();
 
-        
-
-        if (usePhysics)
+        if (!usePhysics)
         {
-            // removed this joint to allow dinamicly adding new segments
-            /* //Another ConfigurableJoint joint is added to the "final segment" and configured with the preset.
-            ConfigurableJoint newComponent = segments[lastSegment].gameObject.AddComponent<ConfigurableJoint>();
-            presetJoint.ApplyTo(newComponent);
-            //Connects to the end anchor point.
-            newComponent.connectedBody = endAnchorTemp.GetComponent<Rigidbody>(); */
-        }
-        else
-        {
-            //If you do not use physics, the components are removed to the end anchor point, to improve performance.
             DestroyImmediate(endAnchorTemp.GetComponent<ConfigurableJoint>());
             DestroyImmediate(endAnchorTemp.GetComponent<Collider>());
             DestroyImmediate(endAnchorTemp.GetComponent<Rigidbody>());
         }
 
 
+        endAnchorTemp.GetComponent<PlayerController>().SetWireController(this);
+        // Update the camera target
+        CameraMovement cameraMovement = Camera.main.GetComponent<CameraMovement>();
+        if (cameraMovement != null)
+        {
+            cameraMovement.SetTarget(endAnchorTemp);
+        }
+        
     }
+
 
     public void AddPlug()
     {

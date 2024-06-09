@@ -19,6 +19,7 @@ public class PlugController : MonoBehaviour
     public WireController wireController;
 
     private bool wasConnectedLastFrame = false;
+    private bool hasSolvedRoom = false;
 
     public void OnPlugged()
     {
@@ -91,16 +92,20 @@ public class PlugController : MonoBehaviour
         }
 
         Debug.Log("Right");
-        GameObject wireControllerObject = GameObject.FindGameObjectWithTag("Player2L");
-        if (wireControllerObject != null)
-        {
-            WireController wireController = wireControllerObject.GetComponent<WireController>();
-            if (wireController != null)
+        if (hasSolvedRoom == false) {
+            GameObject wireControllerObject = GameObject.FindGameObjectWithTag("Player2L");
+            if (wireControllerObject != null)
             {
-                wireController.AddSegment();
-                wireController.AddEnd();
+                WireController wireController = wireControllerObject.GetComponent<WireController>();
+                if (wireController != null)
+                {
+                    wireController.AddSegment();
+                    wireController.AddEnd();
+                }
             }
+            hasSolvedRoom = true;
         }
+        
 
         
     }
