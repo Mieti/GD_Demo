@@ -8,13 +8,13 @@ public class PoleCollision : MonoBehaviour
     public bool active = false;
     private void OnTriggerStay(Collider other)
     {
-        if (gameObject.tag == "Correct1A")
+        if (gameObject.tag == "CorrectPole1L")
         {
             //print("Staying");
             active = true;
             GetComponent<Renderer>().material.color = Color.green;
         }
-        else if (gameObject.tag == "Wrong1A")
+        else if (gameObject.tag == "WrongPole1L")
         {
             //print("Staying");
             active = true;

@@ -66,8 +66,8 @@ public class PlugController : MonoBehaviour
 
     private void CheckCorrectPoles()
     {
-        GameObject[] correctPoleObjects = GameObject.FindGameObjectsWithTag("Correct1A");
-        GameObject[] wrongPoleObjects = GameObject.FindGameObjectsWithTag("Wrong1A");
+        GameObject[] correctPoleObjects = GameObject.FindGameObjectsWithTag("CorrectPole1L");
+        GameObject[] wrongPoleObjects = GameObject.FindGameObjectsWithTag("WrongPole1L");
         foreach (GameObject poleObject in correctPoleObjects)
         {
             PoleCollision pole = poleObject.GetComponent<PoleCollision>();
