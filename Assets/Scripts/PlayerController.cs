@@ -85,14 +85,15 @@ public class PlayerController : MonoBehaviour
         Vector3 currentPos=transform.position;
         if (isMoving)
         {
-            if (CheckIfStuck())
+           /* if (CheckIfStuck())
             {
                 Debug.Log("Player is stuck due to the rope.");
                 wc.AddSegmentIncremental(currentPos);
-            }
+            }*/
             previousPosition = currentPos;
         }
     }
+    /*
     private bool CheckIfStuck()
     {
         Vector2 currentPosition = rb.position;
@@ -102,7 +103,7 @@ public class PlayerController : MonoBehaviour
         // If the distance moved is less than the threshold, consider the player stuck
         // stuck due to the rope if it's tight
         return distanceMoved < stuckThreshold && avgT>maxTension;
-    }
+    }*/
     private void RewindRope(){
         if (wc.RopeTension(10) < minTension)
         {

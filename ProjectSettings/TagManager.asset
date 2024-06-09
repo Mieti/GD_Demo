@@ -17,6 +17,9 @@ TagManager:
   - Door2L
   - CorrectPole2R
   - WrongPole2R
+  - Door2R
+  - Player1L
+  - Player2L
   layers:
   - Default
   - TransparentFX

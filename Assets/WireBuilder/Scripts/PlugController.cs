@@ -15,6 +15,7 @@ public class PlugController : MonoBehaviour
     [HideInInspector]
     public Rigidbody endAnchorRB;
     [HideInInspector]
+
     public WireController wireController;
 
     private bool wasConnectedLastFrame = false;
@@ -88,6 +89,19 @@ public class PlugController : MonoBehaviour
                 return;
             }
         }
+
         Debug.Log("Right");
+        GameObject wireControllerObject = GameObject.FindGameObjectWithTag("Player2L");
+        if (wireControllerObject != null)
+        {
+            WireController wireController = wireControllerObject.GetComponent<WireController>();
+            if (wireController != null)
+            {
+                wireController.AddSegment();
+                wireController.AddEnd();
+            }
+        }
+
+        
     }
 }
