@@ -17,9 +17,11 @@ public class HiddenPole : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         gameObject.GetComponent<Collider>().enabled = false;
 
+        string checkTagCorrect = gameObject.tag.Replace("HiddenPole", "CorrectPole");
+        string checkTagWrong = gameObject.tag.Replace("HiddenPole", "WrongPole");
 
-        correctPoles = GameObject.FindGameObjectsWithTag("Correct Pole");
-        wrongPoles = GameObject.FindGameObjectsWithTag("Wrong Pole");
+        correctPoles = GameObject.FindGameObjectsWithTag(checkTagCorrect);
+        wrongPoles = GameObject.FindGameObjectsWithTag(checkTagWrong);
         correctPoleCnt = correctPoles.Length;
         wrongPoleCnt = wrongPoles.Length;
     }
