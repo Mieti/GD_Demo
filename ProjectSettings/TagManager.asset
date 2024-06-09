@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Correct Pole
   - Wrong Pole
+  - CorrectPole1L
+  - WrongPole1R
+  - WrongPole1L
+  - Door1L
   layers:
   - Default
   - TransparentFX
