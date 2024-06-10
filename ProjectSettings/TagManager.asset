@@ -20,6 +20,7 @@ TagManager:
   - Door2R
   - Player1L
   - Player2L
+  - Plug1L
   layers:
   - Default
   - TransparentFX
