@@ -94,21 +94,30 @@ public class PlugController : MonoBehaviour
         }
 
         Debug.Log("Right");
-        if (hasSolvedRoom == false) {
-            GameObject wireControllerObject = GameObject.FindGameObjectWithTag("Player2L");
-            if (wireControllerObject != null)
+        if (hasSolvedRoom == false)
+        {
+            GameObject wireControllerObjectPlayer1 = GameObject.FindGameObjectWithTag("Player1L");
+            GameObject wireControllerObjectPlayer2 = GameObject.FindGameObjectWithTag("Player2L");
+            if (wireControllerObjectPlayer1 != null && wireControllerObjectPlayer2 != null)
             {
-                WireController wireController = wireControllerObject.GetComponent<WireController>();
-                if (wireController != null)
+                WireController wireControllerPlayer1 = wireControllerObjectPlayer1.GetComponent<WireController>();
+                WireController wireControllerPlayer2 = wireControllerObjectPlayer2.GetComponent<WireController>();
+                if (wireControllerPlayer2 != null)
                 {
-                    wireController.AddSegment();
-                    wireController.AddEnd();
+                    wireControllerPlayer2.AddSegment();
+                    wireControllerPlayer2.AddEnd();
+                }
+
+                if (wireControllerPlayer1 != null)
+                {
+                    Destroy(wireControllerObjectPlayer1);
                 }
             }
             hasSolvedRoom = true;
-        }
-        
 
-        
+        }
+
+
+
     }
 }

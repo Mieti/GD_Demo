@@ -110,6 +110,12 @@ public class WireController : MonoBehaviour
     private void Start()
     {
         mousePossHelper.gameObject.SetActive(false);
+
+        if (endAnchorTemp == null)
+        {
+            GameObject mockEndAnchor = new GameObject("MockEndAnchor");
+            endAnchorTemp = mockEndAnchor.transform;
+        }
     }
 
     private void OnValidate()
