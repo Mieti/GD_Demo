@@ -179,11 +179,33 @@
                 },
                 {
                     "name": "",
+                    "id": "e92c8316-e23c-4b4b-8ed8-8c5010d0985e",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Rewind",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "b9ac90dc-a036-4052-8ab4-0f7d0ff5f0bc",
                     "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Lengthen",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "77d71069-7af2-45a5-b4d8-0d68d6e41173",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
                     "action": "Lengthen",
                     "isComposite": false,
                     "isPartOfComposite": false

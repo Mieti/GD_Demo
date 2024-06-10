@@ -50,9 +50,9 @@ MonoBehaviour:
     Have active Gizmos.
   Notes2: Wire render settings in TubeRender.cs on WireRender object.
   usePhysics: 1
-  maxDistanceWithSelectedPos: 0.01
-  segmentsSeparation: 0.02
-  limitMax: 500
+  maxDistanceWithSelectedPos: 0.5
+  segmentsSeparation: 0.05
+  limitMax: 1000
   segmentsRadius: 1.5
   currentDistanceToStartAnchor: 0
   maxDistanceToStarAnchor: 0.44
@@ -66,7 +66,7 @@ MonoBehaviour:
   startAnchorPoint: {fileID: 1229081711585430608, guid: 4da736580b202eb4486768be93599f10, type: 3}
   segment: {fileID: 4721452859494924073, guid: 849875b46444f03428e4827a73935668, type: 3}
   segmentNoPhysics: {fileID: 4721452859494924073, guid: 2f6f00131ed85584dbbee855f7fc0bb5, type: 3}
-  endAnchorPoint: {fileID: 2306256389110725653, guid: 559da952238d1e64c86a4d71f980a14b, type: 3}
+  endAnchorPoint: {fileID: 4313202807341070480, guid: c8fd44ea049022749aab2551c935f5b9, type: 3}
   plugObjt: {fileID: 3749660500698215857, guid: 1b6ad518bf036ee45b651ba015d0f3cf, type: 3}
   selectPosition: {x: 0, y: 0, z: 0}
   mousePossHelper: {fileID: 541287800083086103}
