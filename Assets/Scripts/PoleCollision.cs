@@ -6,19 +6,23 @@ public class PoleCollision : MonoBehaviour
 {
     // variable used by external objects to trigger events
     public bool active = false;
+
+    private Dictionary<string, Color> tagColorMapping = new Dictionary<string, Color>
+    {
+        { "CorrectPole", Color.green },
+        { "WrongPole", Color.red }
+    };
+
     private void OnTriggerStay(Collider other)
     {
-        if (gameObject.tag == "CorrectPole1L")
+        foreach (var tagColor in tagColorMapping)
         {
-            //print("Staying");
-            active = true;
-            GetComponent<Renderer>().material.color = Color.green;
-        }
-        else if (gameObject.tag == "WrongPole1L")
-        {
-            //print("Staying");
-            active = true;
-            GetComponent<Renderer>().material.color = Color.red;
+            if (gameObject.tag.Contains(tagColor.Key))
+            {
+                active = true;
+                GetComponent<Renderer>().material.color = tagColor.Value;
+                return;
+            }
         }
         /*
         // use tag to discriminate what is currently touching the collider
