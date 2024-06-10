@@ -387,15 +387,22 @@ public class WireController : MonoBehaviour
 
     public void AddPlug()
     {
-        //Instances the plug in the selected position.
+        // Instantiate the plug in the selected position.
         plugTemp = Instantiate(plugObjt, selectPosition, plugObjt.transform.rotation, transform);
+
+        // Set the tag to "Plug2L"
+        plugTemp.tag = "Plug2L";
+
+        // Set the size to x:7, y:7
+        plugTemp.localScale = new Vector3(7, 7, 7);
+
         PlugController plugScritp = plugTemp.GetComponent<PlugController>();
 
         plugScritp.endAnchor = endAnchorTemp;
         plugScritp.endAnchorRB = endAnchorTemp.GetComponent<Rigidbody>();
         plugScritp.wireController = this;
-
     }
+
 
     public void SetMaxDistance()
     {

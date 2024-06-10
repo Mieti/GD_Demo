@@ -21,6 +21,7 @@ TagManager:
   - Player1L
   - Player2L
   - Plug1L
+  - Plug2L
   layers:
   - Default
   - TransparentFX

@@ -34,8 +34,8 @@ public class PlugController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == endAnchor.gameObject)
-        {
+       // if (other.gameObject == endAnchor.gameObject)
+        //{
             isConected = true;
             endAnchorRB.isKinematic = true;
             endAnchor.transform.position = plugPosition.position;
@@ -43,7 +43,7 @@ public class PlugController : MonoBehaviour
             wasConnectedLastFrame = true;
 
             OnPlugged();
-        }
+       // }
     }
 
     private void Update()
@@ -72,7 +72,7 @@ public class PlugController : MonoBehaviour
         string checkTagWrong = gameObject.tag.Replace("Plug", "WrongPole");
         GameObject[] correctPoleObjects = GameObject.FindGameObjectsWithTag(checkTagCorrect);
         GameObject[] wrongPoleObjects = GameObject.FindGameObjectsWithTag(checkTagWrong);
-
+        Debug.Log(correctPoleObjects.Length);
         foreach (GameObject poleObject in correctPoleObjects)
         {
             PoleCollision pole = poleObject.GetComponent<PoleCollision>();
@@ -103,10 +103,24 @@ public class PlugController : MonoBehaviour
             {
                 WireController wireControllerPlayer1 = wireControllerObjectPlayer1.GetComponent<WireController>();
                 WireController wireControllerPlayer2 = wireControllerObjectPlayer2.GetComponent<WireController>();
+
                 if (wireControllerPlayer2 != null)
                 {
                     wireControllerPlayer2.AddSegment();
                     wireControllerPlayer2.AddEnd();
+
+                    // Move the helper to the new position
+                    Transform helperTransform = wireControllerPlayer2.mousePossHelper;
+                    if (helperTransform != null)
+                    {
+                        helperTransform.position = new Vector3(-5, 25.6f, 0);
+                    }
+
+                    // Call AddPlug
+                    wireControllerPlayer2.SetPosition(helperTransform.position);
+                    wireControllerPlayer2.AddPlug();
+                    helperTransform.position = new Vector3(10, 15, 0);
+                    wireControllerPlayer2.SetPosition(helperTransform.position);
                 }
 
                 if (wireControllerPlayer1 != null)
@@ -115,7 +129,6 @@ public class PlugController : MonoBehaviour
                 }
             }
             hasSolvedRoom = true;
-
         }
 
 
