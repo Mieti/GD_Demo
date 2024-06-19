@@ -24,6 +24,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float retreatDistance = 5f;
     private Vector2 previousPosition;
 
+    [SerializeField] private Animator animator;
+
+    
     public void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -65,6 +68,18 @@ public class PlayerController : MonoBehaviour
     {
         moveInput = context.ReadValue<Vector2>();
         isMoving = moveInput != Vector2.zero;
+        
+        animator.SetFloat("Horizontal", moveInput.x);
+        animator.SetFloat("Speed", moveInput.sqrMagnitude);
+        
+        if (moveInput.x == 1 || moveInput.x == -1)
+        {
+            animator.SetFloat("LastMoveHorizontal", moveInput.x);
+        }
+        else if (moveInput.x == 0)
+        {
+            animator.SetFloat("Horizontal", animator.GetFloat("LastMoveHorizontal"));
+        }
     }
     public void OnRewind(InputAction.CallbackContext context)
     {
