@@ -22,6 +22,20 @@ TagManager:
   - Player2L
   - Plug1L
   - Plug2L
+  - CorrectPole3L
+  - CorrectPole4L
+  - WrongPole3L
+  - WrongPole4L
+  - Plug3L
+  - Plug4L
+  - CorrectPole3R
+  - CorrectPole4R
+  - WrongPole3R
+  - WrongPole4R
+  - Plug1R
+  - Plug2R
+  - Plug3R
+  - Plug4R
   layers:
   - Default
   - TransparentFX
@@ -32,8 +46,8 @@ TagManager:
   - Wire
   - Player
   - Enemy
-  - 
-  - 
+  - Poles
+  - Doors
   - 
   - 
   - 
