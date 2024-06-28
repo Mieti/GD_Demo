@@ -24,6 +24,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float retreatDistance = 5f;
     private Vector2 previousPosition;
 
+    [SerializeField] private Animator animator;
+
+    // used for freezing the player movement, e.g. when attached to plug
+    public bool freeze = false;
+    private float interactionRadius = 1.0f;
+    [SerializeField] private LayerMask interactableLayer;
+
+    
     public void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -48,7 +56,9 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        rb.velocity = new Vector2(moveInput.x * walkSpeed, moveInput.y * walkSpeed);
+        if(!freeze){
+            rb.velocity = new Vector2(moveInput.x * walkSpeed, moveInput.y * walkSpeed);
+        }
         AddSegment();
         if (isLengthening)
         {
@@ -65,6 +75,18 @@ public class PlayerController : MonoBehaviour
     {
         moveInput = context.ReadValue<Vector2>();
         isMoving = moveInput != Vector2.zero;
+        
+        animator.SetFloat("Horizontal", moveInput.x);
+        animator.SetFloat("Speed", moveInput.sqrMagnitude);
+        
+        if (moveInput.x == 1 || moveInput.x == -1)
+        {
+            animator.SetFloat("LastMoveHorizontal", moveInput.x);
+        }
+        else if (moveInput.x == 0)
+        {
+            animator.SetFloat("Horizontal", animator.GetFloat("LastMoveHorizontal"));
+        }
     }
     public void OnRewind(InputAction.CallbackContext context)
     {
@@ -87,6 +109,24 @@ public class PlayerController : MonoBehaviour
         {
             isLengthening = false;
         }
+    }
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            // Check for nearby interactable objects
+            Collider[] interactableColliders = Physics.OverlapSphere(transform.position, interactionRadius, interactableLayer);
+
+            foreach (var collider in interactableColliders)
+            {
+                Plug plug = collider.GetComponent<Plug>();
+                if (plug != null)
+                {
+                    plug.Interact(this);
+                }
+            }
+        }
+
     }
 
     private void AddSegment(){
