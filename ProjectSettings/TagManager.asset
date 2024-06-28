@@ -83,3 +83,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Wire
+    uniqueID: 1624311423
+    locked: 0
+  - name: Player
+    uniqueID: 3385023949
+    locked: 0
