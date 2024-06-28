@@ -633,9 +633,10 @@ GameObject:
   - component: {fileID: 363468660}
   - component: {fileID: 363468662}
   - component: {fileID: 363468661}
+  - component: {fileID: 363468663}
   m_Layer: 10
   m_Name: Door 4L
-  m_TagString: Untagged
+  m_TagString: Door4L
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -728,6 +729,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &363468663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 363468659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0a1edfd659dcf44a9fec7f11906351e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &476128429
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2583,9 +2596,10 @@ GameObject:
   - component: {fileID: 1023033946}
   - component: {fileID: 1023033948}
   - component: {fileID: 1023033947}
+  - component: {fileID: 1023033949}
   m_Layer: 10
   m_Name: Door 2L
-  m_TagString: Untagged
+  m_TagString: Door2L
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2678,6 +2692,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1023033949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023033945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0a1edfd659dcf44a9fec7f11906351e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1031752472
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2813,9 +2839,10 @@ GameObject:
   - component: {fileID: 1161374294}
   - component: {fileID: 1161374296}
   - component: {fileID: 1161374295}
+  - component: {fileID: 1161374297}
   m_Layer: 10
   m_Name: Door 3L
-  m_TagString: Untagged
+  m_TagString: Door3L
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2908,6 +2935,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1161374297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161374293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0a1edfd659dcf44a9fec7f11906351e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1177809508
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5891,9 +5930,10 @@ GameObject:
   - component: {fileID: 1353289551}
   - component: {fileID: 1353289553}
   - component: {fileID: 1353289552}
+  - component: {fileID: 1353289554}
   m_Layer: 10
   m_Name: Door 2R
-  m_TagString: Untagged
+  m_TagString: Door2R
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5986,6 +6026,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1353289554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353289550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0a1edfd659dcf44a9fec7f11906351e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1367625749
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6063,9 +6115,10 @@ GameObject:
   - component: {fileID: 1382176432}
   - component: {fileID: 1382176434}
   - component: {fileID: 1382176433}
+  - component: {fileID: 1382176435}
   m_Layer: 10
   m_Name: Door 1R
-  m_TagString: Untagged
+  m_TagString: Door1R
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6158,6 +6211,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1382176435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382176431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0a1edfd659dcf44a9fec7f11906351e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1430997901
 GameObject:
   m_ObjectHideFlags: 0
@@ -14177,9 +14242,10 @@ GameObject:
   - component: {fileID: 1446084978}
   - component: {fileID: 1446084981}
   - component: {fileID: 1446084980}
+  - component: {fileID: 1446084982}
   m_Layer: 10
   m_Name: Door 1L
-  m_TagString: Untagged
+  m_TagString: Door1L
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14272,6 +14338,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1446084982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446084977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0a1edfd659dcf44a9fec7f11906351e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1457072279
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14796,9 +14874,10 @@ GameObject:
   - component: {fileID: 1803087118}
   - component: {fileID: 1803087120}
   - component: {fileID: 1803087119}
+  - component: {fileID: 1803087121}
   m_Layer: 10
   m_Name: Door 3R
-  m_TagString: Untagged
+  m_TagString: Door3R
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14891,6 +14970,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1803087121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1803087117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0a1edfd659dcf44a9fec7f11906351e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1907211737
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15034,9 +15125,10 @@ GameObject:
   - component: {fileID: 1944371215}
   - component: {fileID: 1944371217}
   - component: {fileID: 1944371216}
+  - component: {fileID: 1944371218}
   m_Layer: 10
   m_Name: Door 4R
-  m_TagString: Untagged
+  m_TagString: Door4R
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15129,6 +15221,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1944371218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944371214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0a1edfd659dcf44a9fec7f11906351e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1946230473
 PrefabInstance:
   m_ObjectHideFlags: 0

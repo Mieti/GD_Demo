@@ -36,6 +36,10 @@ TagManager:
   - Plug2R
   - Plug3R
   - Plug4R
+  - Door3L
+  - Door4L
+  - Door3R
+  - Door4R
   layers:
   - Default
   - TransparentFX
@@ -48,7 +52,7 @@ TagManager:
   - Enemy
   - Poles
   - Doors
-  - 
+  - Interactable
   - 
   - 
   - 

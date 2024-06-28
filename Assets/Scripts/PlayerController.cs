@@ -26,6 +26,11 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private Animator animator;
 
+    // used for freezing the player movement, e.g. when attached to plug
+    public bool freeze = false;
+    private float interactionRadius = 1.0f;
+    [SerializeField] private LayerMask interactableLayer;
+
     
     public void Awake()
     {
@@ -51,7 +56,9 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        rb.velocity = new Vector2(moveInput.x * walkSpeed, moveInput.y * walkSpeed);
+        if(!freeze){
+            rb.velocity = new Vector2(moveInput.x * walkSpeed, moveInput.y * walkSpeed);
+        }
         AddSegment();
         if (isLengthening)
         {
@@ -102,6 +109,24 @@ public class PlayerController : MonoBehaviour
         {
             isLengthening = false;
         }
+    }
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            // Check for nearby interactable objects
+            Collider[] interactableColliders = Physics.OverlapSphere(transform.position, interactionRadius, interactableLayer);
+
+            foreach (var collider in interactableColliders)
+            {
+                Plug plug = collider.GetComponent<Plug>();
+                if (plug != null)
+                {
+                    plug.Interact(this);
+                }
+            }
+        }
+
     }
 
     private void AddSegment(){
