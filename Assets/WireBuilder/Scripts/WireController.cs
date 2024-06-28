@@ -1,6 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Drawing;
+using System.Threading.Tasks;
+using System;
+using Unity.VisualScripting;
+
+
+
+
 #if UNITY_EDITOR
 using UnityEditor.Presets;
 using UnityEditor;
@@ -359,6 +367,66 @@ public class WireController : MonoBehaviour
         t /= count;
         return t; 
     }
+
+    public float[] MaxRopeTension()
+    {
+        float maxTensionX = 0f;
+        float maxTensionY = 0f;
+
+        foreach (var segment in segments)
+        {
+            ConfigurableJoint joint = segment.GetComponent<ConfigurableJoint>();
+            if (joint != null)
+            {
+                float tensionX = Mathf.Abs(joint.currentForce.x);
+                float tensionY = Mathf.Abs(joint.currentForce.y);
+                //if (flag)
+                //{
+                //    Debug.Log("X: " + tensionX + "Y: " + tensionY);
+                //}
+                if (tensionX > maxTensionX)
+                {
+                    maxTensionX = tensionX;
+                }
+                if (tensionY > maxTensionY)
+                {
+                    maxTensionY = tensionY;
+                }
+            }
+        }
+        //Debug.Log(maxTension);
+
+        return new float[] { maxTensionX*10000, maxTensionY*10000};
+    }
+
+    public bool MaxRopeDistance(bool flag)
+    {
+        float epsilon = 0.02f;
+        float maxDistance = segmentsSeparation + epsilon;
+        if (flag)
+        {
+            Debug.Log("Maxdistance: " + maxDistance);
+        }
+        for (int i = 0; i < segments.Count - 1; i++)
+        {
+            Vector3 segment1Pos = segments[i].transform.position;
+            Vector3 segment2Pos = segments[i + 1].transform.position;
+
+            float distance = Vector3.Distance(segment1Pos, segment2Pos);
+            if(flag)
+            {
+                Debug.Log("distance: " + distance);
+            }
+            if (distance > maxDistance)
+            {
+                Debug.Log("Max dsitance: " + distance);
+                return true; // Se la distanza tra i segmenti è maggiore della distanza massima, ritorna true
+            }
+        }
+
+        return false; // Se nessuna coppia di segmenti supera la distanza massima, ritorna false
+    }
+
 
     public void AddEnd()
     {

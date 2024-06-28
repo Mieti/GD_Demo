@@ -221,9 +221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 5
   wc: {fileID: 0}
-  maxTension: 100
   minTension: 150
-  stuckThreshold: 0.005
   retreatDistance: 5
 --- !u!54 &-2715882568382382750
 Rigidbody:
@@ -327,13 +325,13 @@ ConfigurableJoint:
   m_TargetVelocity: {x: 0, y: 0, z: 0}
   m_XDrive:
     serializedVersion: 4
-    positionSpring: 4000
+    positionSpring: 3.402823e+38
     positionDamper: 3
     maximumForce: 3.4028233e+38
     useAcceleration: 0
   m_YDrive:
     serializedVersion: 4
-    positionSpring: 4000
+    positionSpring: 3.402823e+38
     positionDamper: 3
     maximumForce: 3.4028233e+38
     useAcceleration: 0
