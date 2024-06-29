@@ -122,7 +122,8 @@ public class PlayerController : MonoBehaviour
                 Plug plug = collider.GetComponent<Plug>();
                 if (plug != null)
                 {
-                    plug.Interact(this);
+                    // plug interacts only with new version PlayerKinematicMovement
+                    //plug.Interact(this);
                 }
             }
         }

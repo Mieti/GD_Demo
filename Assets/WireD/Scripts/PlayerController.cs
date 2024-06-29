@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
 
@@ -38,7 +39,11 @@ public class PlayerKinematicMovement : MonoBehaviour
     //float stuckThreshold = 0.005f;
     [SerializeField]
     float retreatDistance = 5f;
-    private Vector2 previousPosition;
+
+    // to freeze the player movement, e.g. when attached to a plug
+    public bool freeze = false;
+    private float interactionRadius = 1.0f;
+    [SerializeField] private LayerMask interactableLayer;
 
     //[SerializeField]
     //private Animator animator;
@@ -57,14 +62,15 @@ public class PlayerKinematicMovement : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         //playerSounds = GetComponentInChildren<Sounds>();
         rb.isKinematic = true;
+        wc = GetComponentInParent<WireController2D>();
     }
 
     void Start()
     {
-        previousPosition = transform.position;
+        
     }
 
-    private void Update()
+    /* private void Update()
     {
 
         {
@@ -74,7 +80,7 @@ public class PlayerKinematicMovement : MonoBehaviour
             OnRewind();
             OnLengthen();
         }
-    }
+    } */
 
     private void HandleMovementDirectionSpriteFlip()
     {
@@ -131,7 +137,7 @@ public class PlayerKinematicMovement : MonoBehaviour
                 RewindRope();
             }
         }
-        else
+        else if(!freeze)
         {
 
             rb.MovePosition(rb.position + (movementVector * speed * Time.fixedDeltaTime));
@@ -148,36 +154,52 @@ public class PlayerKinematicMovement : MonoBehaviour
         //}
     }
 
-    //public void OnMove(InputAction.CallbackContext context)
-    //{
-    //    //movementVector.x = Input.GetAxis("Horizontal") * this.speed;
-    //    //movementVector.y = Input.GetAxis("Vertical") * this.speed;
-    //    //movementVector = context.ReadValue<Vector2>();
-    //    //HandleMovementDirectionSpriteFlip();
-    //    //IsMoving = movementVector != Vector2.zero;
-    //}
-    public void OnRewind()
+    public void OnMove(InputAction.CallbackContext context)
     {
-        if (Input.GetKeyDown(KeyCode.R)) // Replace with your desired rewind key
+        movementVector = context.ReadValue<Vector2>();
+        IsMoving = movementVector != Vector2.zero;
+        
+    }
+    public void OnRewind(InputAction.CallbackContext context)
+    {
+        if (context.performed)
         {
-            Debug.Log("R");
             IsRewinding = true;
         }
-        else
+        else if (context.canceled)
         {
             IsRewinding = false;
         }
     }
-    public void OnLengthen()
+    public void OnLengthen(InputAction.CallbackContext context)
     {
-        if (Input.GetKeyDown(KeyCode.E)) // Replace with your desired rewind key
+        if (context.performed)
         {
             IsLengthening = true;
         }
-        else
+        else if (context.canceled)
         {
             IsLengthening = false;
         }
+    }
+
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            // Check for nearby interactable objects
+            Collider[] interactableColliders = Physics.OverlapSphere(transform.position, interactionRadius, interactableLayer);
+
+            foreach (var collider in interactableColliders)
+            {
+                Plug plug = collider.GetComponent<Plug>();
+                if (plug != null)
+                {
+                    plug.Interact(this);
+                }
+            }
+        }
+
     }
 
     private void AddSegment()

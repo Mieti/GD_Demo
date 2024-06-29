@@ -8,9 +8,9 @@ public class Plug : MonoBehaviour
 {
     public bool isConnected = false;
 
-    private PlayerController player;
+    private PlayerKinematicMovement player;
 
-    [SerializeField] private Component _light;
+    // [SerializeField] private Component _light;
 
     private string _level;
     private string _side;
@@ -45,14 +45,14 @@ public class Plug : MonoBehaviour
             if (Keyboard.current.spaceKey.wasPressedThisFrame)
             {
                 Debug.Log($"Faking the player {_side} at level {_level}");
-                _light.GetComponent<Renderer>().material.color = Color.green;
+                // _light.GetComponent<Renderer>().material.color = Color.green;
                 doorL.PlayerCompletedRoom(_side);
                 doorR.PlayerCompletedRoom(_side);
             }
         }
     }
 
-    public void Interact(PlayerController p){
+    public void Interact(PlayerKinematicMovement p){
         isConnected = !isConnected;
         player = p;
         if(isConnected){
@@ -61,19 +61,19 @@ public class Plug : MonoBehaviour
             bool correct = CheckCorrectPoles();
 
             if(correct){
-                _light.GetComponent<Renderer>().material.color = Color.green;
+                // _light.GetComponent<Renderer>().material.color = Color.green;
                 doorL.PlayerCompletedRoom(_side);
                 doorR.PlayerCompletedRoom(_side);
             }
             else{
-                _light.GetComponent<Renderer>().material.color = Color.red;
+                //_light.GetComponent<Renderer>().material.color = Color.red;
             }
             
         }
         else{
             Debug.Log("Disconnected from plug");
             p.freeze = false;
-            _light.GetComponent<Renderer>().material.color = Color.white;
+            //_light.GetComponent<Renderer>().material.color = Color.white;
             doorL.PlayerDetached(_side);
             doorR.PlayerDetached(_side);
         }

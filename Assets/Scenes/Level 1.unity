@@ -204,6 +204,7 @@ GameObject:
   - component: {fileID: 140868367}
   - component: {fileID: 140868366}
   - component: {fileID: 140868365}
+  - component: {fileID: 140868368}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -228,7 +229,7 @@ Camera:
   m_GameObject: {fileID: 140868364}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0.13672486, g: 0.13785179, b: 0.13962269, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -248,8 +249,8 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 10
-    height: 10
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -264,7 +265,7 @@ Camera:
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
-  m_AllowMSAA: 1
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
@@ -285,6 +286,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &140868368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140868364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69d0e3414869d3c4d8859582319f546a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 968789437}
+  cameraMovementSpeed: 1
+  zOffset: -30
 --- !u!1 &291722565
 GameObject:
   m_ObjectHideFlags: 0
@@ -936,8 +952,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0a1edfd659dcf44a9fec7f11906351e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftLight: {fileID: 0}
-  rightLight: {fileID: 0}
   isFakePlayer: 0
 --- !u!1001 &476128429
 PrefabInstance:
@@ -3021,6 +3035,7 @@ GameObject:
   - component: {fileID: 968789437}
   - component: {fileID: 968789444}
   - component: {fileID: 968789443}
+  - component: {fileID: 968789445}
   - component: {fileID: 968789442}
   - component: {fileID: 968789441}
   - component: {fileID: 968789440}
@@ -3591,6 +3606,10 @@ MonoBehaviour:
   maxTension: 1.5
   minTension: 1
   retreatDistance: 5
+  freeze: 0
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!212 &968789444
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3643,6 +3662,140 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!114 &968789445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 968789436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 671712721996f5b4aa2c7f30162d7995, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 968789443}
+        m_TargetAssemblyTypeName: PlayerKinematicMovement, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3ed7c31c-5613-4454-941b-afbcf559e300
+    m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 968789443}
+        m_TargetAssemblyTypeName: PlayerKinematicMovement, Assembly-CSharp
+        m_MethodName: OnRewind
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 77b6a7ef-d0f3-48de-97da-850d67d80ddd
+    m_ActionName: Player/Rewind[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 968789443}
+        m_TargetAssemblyTypeName: PlayerKinematicMovement, Assembly-CSharp
+        m_MethodName: OnLengthen
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 15f4c40c-1b53-4930-aad1-161a027de0fd
+    m_ActionName: Player/Lengthen[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 968789443}
+        m_TargetAssemblyTypeName: PlayerKinematicMovement, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: cb662f17-9490-4d5c-bf7f-99cea802598a
+    m_ActionName: Player/Interact[/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0d136b87-48bf-4abd-9021-d5e56c0e7c8e
+    m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 43550cbd-2fc7-424b-b511-ffff71c6ea1e
+    m_ActionName: UI/Submit[/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5591eaac-a843-4397-95f6-4847b5aee4c2
+    m_ActionName: UI/Cancel[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d2f4c254-b9d2-4800-bf6c-8935a4420132
+    m_ActionName: UI/Point[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6c34ec8f-a1a0-4514-81e6-71437981329e
+    m_ActionName: UI/Click[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9bf12758-b661-4b18-8036-710c73b05181
+    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2b61822b-7424-48f1-b5d6-b09ec4d8ffa8
+    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9f3802c6-4ab2-4ef2-981c-6b82c0bf7ec9
+    m_ActionName: UI/RightClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6714e520-8a37-4273-97d0-034e7a872157
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a7f3dbe8-93aa-4d20-83d8-3d4c53822989
+    m_ActionName: UI/TrackedDeviceOrientation
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1001 &971214079
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3969,8 +4122,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0a1edfd659dcf44a9fec7f11906351e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftLight: {fileID: 0}
-  rightLight: {fileID: 0}
   isFakePlayer: 0
 --- !u!1001 &1031752472
 PrefabInstance:
@@ -4432,8 +4583,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0a1edfd659dcf44a9fec7f11906351e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftLight: {fileID: 0}
-  rightLight: {fileID: 0}
   isFakePlayer: 0
 --- !u!1001 &1177809508
 PrefabInstance:
@@ -7526,8 +7675,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0a1edfd659dcf44a9fec7f11906351e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftLight: {fileID: 0}
-  rightLight: {fileID: 0}
   isFakePlayer: 0
 --- !u!1001 &1367625749
 PrefabInstance:
@@ -7714,8 +7861,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0a1edfd659dcf44a9fec7f11906351e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftLight: {fileID: 0}
-  rightLight: {fileID: 0}
   isFakePlayer: 0
 --- !u!1 &1430997901
 GameObject:
@@ -15844,8 +15989,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0a1edfd659dcf44a9fec7f11906351e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftLight: {fileID: 0}
-  rightLight: {fileID: 0}
   isFakePlayer: 0
 --- !u!1001 &1457072279
 PrefabInstance:
@@ -16539,8 +16682,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0a1edfd659dcf44a9fec7f11906351e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftLight: {fileID: 0}
-  rightLight: {fileID: 0}
   isFakePlayer: 0
 --- !u!1 &1845478733
 GameObject:
@@ -17010,8 +17151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0a1edfd659dcf44a9fec7f11906351e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftLight: {fileID: 0}
-  rightLight: {fileID: 0}
   isFakePlayer: 0
 --- !u!1001 &1946230473
 PrefabInstance:

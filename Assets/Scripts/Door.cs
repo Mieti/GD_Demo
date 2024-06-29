@@ -5,8 +5,8 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
 
-    [SerializeField] public SpriteRenderer leftLight;
-    [SerializeField] public SpriteRenderer rightLight;
+    // [SerializeField] public SpriteRenderer leftLight;
+    // [SerializeField] public SpriteRenderer rightLight;
 
     private bool playerLCompleted = false;
     private bool playerRCompleted = false;
@@ -30,12 +30,12 @@ public class Door : MonoBehaviour
         if (plugSide.Contains('L'))
         {
             playerLCompleted = true;
-            leftLight.color = Color.green;
+            // leftLight.color = Color.green;
         }
         else if (plugSide.Contains('R'))
         {
             playerRCompleted = true;
-            rightLight.color = Color.green;
+            // rightLight.color = Color.green;
         }
 
         CheckCompletion();
@@ -45,12 +45,12 @@ public class Door : MonoBehaviour
         if (plugTag.Contains('L'))
         {
             playerLCompleted = false;
-            leftLight.color = Color.white;
+            // leftLight.color = Color.white;
         }
         else if (plugTag.Contains('R'))
         {
             playerRCompleted = false;
-            rightLight.color = Color.white;
+            // rightLight.color = Color.white;
         }
 
     }
