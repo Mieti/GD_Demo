@@ -12,13 +12,13 @@ public class PoleAppear : MonoBehaviour
         appearingPole.SetActive(false);
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerStay2D(Collider2D other)
     {
         print("Staying");
         appearingPole.SetActive(true);
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit2D(Collider2D other)
     {
         print("Exiting");
         appearingPole.SetActive(false);

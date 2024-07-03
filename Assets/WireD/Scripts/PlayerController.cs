@@ -1,9 +1,6 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 
 
 public class PlayerKinematicMovement : MonoBehaviour
@@ -168,7 +165,6 @@ public class PlayerKinematicMovement : MonoBehaviour
             //ignores itself, any trigger collider and the wire segments
             if (hitCollider != playerCollider  && !hitCollider.isTrigger && hitCollider.gameObject.layer != LayerMask.NameToLayer("Wire"))
             {
-                Debug.Log("Player colliding! "+ hitCollider.name);
                 return true;
             }
         }
@@ -207,9 +203,9 @@ public class PlayerKinematicMovement : MonoBehaviour
     {
         if (context.performed)
         {
+            int layerMask = LayerMask.GetMask("Interactable");
             // Check for nearby interactable objects
-            Collider[] interactableColliders = Physics.OverlapSphere(transform.position, interactionRadius, interactableLayer);
-
+            Collider2D[] interactableColliders = Physics2D.OverlapCircleAll(transform.position, interactionRadius, layerMask);
             foreach (var collider in interactableColliders)
             {
                 Plug plug = collider.GetComponent<Plug>();

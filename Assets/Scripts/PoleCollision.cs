@@ -13,7 +13,7 @@ public class PoleCollision : MonoBehaviour
         { "WrongPole", Color.red }
     };
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerStay2D(Collider2D other)
     {
         foreach (var tagColor in tagColorMapping)
         {
@@ -33,7 +33,7 @@ public class PoleCollision : MonoBehaviour
         */
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit2D(Collider2D other)
     {
         active = false;
         GetComponent<Renderer>().material.color = Color.white;
