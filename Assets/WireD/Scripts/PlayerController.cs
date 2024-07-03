@@ -10,7 +10,7 @@ public class PlayerKinematicMovement : MonoBehaviour
 {
     //[SerializeField]
     private Rigidbody2D rb;
-    private PolygonCollider2D playerCollider;
+    private BoxCollider2D playerCollider;
 
     Vector2 movementVector = Vector2.zero;
     public bool IsMoving { get; private set; }
@@ -60,7 +60,7 @@ public class PlayerKinematicMovement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        playerCollider = GetComponent<PolygonCollider2D>();
+        playerCollider = GetComponent<BoxCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         //playerSounds = GetComponentInChildren<Sounds>();
         rb.isKinematic = true;
@@ -161,15 +161,14 @@ public class PlayerKinematicMovement : MonoBehaviour
 
     private bool IsColliding(Vector2 newPosition)
     {
-        Vector2 offset = newPosition - rb.position;
-        Vector2[] points = playerCollider.points;
-
-        for (int i = 0; i < points.Length; i++)
+        Vector2 colliderCenter = newPosition + playerCollider.offset;
+        Collider2D[] hitColliders = Physics2D.OverlapBoxAll(colliderCenter, playerCollider.size, 0);
+        foreach (var hitCollider in hitColliders)
         {
-            Vector2 worldPoint = (Vector2)transform.TransformPoint(points[i]) + offset;
-            Collider2D collider = Physics2D.OverlapPoint(worldPoint);
-            if (collider != null && collider != playerCollider)
+            //ignores itself, any trigger collider and the wire segments
+            if (hitCollider != playerCollider  && !hitCollider.isTrigger && hitCollider.gameObject.layer != LayerMask.NameToLayer("Wire"))
             {
+                Debug.Log("Player colliding! "+ hitCollider.name);
                 return true;
             }
         }

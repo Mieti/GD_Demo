@@ -419,10 +419,10 @@ public class WireController2D : MonoBehaviour
             
         }
         float avgDistance = distance / (segments.Count + 1);
-        Debug.Log("Max distance: " + avgDistance + ", segments: " + segments.Count);
+        //Debug.Log("Max distance: " + avgDistance + ", segments: " + segments.Count);
         if (avgDistance > maxDistance)
         {
-           return true; // Se la distanza tra i segmenti è maggiore della distanza massima, ritorna true
+           return true; // Se la distanza tra i segmenti ï¿½ maggiore della distanza massima, ritorna true
         }
         return false; // Se nessuna coppia di segmenti supera la distanza massima, ritorna false
     }
