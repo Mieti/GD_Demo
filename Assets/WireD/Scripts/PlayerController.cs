@@ -10,6 +10,7 @@ public class PlayerKinematicMovement : MonoBehaviour
 {
     //[SerializeField]
     private Rigidbody2D rb;
+    private PolygonCollider2D playerCollider;
 
     Vector2 movementVector = Vector2.zero;
     public bool IsMoving { get; private set; }
@@ -59,6 +60,7 @@ public class PlayerKinematicMovement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerCollider = GetComponent<PolygonCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         //playerSounds = GetComponentInChildren<Sounds>();
         rb.isKinematic = true;
@@ -137,11 +139,14 @@ public class PlayerKinematicMovement : MonoBehaviour
                 RewindRope();
             }
         }
-        else if(!freeze)
+        else if(!freeze && IsMoving)
         {
-
-            rb.MovePosition(rb.position + (movementVector * speed * Time.fixedDeltaTime));
-            AddSegment();
+            Vector2 newPosition = rb.position + (movementVector * speed * Time.fixedDeltaTime);
+            if (!IsColliding(newPosition))
+            {
+                rb.MovePosition(newPosition);
+                AddSegment();
+            }
         }
         //if (IsLengthening)
         //{
@@ -154,6 +159,22 @@ public class PlayerKinematicMovement : MonoBehaviour
         //}
     }
 
+    private bool IsColliding(Vector2 newPosition)
+    {
+        Vector2 offset = newPosition - rb.position;
+        Vector2[] points = playerCollider.points;
+
+        for (int i = 0; i < points.Length; i++)
+        {
+            Vector2 worldPoint = (Vector2)transform.TransformPoint(points[i]) + offset;
+            Collider2D collider = Physics2D.OverlapPoint(worldPoint);
+            if (collider != null && collider != playerCollider)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
     public void OnMove(InputAction.CallbackContext context)
     {
         movementVector = context.ReadValue<Vector2>();
