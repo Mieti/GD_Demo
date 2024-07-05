@@ -79,8 +79,8 @@ public class Door : MonoBehaviour
         GameObject nextWireObject = GameObject.FindGameObjectWithTag($"Player{_level+1}{_side}");
         if (currentWireObject != null && nextWireObject != null)
         {
-            WireController currentWire = currentWireObject.GetComponent<WireController>();
-            WireController nextWire = nextWireObject.GetComponent<WireController>();
+            WireController2D currentWire = currentWireObject.GetComponent<WireController2D>();
+            WireController2D nextWire = nextWireObject.GetComponent<WireController2D>();
             if (currentWire != null && nextWire != null)
             {
                 // detach the joint connencted body
@@ -88,7 +88,7 @@ public class Door : MonoBehaviour
                 nextWire.AddSegment();
                 nextWire.AddEndPlayer(p);
                 // make sure the player can move
-                p.GetComponent<PlayerController>().freeze = false;
+                p.GetComponent<PlayerKinematicMovement>().freeze = false;
 
                 // destroy the current wire
                 Destroy(currentWireObject);

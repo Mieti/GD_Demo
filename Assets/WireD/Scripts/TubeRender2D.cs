@@ -93,24 +93,26 @@ public class TubeRenderer2D : MonoBehaviour
             return;
         }
 
-        _lineRenderer.enabled = true;
-        _lineRenderer.positionCount = _positions.Length;
-        //List<Vector2> all_pos_a = new List<Vector2>();
-        //List<Vector2> all_pos_b = new List<Vector2>();
-        //transform.TransformPoints(_positions);
-        //Vector2 last_pos = Vector2.zero;
-        for (int i = 0; i < _positions.Length; i++)
-        {
-            var pos2D = transform.TransformPoint(_positions[i]);
-            //var pos2D =_positions[i];
-            _lineRenderer.SetPosition(i, pos2D);
-            //if (i != 0)
-            //{
-            //    var distance = Vector2.Distance(pos2D, last_pos);
-            //    all_pos_a.Add(new Vector2(distance, 1));
-            //    all_pos_b.Add(new Vector2(distance, -1));
-            //}
+        if(_lineRenderer != null){    
+            _lineRenderer.enabled = true;
+            _lineRenderer.positionCount = _positions.Length;
+            //List<Vector2> all_pos_a = new List<Vector2>();
+            //List<Vector2> all_pos_b = new List<Vector2>();
+            //transform.TransformPoints(_positions);
+            //Vector2 last_pos = Vector2.zero;
+            for (int i = 0; i < _positions.Length; i++)
+            {
+                var pos2D = transform.TransformPoint(_positions[i]);
+                //var pos2D =_positions[i];
+                _lineRenderer.SetPosition(i, pos2D);
+                //if (i != 0)
+                //{
+                //    var distance = Vector2.Distance(pos2D, last_pos);
+                //    all_pos_a.Add(new Vector2(distance, 1));
+                //    all_pos_b.Add(new Vector2(distance, -1));
+                //}
 
+            }
         }
         //if (_meshCollider != null)
         //{

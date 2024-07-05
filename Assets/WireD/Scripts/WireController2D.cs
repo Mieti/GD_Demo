@@ -660,4 +660,32 @@ public class WireController2D : MonoBehaviour
 
         ropeMesh.SetPositions(tempPos.ToArray());
     }
+
+    public Transform DetachEnd()
+    {
+        Transform end = endAnchorTemp;
+        end.GetComponent<ConfigurableJoint>().connectedBody = null;
+        this.endAnchorTemp = null;
+        return end;
+    }
+
+    public void AddEndPlayer(Transform player)
+    {
+        int lastSegment = segments.Count - 1;
+        player.position = segments[lastSegment].position + (segments[lastSegment].forward * .0005f);
+        player.parent = transform;
+        endAnchorTemp = player;
+        //endAnchorTemp = Instantiate(endAnchorPoint, segments[lastSegment].position + (segments[lastSegment].forward * .0005f), Quaternion.identity, transform);
+        endAnchorTemp.GetComponent<ConfigurableJoint>().connectedBody = segments[lastSegment].GetComponent<Rigidbody>();
+
+        if (!usePhysics)
+        {
+            DestroyImmediate(endAnchorTemp.GetComponent<ConfigurableJoint>());
+            DestroyImmediate(endAnchorTemp.GetComponent<Collider>());
+            DestroyImmediate(endAnchorTemp.GetComponent<Rigidbody>());
+        }
+
+
+        endAnchorTemp.GetComponent<PlayerKinematicMovement>().SetWireController(this);
+    }
 }

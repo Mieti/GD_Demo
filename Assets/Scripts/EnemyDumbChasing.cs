@@ -113,7 +113,7 @@ public class EnemyDumbChasing : MonoBehaviour
         GameObject collidedObj = collision.gameObject;
         if (collidedObj == player)
         {
-            PlayerController playerScript = collidedObj.GetComponent<PlayerController>();
+            PlayerKinematicMovement playerScript = collidedObj.GetComponent< PlayerKinematicMovement>();
             if (playerScript != null)
             {
                 playerScript.Retreat();
