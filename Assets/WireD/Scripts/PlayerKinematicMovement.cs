@@ -95,65 +95,32 @@ public class PlayerKinematicMovement : MonoBehaviour
         {
             wc = GetComponentInParent<WireController2D>();
         }
-        //rb.velocity = new Vector2(movementVector.x * speed, movementVector.y * speed);
-        //if (flag)
-        //{
-        //    float[] tensions = wc.MaxRopeTension();
-        //    Debug.Log("Max Tension X: " + tensions[0].ToString() + " Max Tension Y: " + tensions[1].ToString());
-        //}
-        //float[] tension = wc.MaxRopeTension();
-        //if (wc.RopeDistance(false)) // || tension[0] > maxTension || tension[1] > maxTension)
-        //{
-        //    if (rb.isKinematic)
-        //    {
-        //        //Debug.Log("FALSE: ropeDistance");
-        //        //if (tension[0] > maxTension)
-        //        //{
-        //        //    Debug.Log("FALSE: tensionX, " + tension[0]);
-        //        //}
-        //        //if (tension[1] > maxTension)
-        //        //{
-        //        //    Debug.Log("FALSE: tensionY, " + tension[0]);
-        //        //}
-        //        //rb.isKinematic = false;
-        //        //movementVector = Vector2.zero;
-        //        //wc.AddSegmentIncremental(transform.position);
-        //    }
-        //}
-        //else
-        //{
-        //    //if (!rb.isKinematic && movementVector != Vector2.zero)
-        //    if (!rb.isKinematic)
-        //    {
-        //        Debug.Log("IsKinematic true");
-        //        rb.isKinematic = true;
-        //    }
-        //}
-        if(IsRewinding)
+        
+        if(!freeze)
         {
-            if(!wc.RopeDistance())
+            if(IsRewinding)
             {
                 RewindRope();
             }
-        }
-        else if(!freeze && IsMoving)
-        {
-            Vector2 newPosition = rb.position + (movementVector * speed * Time.fixedDeltaTime);
-            if (!IsColliding(newPosition))
+            else if(rb.isKinematic)
             {
-                rb.MovePosition(newPosition);
-                AddSegment();
+                if (IsMoving)
+                {
+                    Vector2 newPosition = rb.position + (movementVector * speed * Time.fixedDeltaTime);
+                    if (!IsColliding(newPosition))
+                    {
+                        rb.MovePosition(newPosition);
+                        AddSegment();
+                    }  
+                }  
             }
+            else
+            {
+                // dynamic body -> I can use velocity
+                rb.velocity = movementVector * speed;
+            }
+
         }
-        //if (IsLengthening)
-        //{
-        //    Debug.Log("IsLeghtening");
-        //    wc.AddSegmentIncremental();
-        //}
-        //if (IsRewinding)
-        //{
-        //    RewindRope();
-        //}
     }
 
     private bool IsColliding(Vector2 newPosition)
@@ -220,22 +187,36 @@ public class PlayerKinematicMovement : MonoBehaviour
 
     private void AddSegment()
     {
-
-        
-        if (IsMoving)
+        /* if (IsMoving)
         {
-            if (wc.RopeDistance())
+            if (wc.IsMaxLen()){
+                if (rb.isKinematic)
+                {
+                    wc.ChangeJoints();
+                    rb.isKinematic = false;
+                    rb.mass = wc.RopeMass();
+                }
+            }
+            else if (wc.RopeDistance())
             {
-                Vector3 currentPos = transform.position;
-                //Debug.Log("currentPos: " + currentPos);
-                //Debug.Log("TransformPoint: " + transform.TransformPoint(currentPos));
-                //Debug.Log("Player is stuck due to the rope.");
                 wc.AddSegmentIncremental();
             }
-            //wc.AddSegmentIncremental(currentPos);
-            //previousPosition = currentPos;
-            //IsMoving = false;
+        } */
+        if (wc.RopeDistance())
+        {
+            wc.AddSegmentIncremental();
         }
+        // if max len is reached -> player to dynamic
+        if (wc.IsMaxLen()){
+            if (rb.isKinematic)
+            {
+                wc.ChangeJoints();
+                rb.isKinematic = false;
+                rb.mass = wc.RopeMass();
+            }
+        }
+
+
     }
     /*
     private bool CheckIfStuck()
@@ -250,10 +231,27 @@ public class PlayerKinematicMovement : MonoBehaviour
     }*/
     private void RewindRope()
     {
-        //if (wc.RopeTension(10) < minTension)
-        //{
+        if (rb.isKinematic)
+        {
+            if (!wc.RopeDistance())
+            {
+                wc.RemoveLastSegment();
+                // if (!rb.isKinematic && !wc.IsMaxLen()){
+                //     wc.ResetJoints();
+                //     rb.isKinematic = true;
+                // }
+            }
+        }
+        else
+        {
+            // is dynamic, so: remove 1 segment + change back to dynamic
             wc.RemoveLastSegment();
-        //}
+            wc.ResetJoints();
+            rb.velocity = Vector2.zero;
+            rb.angularVelocity = 0f;
+            rb.isKinematic = true;
+        }
+        
     }
     public void Retreat()
     {

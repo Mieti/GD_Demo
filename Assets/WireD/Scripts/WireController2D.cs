@@ -135,7 +135,7 @@ public class WireController2D : MonoBehaviour
         float distance = Vector3.Distance(segments[lastSegment].position, selectPosition);
 
         // If the last segment has not reached the selected position another one is created.
-        if (distance >= maxDistanceWithSelectedPos + segmentsSeparation && limit <= limitMax)
+        if (distance >= maxDistanceWithSelectedPos + segmentsSeparation && segments.Count <= limitMax)
         {
             // Limit to prevent infinite loop
             limit++;
@@ -250,39 +250,24 @@ public class WireController2D : MonoBehaviour
         //    Debug.Log("Target TransformPoint" + transform.InverseTransformVector(endAnchorPoint.position));
 
         selectPosition = endAnchorTemp.position;
+        // before addings segments, check if the last one is not too close to the player
+        int lastIdx = segments.Count - 1;
+        float distance = Vector3.Distance(segments[lastIdx].position, selectPosition);
+        if (distance < maxDistanceWithSelectedPos + segmentsSeparation){
+            Vector2 direction = (segments[lastIdx].position - segments[lastIdx-1].position).normalized;
+            segments[lastIdx].position = (Vector2)segments[lastIdx-1].position + direction * segmentsSeparation;
+        }
         AddSegment();
 
         //The last current segment is rotated in the direction of selected position.
         if (usePhysics)
         {
-            int lastSegment = segments.Count - 1;
-            endAnchorTemp.GetComponent<SpringJoint2D>().connectedBody = segments[lastSegment].GetComponent<Rigidbody2D>();
-            endAnchorTemp.GetComponent<SpringJoint2D>().distance = segmentsSeparation;
-            endAnchorTemp.GetComponent<HingeJoint2D>().connectedBody = segments[lastSegment].GetComponent<Rigidbody2D>();
-            endAnchorTemp.GetComponent<DistanceJoint2D>().connectedBody = segments[lastSegment].GetComponent<Rigidbody2D>();
+            Transform lastSegment = segments[segments.Count - 1];
+            endAnchorTemp.GetComponent<SpringJoint2D>().connectedBody = lastSegment.GetComponent<Rigidbody2D>();
+            //endAnchorTemp.GetComponent<SpringJoint2D>().distance = segmentsSeparation;
+            endAnchorTemp.GetComponent<HingeJoint2D>().connectedBody = lastSegment.GetComponent<Rigidbody2D>();
+            endAnchorTemp.GetComponent<DistanceJoint2D>().connectedBody = lastSegment.GetComponent<Rigidbody2D>();
         }
-        //segments[lastSegment].LookAt(targetPos);
-        //if (usePhysics)
-        //{
-        //    //Instantiate new segment.
-        //    Transform newSegment = Instantiate(segment, segments[lastSegment].position + (segments[lastSegment].forward * segmentsSeparation), segments[lastSegment].rotation, transform);
-        //    newSegment.GetComponent<SpringJoint2D>().connectedBody = segments[lastSegment].GetComponent<Rigidbody2D>();
-        //    newSegment.GetComponent<HingeJoint2D>().connectedBody = segments[lastSegment].GetComponent<Rigidbody2D>();
-        //    newSegment.GetComponent<DistanceJoint2D>().connectedBody = segments[lastSegment].GetComponent<Rigidbody2D>();
-        //    segments.Add(newSegment);
-        //    endAnchorTemp.GetComponent<SpringJoint2D>().connectedBody = newSegment.GetComponent<Rigidbody2D>();
-        //    endAnchorTemp.GetComponent<HingeJoint2D>().connectedBody = newSegment.GetComponent<Rigidbody2D>();
-        //    endAnchorTemp.GetComponent<DistanceJoint2D>().connectedBody = newSegment.GetComponent<Rigidbody2D>();
-        //    Debug.Log("Added segment");
-        //}
-        //else
-        //{
-        //    //Instantiate new segment.
-        //    Transform newSegment = Instantiate(segmentNoPhysics, segments[lastSegment].position + (segments[lastSegment].forward * segmentsSeparation), segments[lastSegment].rotation, transform);
-        //    segments.Add(newSegment);
-        //}
-
-        //RenderWireMesh();
     }
 
     /// <summary>
@@ -425,6 +410,22 @@ public class WireController2D : MonoBehaviour
            return true; // Se la distanza tra i segmenti � maggiore della distanza massima, ritorna true
         }
         return false; // Se nessuna coppia di segmenti supera la distanza massima, ritorna false
+    }
+    public float RopeMass()
+    {
+        /* float mass = 0f;
+        for (int i = 0; i < segments.Count; i++)
+        {
+            Rigidbody2D segmentBody = segments[i].GetComponent<Rigidbody2D>();
+            if (segmentBody != null)
+            {
+                mass += segmentBody.mass;
+            }
+        }
+        return mass; */
+        Rigidbody2D segmentBody = segments[0].GetComponent<Rigidbody2D>();
+        return segmentBody.mass;
+        
     }
 
     public void AddEnd()
@@ -625,6 +626,51 @@ public class WireController2D : MonoBehaviour
         }
     }
 
+    public void ChangeJoints()
+    {
+        int lastIdx = segments.Count - 1;
+        ChangeJoint(segments[0], startAnchorTemp);
+        for (int i = 1; i <= lastIdx; i++)
+        {
+            ChangeJoint(segments[i], segments[i-1]);
+        }
+        ChangeJoint(endAnchorTemp, segments[lastIdx]);
+    }
+    private void ChangeJoint(Transform thisSeg, Transform previousSeg)
+    {
+        SpringJoint2D sj = thisSeg.GetComponent<SpringJoint2D>();
+        if (sj != null)
+        {
+            float currentDistance = Vector3.Distance(previousSeg.position, thisSeg.position);
+            sj.distance = currentDistance;
+            sj.frequency = 0;
+        }
+    }
+    public void ResetJoints()
+    {
+        int lastIdx = segments.Count - 1;
+        ResetJoint(segments[0], startAnchorTemp);
+        for (int i = 1; i <= lastIdx; i++)
+        {
+            ResetJoint(segments[i], segments[i-1]);
+        }
+        ResetJoint(endAnchorTemp, segments[lastIdx]);
+    }
+    private void ResetJoint(Transform thisSeg, Transform previousSeg)
+    {
+        SpringJoint2D sj = thisSeg.GetComponent<SpringJoint2D>();
+        if (sj != null)
+        {
+            float currentDistance = segmentsSeparation;
+            sj.distance = currentDistance;
+            sj.frequency = 10f;
+        }
+    }
+    public bool IsMaxLen()
+    {
+        return segments.Count >= limitMax;
+    }
+
     public void DistanceBetweenStartAndEnd()
     {
         currentDistanceToStartAnchor = Vector3.Distance(endAnchorTemp.position, startAnchorTemp.position);
@@ -645,6 +691,11 @@ public class WireController2D : MonoBehaviour
 
         //Render the wire.
         List<Vector3> tempPos = new List<Vector3>();
+        if (startAnchorTemp != null)
+        {
+            var pos = startAnchorTemp.position;
+            tempPos.Add(pos);
+        }
         foreach (Transform pos in segments)
         {
             tempPos.Add(pos.localPosition);
