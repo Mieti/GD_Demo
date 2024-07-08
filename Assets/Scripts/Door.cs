@@ -5,8 +5,10 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
 
-    // [SerializeField] public SpriteRenderer leftLight;
-    // [SerializeField] public SpriteRenderer rightLight;
+    [SerializeField] private SpriteRenderer leftLight;
+    [SerializeField] private SpriteRenderer rightLight;
+    [SerializeField] private Sprite lightOff;
+    [SerializeField] private Sprite lightOn;
 
     private bool playerLCompleted = false;
     private bool playerRCompleted = false;
@@ -31,11 +33,13 @@ public class Door : MonoBehaviour
         {
             playerLCompleted = true;
             // leftLight.color = Color.green;
+            leftLight.sprite = lightOn;
         }
         else if (plugSide.Contains('R'))
         {
             playerRCompleted = true;
             // rightLight.color = Color.green;
+            rightLight.sprite = lightOn;
         }
 
         CheckCompletion();
@@ -46,11 +50,13 @@ public class Door : MonoBehaviour
         {
             playerLCompleted = false;
             // leftLight.color = Color.white;
+            leftLight.sprite = lightOff;
         }
         else if (plugTag.Contains('R'))
         {
             playerRCompleted = false;
             // rightLight.color = Color.white;
+            rightLight.sprite = lightOff;
         }
 
     }

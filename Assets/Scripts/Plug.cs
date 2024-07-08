@@ -10,7 +10,10 @@ public class Plug : MonoBehaviour
 
     private PlayerKinematicMovement player;
 
-    // [SerializeField] private Component _light;
+    [SerializeField] private SpriteRenderer _light;
+    [SerializeField] private Sprite lightOff;
+    [SerializeField] private Sprite lightCorrect;
+    [SerializeField] private Sprite lightWrong;
 
     private string _level;
     private string _side;
@@ -50,6 +53,10 @@ public class Plug : MonoBehaviour
                 doorR.PlayerCompletedRoom(_side);
             }
         }
+        if(!isConnected && _light.sprite != lightOff)
+        {
+            _light.sprite = lightOff;
+        }
     }
 
     public void Interact(PlayerKinematicMovement p){
@@ -61,19 +68,19 @@ public class Plug : MonoBehaviour
             bool correct = CheckCorrectPoles();
 
             if(correct){
-                // _light.GetComponent<Renderer>().material.color = Color.green;
+                _light.sprite = lightCorrect;
                 doorL.PlayerCompletedRoom(_side);
                 doorR.PlayerCompletedRoom(_side);
             }
             else{
-                //_light.GetComponent<Renderer>().material.color = Color.red;
+                _light.sprite = lightWrong;
             }
             
         }
         else{
             Debug.Log("Disconnected from plug");
             p.freeze = false;
-            //_light.GetComponent<Renderer>().material.color = Color.white;
+            _light.sprite = lightOff;
             doorL.PlayerDetached(_side);
             doorR.PlayerDetached(_side);
         }
