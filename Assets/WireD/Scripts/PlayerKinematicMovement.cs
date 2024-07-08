@@ -149,7 +149,13 @@ public class PlayerKinematicMovement : MonoBehaviour
 
     private bool IsColliding(Vector2 newPosition)
     {
-        Vector2 colliderCenter = newPosition + playerCollider.offset;
+        var offset = playerCollider.offset;
+        if (!isFacingRight)
+        {
+            offset.x = -offset.x;
+        }
+        var res = isFacingRight? 1: -1;
+        Vector2 colliderCenter = newPosition + offset;
         Collider2D[] hitColliders = Physics2D.OverlapBoxAll(colliderCenter, playerCollider.size, 0);
         foreach (var hitCollider in hitColliders)
         {

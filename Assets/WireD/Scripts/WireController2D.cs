@@ -259,7 +259,9 @@ public class WireController2D : MonoBehaviour
             Vector2 direction = (segments[lastIdx].position - segments[lastIdx-1].position).normalized;
             segments[lastIdx].position = (Vector2)segments[lastIdx-1].position + direction * segmentsSeparation;
         }
+        EnableLastColliders(true);
         AddSegment();
+        EnableLastColliders(false);
 
         //The last current segment is rotated in the direction of selected position.
         if (usePhysics)
@@ -295,13 +297,10 @@ public class WireController2D : MonoBehaviour
             endAnchorTemp.GetComponent<DistanceJoint2D>().connectedBody = segments[lastSegmentIdx - 1].GetComponent<Rigidbody2D>();
             endAnchorTemp.GetComponent<HingeJoint2D>().connectedBody = segments[lastSegmentIdx - 1].GetComponent<Rigidbody2D>();
         }
-        else
-        {
-            //Do nothing.
-        }
         // destroy segment and remove from the list
         Destroy(segments[lastSegmentIdx].gameObject);
         segments.RemoveAt(lastSegmentIdx);
+        EnableLastColliders(false);
         RenderWireMesh();
     }
     /// <summary>
@@ -335,6 +334,17 @@ public class WireController2D : MonoBehaviour
         }
         RenderWireMesh();
     }
+    private void EnableLastColliders(bool enabled)
+    {
+        int n = 2;
+        int lastIdx = segments.Count-1;
+        for (int i = 0; i < n; i++)
+        {
+            segments[lastIdx-i].GetComponent<CircleCollider2D>().enabled = enabled;
+        }
+    }
+
+
     /// <summary>
     /// Removes the segments included in radius
     /// </summary>
