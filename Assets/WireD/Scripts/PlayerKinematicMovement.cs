@@ -202,7 +202,7 @@ public class PlayerKinematicMovement : MonoBehaviour
                 wc.AddSegmentIncremental();
             }
         } */
-        if (wc.RopeDistance())
+        if (wc.RopeDistance(0.1f))
         {
             wc.AddSegmentIncremental();
         }
@@ -233,7 +233,7 @@ public class PlayerKinematicMovement : MonoBehaviour
     {
         if (rb.isKinematic)
         {
-            if (!wc.RopeDistance())
+            if (!wc.RopeDistance(0))
             {
                 wc.RemoveLastSegment();
                 // if (!rb.isKinematic && !wc.IsMaxLen()){

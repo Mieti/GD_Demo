@@ -385,9 +385,9 @@ public class WireController2D : MonoBehaviour
     /// Calculates if distance between segs exceedes max
     /// </summary>
 
-    public bool RopeDistance()
+    public bool RopeDistance(float epsilon)
     {
-        float epsilon = 0.1f;
+        //float epsilon = 0.1f;
         float maxDistance = segmentsSeparation + epsilon;
         float distance = 0f;
         for (int i = 0; i < segments.Count - 1; i++)
