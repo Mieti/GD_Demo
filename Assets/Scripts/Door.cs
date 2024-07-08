@@ -77,7 +77,7 @@ public class Door : MonoBehaviour
         MoveToNextRoom();
     }
 
-    public void MoveToNextRoom(){
+    protected virtual void MoveToNextRoom(){
         if(isFakePlayer){
             return;
         }
