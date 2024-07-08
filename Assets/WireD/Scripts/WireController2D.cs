@@ -693,7 +693,7 @@ public class WireController2D : MonoBehaviour
         List<Vector3> tempPos = new List<Vector3>();
         if (startAnchorTemp != null)
         {
-            var pos = startAnchorTemp.position;
+            var pos = startAnchorTemp.localPosition;
             tempPos.Add(pos);
         }
         foreach (Transform pos in segments)
@@ -702,7 +702,7 @@ public class WireController2D : MonoBehaviour
         }
         if (endAnchorTemp != null)
         {
-            var pos = endAnchorTemp.position;
+            var pos = endAnchorTemp.localPosition;
             tempPos.Add(pos);
         }
         //Debug.Log("endAnchorTemp: " + endAnchorTemp.position);
@@ -715,7 +715,7 @@ public class WireController2D : MonoBehaviour
     public Transform DetachEnd()
     {
         Transform end = endAnchorTemp;
-        end.GetComponent<ConfigurableJoint>().connectedBody = null;
+        end.GetComponent<SpringJoint2D>().connectedBody = null;
         this.endAnchorTemp = null;
         return end;
     }
@@ -727,13 +727,13 @@ public class WireController2D : MonoBehaviour
         player.parent = transform;
         endAnchorTemp = player;
         //endAnchorTemp = Instantiate(endAnchorPoint, segments[lastSegment].position + (segments[lastSegment].forward * .0005f), Quaternion.identity, transform);
-        endAnchorTemp.GetComponent<ConfigurableJoint>().connectedBody = segments[lastSegment].GetComponent<Rigidbody>();
+        endAnchorTemp.GetComponent<SpringJoint2D>().connectedBody = segments[lastSegment].GetComponent<Rigidbody2D>();
 
         if (!usePhysics)
         {
-            DestroyImmediate(endAnchorTemp.GetComponent<ConfigurableJoint>());
-            DestroyImmediate(endAnchorTemp.GetComponent<Collider>());
-            DestroyImmediate(endAnchorTemp.GetComponent<Rigidbody>());
+            DestroyImmediate(endAnchorTemp.GetComponent<SpringJoint2D>());
+            DestroyImmediate(endAnchorTemp.GetComponent<Collider2D>());
+            DestroyImmediate(endAnchorTemp.GetComponent<Rigidbody2D>());
         }
 
 

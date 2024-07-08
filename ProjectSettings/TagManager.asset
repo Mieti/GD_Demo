@@ -40,6 +40,12 @@ TagManager:
   - Door4L
   - Door3R
   - Door4R
+  - Player3L
+  - Player4L
+  - Player1R
+  - Player2R
+  - Player3R
+  - Player4R
   layers:
   - Default
   - TransparentFX
