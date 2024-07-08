@@ -26194,8 +26194,9 @@ GameObject:
   - component: {fileID: 1675174364}
   - component: {fileID: 1675174363}
   - component: {fileID: 1675174362}
+  - component: {fileID: 1675174371}
   m_Layer: 7
-  m_Name: Player(Clone)
+  m_Name: Player2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26252,7 +26253,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.55, y: 0.345}
-    oldSize: {x: 1.7578125, y: 3.390625}
+    oldSize: {x: 2.0761719, y: 3.390625}
     newSize: {x: 1.7578125, y: 3.390625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -26297,7 +26298,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.55, y: 0.345}
-    oldSize: {x: 1.7578125, y: 3.390625}
+    oldSize: {x: 2.0761719, y: 3.390625}
     newSize: {x: 1.7578125, y: 3.390625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -26933,6 +26934,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e20604b117f0034b87af1437ad5770c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 1675174371}
   speed: 5
   wc: {fileID: 0}
   maxTension: 1.5
@@ -26941,7 +26943,7 @@ MonoBehaviour:
   freeze: 0
   interactableLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
 --- !u!212 &1675174370
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -26983,7 +26985,7 @@ SpriteRenderer:
   m_SortingLayerID: -377484157
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3c07059b9a830b348a24f582719fd38d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8edbc7f084f228249bbd3c88df9dcbe8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -26994,6 +26996,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!95 &1675174371
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675174360}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 840e9f7fc957a4343be434f0af1cb336, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1711191398
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29780,8 +29803,9 @@ GameObject:
   - component: {fileID: 2105574481}
   - component: {fileID: 2105574480}
   - component: {fileID: 2105574479}
+  - component: {fileID: 2105574488}
   m_Layer: 7
-  m_Name: Player(Clone)
+  m_Name: Player1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30519,6 +30543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e20604b117f0034b87af1437ad5770c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 2105574488}
   speed: 5
   wc: {fileID: 0}
   maxTension: 1.5
@@ -30527,7 +30552,7 @@ MonoBehaviour:
   freeze: 0
   interactableLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
 --- !u!212 &2105574487
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -30580,6 +30605,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!95 &2105574488
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105574477}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a8ec313093379bd4c907e74d43c841d1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2112372564
 GameObject:
   m_ObjectHideFlags: 0
@@ -31265,6 +31311,7 @@ MonoBehaviour:
   maxDistanceToStarAnchor: 0
   segments: []
   undoSegments: 
+  startOffset: {x: 0, y: 1.5, z: 0}
   ropeMesh: {fileID: 3350137395226430630}
   startAnchorTemp: {fileID: 966642404}
   firstSegment: {fileID: 0}
@@ -31366,6 +31413,7 @@ MonoBehaviour:
   - {fileID: 1371341641}
   - {fileID: 361824223}
   undoSegments: 0a000000
+  startOffset: {x: 0, y: 1.5, z: 0}
   ropeMesh: {fileID: 3637549694511291843}
   startAnchorTemp: {fileID: 309909327}
   firstSegment: {fileID: 869788989}
@@ -31670,6 +31718,7 @@ MonoBehaviour:
   maxDistanceToStarAnchor: 0
   segments: []
   undoSegments: 
+  startOffset: {x: 0, y: 1.5, z: 0}
   ropeMesh: {fileID: 758244007544581272}
   startAnchorTemp: {fileID: 1266385548}
   firstSegment: {fileID: 0}
@@ -31821,6 +31870,7 @@ MonoBehaviour:
   - {fileID: 930321045}
   - {fileID: 1827207223}
   undoSegments: 0a000000
+  startOffset: {x: 0, y: 1.5, z: 0}
   ropeMesh: {fileID: 229042236450201213}
   startAnchorTemp: {fileID: 782949844}
   firstSegment: {fileID: 2035373857}
@@ -32477,6 +32527,7 @@ MonoBehaviour:
   maxDistanceToStarAnchor: 0
   segments: []
   undoSegments: 
+  startOffset: {x: 0, y: 1.5, z: 0}
   ropeMesh: {fileID: 8036357384058605101}
   startAnchorTemp: {fileID: 1616489613}
   firstSegment: {fileID: 0}
@@ -33231,6 +33282,7 @@ MonoBehaviour:
   maxDistanceToStarAnchor: 0
   segments: []
   undoSegments: 
+  startOffset: {x: 0, y: 1.5, z: 0}
   ropeMesh: {fileID: 6642111172149317571}
   startAnchorTemp: {fileID: 342891595}
   firstSegment: {fileID: 0}

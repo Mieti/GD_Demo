@@ -14,8 +14,9 @@ public class PlayerKinematicMovement : MonoBehaviour
     private bool IsRewinding = false;
     private bool IsLengthening = false;
 
-    //[SerializeField]
-    //private Animator animator;
+    private bool isFacingRight = true;
+
+    [SerializeField] private Animator animator;
     //[SerializeField]
     //private SpriteRenderer spriteRenderer;
 
@@ -62,6 +63,10 @@ public class PlayerKinematicMovement : MonoBehaviour
         //playerSounds = GetComponentInChildren<Sounds>();
         rb.isKinematic = true;
         wc = GetComponentInParent<WireController2D>();
+
+    if (animator == null){
+        animator = GetComponent<Animator>();
+    }
     }
 
     void Start()
@@ -81,12 +86,20 @@ public class PlayerKinematicMovement : MonoBehaviour
         }
     } */
 
-    private void HandleMovementDirectionSpriteFlip()
+    private void Flip()
     {
-        if (movementVector.x > 0)
+        /* if (movementVector.x > 0)
             spriteRenderer.flipX = false;
         else if (movementVector.x < 0)
-            spriteRenderer.flipX = true;
+            spriteRenderer.flipX = true; */
+        if((movementVector.x>0 && !isFacingRight) ||(movementVector.x<0 && isFacingRight))
+        {
+            isFacingRight = !isFacingRight;
+            Vector3 theScale = transform.localScale;
+            theScale.x *= -1;
+            transform.localScale = theScale;
+        }
+        
     }
 
     private void FixedUpdate()
@@ -98,11 +111,24 @@ public class PlayerKinematicMovement : MonoBehaviour
         
         if(!freeze)
         {
+            Flip();
             if(IsRewinding)
             {
                 RewindRope();
             }
-            else if(rb.isKinematic)
+            else
+            {
+                Move(); 
+            }
+
+        }
+    }
+    private void Move()
+    {
+        Flip();
+        animator.SetFloat("Horizontal", Mathf.Abs(movementVector.x));
+        animator.SetFloat("Speed", Mathf.Abs(movementVector.sqrMagnitude * speed));
+        if(rb.isKinematic)
             {
                 if (IsMoving)
                 {
@@ -119,8 +145,6 @@ public class PlayerKinematicMovement : MonoBehaviour
                 // dynamic body -> I can use velocity
                 rb.velocity = movementVector * speed;
             }
-
-        }
     }
 
     private bool IsColliding(Vector2 newPosition)
@@ -141,7 +165,6 @@ public class PlayerKinematicMovement : MonoBehaviour
     {
         movementVector = context.ReadValue<Vector2>();
         IsMoving = movementVector != Vector2.zero;
-        
     }
     public void OnRewind(InputAction.CallbackContext context)
     {

@@ -711,8 +711,9 @@ GameObject:
   - component: {fileID: 137327112}
   - component: {fileID: 137327111}
   - component: {fileID: 137327110}
+  - component: {fileID: 137327119}
   m_Layer: 7
-  m_Name: Player(Clone)
+  m_Name: Player1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -727,7 +728,7 @@ Transform:
   m_GameObject: {fileID: 137327108}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -58.016052, y: -34.117767, z: -0}
+  m_LocalPosition: {x: -58.016052, y: -34.117767, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1450,6 +1451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e20604b117f0034b87af1437ad5770c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 137327119}
   speed: 5
   wc: {fileID: 3329868344001149469}
   maxTension: 1.5
@@ -1497,8 +1499,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -377484157
-  m_SortingLayer: 0
+  m_SortingLayerID: -909943347
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3c07059b9a830b348a24f582719fd38d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1511,6 +1513,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!95 &137327119
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137327108}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a8ec313093379bd4c907e74d43c841d1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &140868364
 GameObject:
   m_ObjectHideFlags: 0
@@ -6675,8 +6698,9 @@ GameObject:
   - component: {fileID: 921521050}
   - component: {fileID: 921521049}
   - component: {fileID: 921521048}
+  - component: {fileID: 921521057}
   m_Layer: 7
-  m_Name: Player(Clone)
+  m_Name: Player2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6733,7 +6757,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.55, y: 0.345}
-    oldSize: {x: 1.7578125, y: 3.390625}
+    oldSize: {x: 2.0761719, y: 3.390625}
     newSize: {x: 1.7578125, y: 3.390625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -6778,7 +6802,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.55, y: 0.345}
-    oldSize: {x: 1.7578125, y: 3.390625}
+    oldSize: {x: 2.0761719, y: 3.390625}
     newSize: {x: 1.7578125, y: 3.390625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -7275,7 +7299,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 921521046}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
@@ -7414,6 +7438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e20604b117f0034b87af1437ad5770c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 921521057}
   speed: 5
   wc: {fileID: 0}
   maxTension: 1.5
@@ -7461,10 +7486,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -377484157
-  m_SortingLayer: 0
+  m_SortingLayerID: -909943347
+  m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3c07059b9a830b348a24f582719fd38d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8edbc7f084f228249bbd3c88df9dcbe8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7475,6 +7500,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!95 &921521057
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 921521046}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 840e9f7fc957a4343be434f0af1cb336, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &925534318
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25589,7 +25635,7 @@ Transform:
   m_GameObject: {fileID: 155991195496828068}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.992157, y: -6.999385, z: 0}
+  m_LocalPosition: {x: 0.6892586, y: -5.906049, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -25654,6 +25700,7 @@ MonoBehaviour:
   maxDistanceToStarAnchor: 0
   segments: []
   undoSegments: 
+  startOffset: {x: 0, y: 1.5, z: 0}
   ropeMesh: {fileID: 3318175544021325385}
   startAnchorTemp: {fileID: 962304626}
   firstSegment: {fileID: 0}
@@ -25691,7 +25738,7 @@ MonoBehaviour:
   - {x: -58.016052, y: -34.51827, z: -0}
   - {x: -58.016052, y: -34.318268, z: -0}
   - {x: -58.016052, y: -34.118267, z: -0}
-  - {x: -58.016052, y: -34.117767, z: -0}
+  - {x: -58.016052, y: -34.117767, z: 0}
   _sides: 3
   _radiusOne: 0
   _radiusTwo: 0
@@ -25721,6 +25768,7 @@ MonoBehaviour:
   maxDistanceToStarAnchor: 0
   segments: []
   undoSegments: 
+  startOffset: {x: 0, y: 1.5, z: 0}
   ropeMesh: {fileID: 3422194629091017996}
   startAnchorTemp: {fileID: 1512155449}
   firstSegment: {fileID: 0}
@@ -26172,6 +26220,7 @@ MonoBehaviour:
   maxDistanceToStarAnchor: 0
   segments: []
   undoSegments: 
+  startOffset: {x: 0, y: 1.5, z: 0}
   ropeMesh: {fileID: 1018356541778665319}
   startAnchorTemp: {fileID: 1849104554}
   firstSegment: {fileID: 0}
@@ -26219,6 +26268,7 @@ MonoBehaviour:
   - {fileID: 166670134}
   - {fileID: 2070907273}
   undoSegments: 0a000000
+  startOffset: {x: 0, y: 1.5, z: 0}
   ropeMesh: {fileID: 136025392852665335}
   startAnchorTemp: {fileID: 424237590}
   firstSegment: {fileID: 289435999}
@@ -26399,6 +26449,7 @@ MonoBehaviour:
   - {fileID: 362403470}
   - {fileID: 35262543}
   undoSegments: 0a000000
+  startOffset: {x: 0, y: 1.5, z: 0}
   ropeMesh: {fileID: 358900684082898762}
   startAnchorTemp: {fileID: 1855324215}
   firstSegment: {fileID: 1993398886}
@@ -26409,7 +26460,7 @@ MonoBehaviour:
   segmentNoPhysics: {fileID: 4721452859494924073, guid: f20646123e76cda489cb1a9d10cfdd0d, type: 3}
   endAnchorPoint: {fileID: 6099664760935116582, guid: 40e01bc18d2b5e744b235209abd3538f, type: 3}
   plugObjt: {fileID: 0}
-  selectPosition: {x: -58.016052, y: -33.995888, z: 0}
+  selectPosition: {x: -56.80281, y: -33.42574, z: 0}
   mousePossHelper: {fileID: 4994633219538572859}
   presetJoint: {fileID: 2655988077585873504, guid: b5b7a191921435e4096a8455d4c64d29, type: 2}
 --- !u!120 &3373432964773856589
@@ -26569,6 +26620,7 @@ MonoBehaviour:
   maxDistanceToStarAnchor: 0
   segments: []
   undoSegments: 
+  startOffset: {x: 0, y: 1.5, z: 0}
   ropeMesh: {fileID: 1204597745436499445}
   startAnchorTemp: {fileID: 1225122473}
   firstSegment: {fileID: 0}
@@ -26942,7 +26994,7 @@ Transform:
   m_GameObject: {fileID: 4994633219538572855}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -58.016052, y: -33.995888, z: 0}
+  m_LocalPosition: {x: -56.80281, y: -33.42574, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -27592,6 +27644,7 @@ MonoBehaviour:
   maxDistanceToStarAnchor: 0
   segments: []
   undoSegments: 
+  startOffset: {x: 0, y: 1.5, z: 0}
   ropeMesh: {fileID: 4864348414973640153}
   startAnchorTemp: {fileID: 951412407}
   firstSegment: {fileID: 0}
@@ -27602,7 +27655,7 @@ MonoBehaviour:
   segmentNoPhysics: {fileID: 4721452859494924073, guid: f20646123e76cda489cb1a9d10cfdd0d, type: 3}
   endAnchorPoint: {fileID: 6099664760935116582, guid: 40e01bc18d2b5e744b235209abd3538f, type: 3}
   plugObjt: {fileID: 0}
-  selectPosition: {x: -54.007843, y: -9.999385, z: 0}
+  selectPosition: {x: -57.31074, y: -8.906049, z: 0}
   mousePossHelper: {fileID: 155991195496828072}
   presetJoint: {fileID: 2655988077585873504, guid: b5b7a191921435e4096a8455d4c64d29, type: 2}
 --- !u!212 &7805961215064187991
@@ -28178,6 +28231,7 @@ MonoBehaviour:
   maxDistanceToStarAnchor: 0
   segments: []
   undoSegments: 
+  startOffset: {x: 0, y: 1.5, z: 0}
   ropeMesh: {fileID: 6770536023438093469}
   startAnchorTemp: {fileID: 1532608047}
   firstSegment: {fileID: 0}
