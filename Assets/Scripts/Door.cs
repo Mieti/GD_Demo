@@ -91,8 +91,9 @@ public class Door : MonoBehaviour
             {
                 // detach the joint connencted body
                 Transform p = currentWire.DetachEnd();
-                nextWire.AddSegment();
-                nextWire.AddEndPlayer(p);
+                // nextWire.AddSegment();
+                // nextWire.AddEndPlayer(p);
+                nextWire.AddSegmentAndPlayer(p);
                 // make sure the player can move
                 p.GetComponent<PlayerKinematicMovement>().freeze = false;
 

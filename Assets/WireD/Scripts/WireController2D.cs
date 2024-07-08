@@ -79,6 +79,8 @@ public class WireController2D : MonoBehaviour
     public List<int> undoSegments;
     private int undoCount = 0;
 
+    public Vector3 startOffset = new Vector3(0, 1.5f, 0);
+
     [Header("REFERENCES")]
     public TubeRenderer2D ropeMesh;
     public Transform startAnchorTemp;
@@ -737,6 +739,28 @@ public class WireController2D : MonoBehaviour
         }
 
 
+        endAnchorTemp.GetComponent<PlayerKinematicMovement>().SetWireController(this);
+    }
+
+    public void AddSegmentAndPlayer(Transform player)
+    {
+        selectPosition = startAnchorTemp.position + startOffset;
+        float difference = selectPosition.y - startAnchorTemp.position.y;
+        Debug.Log("Start-player difference: "+ difference);
+        AddSegment();
+        Transform lastSegment = segments[segments.Count - 1];
+        player.position = lastSegment.position + (lastSegment.forward * .0005f);
+        player.parent = transform;
+        endAnchorTemp = player;
+        //endAnchorTemp = Instantiate(endAnchorPoint, segments[lastSegment].position + (segments[lastSegment].forward * .0005f), Quaternion.identity, transform);
+        endAnchorTemp.GetComponent<SpringJoint2D>().connectedBody = lastSegment.GetComponent<Rigidbody2D>();
+
+        if (!usePhysics)
+        {
+            DestroyImmediate(endAnchorTemp.GetComponent<SpringJoint2D>());
+            DestroyImmediate(endAnchorTemp.GetComponent<Collider2D>());
+            DestroyImmediate(endAnchorTemp.GetComponent<Rigidbody2D>());
+        }
         endAnchorTemp.GetComponent<PlayerKinematicMovement>().SetWireController(this);
     }
 }
