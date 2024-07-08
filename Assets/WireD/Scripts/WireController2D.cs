@@ -278,6 +278,10 @@ public class WireController2D : MonoBehaviour
     public void RemoveLastSegment()
     {
         // can be added here a check on minimun number of segments
+        if (segments.Count == 2)
+        {
+            return;
+        }
 
         int lastSegmentIdx = segments.Count - 1;
 
