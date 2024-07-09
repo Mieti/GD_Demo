@@ -10,6 +10,9 @@ public class Door : MonoBehaviour
     [SerializeField] private Sprite lightOff;
     [SerializeField] private Sprite lightOn;
 
+    [SerializeField] private Sprite close;
+    [SerializeField] private Sprite open;
+
     private bool playerLCompleted = false;
     private bool playerRCompleted = false;
     
@@ -73,8 +76,9 @@ public class Door : MonoBehaviour
     private void OpenDoor()
     {
         // Implement door opening logic (e.g., animation or enabling/disabling objects)
-        Debug.Log("Door opens!");
+        GetComponent<SpriteRenderer>().sprite = open;        
         MoveToNextRoom();
+        GetComponent<SpriteRenderer>().sprite = close; 
     }
 
     protected virtual void MoveToNextRoom(){
