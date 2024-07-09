@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PoleCollision : MonoBehaviour
@@ -8,28 +6,43 @@ public class PoleCollision : MonoBehaviour
     public bool active = false;
     private int colliderCount = 0;
 
-    private Dictionary<string, Color> tagColorMapping = new Dictionary<string, Color>
+    [SerializeField] private Sprite off;
+    [SerializeField] private Sprite on;
+
+    private SpriteRenderer sr;
+
+    private void Awake()
     {
-        { "CorrectPole", Color.green },
-        { "WrongPole", Color.red }
-    };
+        sr = GetComponent<SpriteRenderer>();
+    }
+    
+    private void Update()
+    {
+        if(active && colliderCount <= 0){
+            colliderCount = 0;
+            active = false;
+        }
+        if(active && sr.sprite != on){
+            sr.sprite = on;
+        }
+        else if(!active && sr.sprite != off)
+        {
+            sr.sprite = off;
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         colliderCount++;
-        ChangeColorIfNeeded();
+        if (colliderCount > 0)
+        {
+            active = true;        }
+        //ChangeColorIfNeeded();
     }
     // Maybe not needed with the counter
     private void OnTriggerStay2D(Collider2D other)
     {
-        ChangeColorIfNeeded();
-        /*
-        // use tag to discriminate what is currently touching the collider
-        if (other.tag == "cable")
-        {
-            print("Staying");
-        }
-        */
+        active = true;
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -39,20 +52,6 @@ public class PoleCollision : MonoBehaviour
         {
             colliderCount = 0;
             active = false;
-            GetComponent<Renderer>().material.color = Color.white;
-        }
-    }
-
-    private void ChangeColorIfNeeded()
-    {
-        foreach (var tagColor in tagColorMapping)
-        {
-            if (gameObject.tag.Contains(tagColor.Key))
-            {
-                active = true;
-                GetComponent<Renderer>().material.color = tagColor.Value;
-                return;
-            }
         }
     }
 
