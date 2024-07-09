@@ -12,7 +12,6 @@ public class PlayerKinematicMovement : MonoBehaviour
     Vector2 movementVector = Vector2.zero;
     public bool IsMoving { get; private set; }
     private bool IsRewinding = false;
-    private bool IsLengthening = false;
 
     private bool isFacingRight = true;
 
@@ -117,6 +116,9 @@ public class PlayerKinematicMovement : MonoBehaviour
             Flip();
             if(IsRewinding)
             {
+                animator.SetFloat("Horizontal", 0);
+                animator.SetFloat("Speed", 0);
+                audioFootstep.SetActive(false);
                 RewindRope();
             }
             else
@@ -195,14 +197,14 @@ public class PlayerKinematicMovement : MonoBehaviour
     }
     public void OnLengthen(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        /* if (context.performed)
         {
             IsLengthening = true;
         }
         else if (context.canceled)
         {
             IsLengthening = false;
-        }
+        } */
     }
 
     public void OnInteract(InputAction.CallbackContext context)
