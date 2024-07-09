@@ -54,6 +54,9 @@ public class PlayerKinematicMovement : MonoBehaviour
 
     //bool isGroundedCheckStop = false;
     //public Sounds playerSopunds;
+    
+    [SerializeField] private GameObject audioFootstep;
+
 
     private void Awake()
     {
@@ -138,7 +141,14 @@ public class PlayerKinematicMovement : MonoBehaviour
                         rb.MovePosition(newPosition);
                         AddSegment();
                     }  
-                }  
+                    
+                    audioFootstep.SetActive(true);
+                }
+                else
+                {
+                    if (audioFootstep)
+                        audioFootstep.SetActive(false);
+                }
             }
             else
             {
