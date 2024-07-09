@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,406 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Home 36_0
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 2598
+        width: 468
+        height: 1550
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a25e21af2c986ee4e88196ceb14cdb87
+      internalID: -997859571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Home 36_1
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 3799
+        width: 306
+        height: 349
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acda5cc2851f00a4baeadc0542ea2bc0
+      internalID: -1777061631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Home 36_2
+      rect:
+        serializedVersion: 2
+        x: 1306
+        y: 3970
+        width: 174
+        height: 174
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03679719a72bce24cb9ef3909f9f835f
+      internalID: 992121311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Home 36_3
+      rect:
+        serializedVersion: 2
+        x: 1669
+        y: 2239
+        width: 469
+        height: 1909
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2a3a2db0473cf349aab1bc4a4861090
+      internalID: -290880666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Home 36_4
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 1593
+        width: 824
+        height: 2555
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb1d68bd164dc804687d988e351bc89d
+      internalID: -1689082454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Home 36_5
+      rect:
+        serializedVersion: 2
+        x: 3219
+        y: 1170
+        width: 1610
+        height: 2978
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e9738b57a30e9f4dbfb7cc7eed68ddc
+      internalID: -2017414586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Home 36_6
+      rect:
+        serializedVersion: 2
+        x: 5011
+        y: 3113
+        width: 472
+        height: 1035
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45ca3e7670d375a44ad70d799b3bcbcc
+      internalID: -567538338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Home 36_7
+      rect:
+        serializedVersion: 2
+        x: 5623
+        y: 3113
+        width: 472
+        height: 1035
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1c0017f9a86cc440bbfce0ec8a3892c
+      internalID: 523654257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Home 36_10
+      rect:
+        serializedVersion: 2
+        x: 1265
+        y: 2598
+        width: 251
+        height: 1330
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 437699ecf5bb75f48bb233deb443f4c3
+      internalID: -382033136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Home 36_12
+      rect:
+        serializedVersion: 2
+        x: 826
+        y: 3319
+        width: 306
+        height: 363
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 637d6d355c2bc5d4194c579be94042e7
+      internalID: -817870392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Home 36_15
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 2992
+        width: 325
+        height: 219
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c626233236d28494e9fd6d110f072e7d
+      internalID: -410017447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Home 36_16
+      rect:
+        serializedVersion: 2
+        x: 845
+        y: 2602
+        width: 261
+        height: 268
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d6029f445b4a904d97f0f879a462583
+      internalID: 673686569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Home 36_17
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 232
+        width: 586
+        height: 2162
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6917e9504caa884438808f9971f36195
+      internalID: 1211012938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Home 36_18
+      rect:
+        serializedVersion: 2
+        x: 1265
+        y: 2281
+        width: 249
+        height: 249
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3012c47552eb22248bdb6ed049521887
+      internalID: -1650977746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Home 36_19
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 1287
+        width: 272
+        height: 748
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dada2304150d99b48b3a7ea7491635c3
+      internalID: 535438868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Home 36_20
+      rect:
+        serializedVersion: 2
+        x: 1265
+        y: 834
+        width: 251
+        height: 1330
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d0a9585aa8488147b5ba69737e5550b
+      internalID: 825661445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Home 36_21
+      rect:
+        serializedVersion: 2
+        x: 1779
+        y: 834
+        width: 249
+        height: 1330
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0536e3f00c9b1e345be249871f88476f
+      internalID: -1183480944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Home 36_22
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 735
+        width: 272
+        height: 363
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63cf5b78cf71e1d4d9e03a5b7b1a427a
+      internalID: 554390828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Home 36_23
+      rect:
+        serializedVersion: 2
+        x: 1374
+        y: 300
+        width: 2741
+        height: 454
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7e66ba6cb138814abde9c859ec7726d
+      internalID: 1386161397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +518,31 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Home 36_0: -997859571
+      Home 36_1: -1777061631
+      Home 36_10: -382033136
+      Home 36_11: -958780389
+      Home 36_12: -817870392
+      Home 36_13: 2130312643
+      Home 36_14: -713552679
+      Home 36_15: -410017447
+      Home 36_16: 673686569
+      Home 36_17: 1211012938
+      Home 36_18: -1650977746
+      Home 36_19: 535438868
+      Home 36_2: 992121311
+      Home 36_20: 825661445
+      Home 36_21: -1183480944
+      Home 36_22: 554390828
+      Home 36_23: 1386161397
+      Home 36_3: -290880666
+      Home 36_4: -1689082454
+      Home 36_5: -2017414586
+      Home 36_6: -567538338
+      Home 36_7: 523654257
+      Home 36_8: -50061935
+      Home 36_9: 2027634111
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

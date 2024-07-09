@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 735e07f58d8ad6746b23c19107ac8b9b
+guid: 4d08d0bf0a2d03e4e94e5f34c4f0cccd
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 4K_Background_Pause Settings Completed_0
+      name: Home 39_0
       rect:
         serializedVersion: 2
-        x: 877
-        y: 312
-        width: 2101
-        height: 1518
+        x: 899
+        y: 637
+        width: 1689
+        height: 1145
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +124,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25252f6cabb263d4cbc352aabe12d50a
-      internalID: 200888087
+      spriteID: f91d189bb80d04d47b00c7f0e8cca4a9
+      internalID: -794348211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Home 39_1
+      rect:
+        serializedVersion: 2
+        x: 2999
+        y: 1409
+        width: 236
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e75cb11db829b3d49b16f3c0542a2d29
+      internalID: 763765813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Home 39_2
+      rect:
+        serializedVersion: 2
+        x: 2918
+        y: 1004
+        width: 464
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f81781820eeb754facd1309906e4b91
+      internalID: -1963094830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Home 39_3
+      rect:
+        serializedVersion: 2
+        x: 2918
+        y: 637
+        width: 224
+        height: 223
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 038da580308b99f44b74dd2596d3d54e
+      internalID: -916874642
       vertices: []
       indices: 
       edges: []
@@ -134,14 +197,17 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      4K_Background_Pause Settings Completed_0: 200888087
+      Home 39_0: -794348211
+      Home 39_1: 763765813
+      Home 39_2: -1963094830
+      Home 39_3: -916874642
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

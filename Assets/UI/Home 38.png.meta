@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 735e07f58d8ad6746b23c19107ac8b9b
+guid: 1751ca90341d4ed4680bf3fc8f82b1f4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 4K_Background_Pause Settings Completed_0
+      name: Home 38_0
       rect:
         serializedVersion: 2
-        x: 877
-        y: 312
-        width: 2101
-        height: 1518
+        x: 899
+        y: 590
+        width: 1774
+        height: 1192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +124,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25252f6cabb263d4cbc352aabe12d50a
-      internalID: 200888087
+      spriteID: 0762a81774756e24f8adf3d38512686b
+      internalID: 177174764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Home 38_1
+      rect:
+        serializedVersion: 2
+        x: 2751
+        y: 1664
+        width: 464
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc4ff7c4041c43b4883f444398674e80
+      internalID: -489902650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Home 38_2
+      rect:
+        serializedVersion: 2
+        x: 2802
+        y: 1368
+        width: 235
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efa8e43cc474a0f4a85ecce839476b87
+      internalID: 1164081307
       vertices: []
       indices: 
       edges: []
@@ -134,14 +176,16 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      4K_Background_Pause Settings Completed_0: 200888087
+      Home 38_0: 177174764
+      Home 38_1: -489902650
+      Home 38_2: 1164081307
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
