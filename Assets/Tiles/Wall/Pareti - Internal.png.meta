@@ -1,0 +1,311 @@
+fileFormatVersion: 2
+guid: db1b21107bfba73429d10613efee54ad
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 512
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Pareti - Internal_1
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 2182
+        width: 890
+        height: 1158
+      alignment: 9
+      pivot: {x: 0.424719, y: 0.4421416}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bb8cc41d24da3645b109792ce55dd23
+      internalID: 904912408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pareti - Internal_2
+      rect:
+        serializedVersion: 2
+        x: 1670
+        y: 2182
+        width: 890
+        height: 1158
+      alignment: 9
+      pivot: {x: 0.575281, y: 0.4421416}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dea91c3161b19b4fa588b871c528fbd
+      internalID: 142841399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pareti - Internal_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1670
+        width: 1158
+        height: 890
+      alignment: 9
+      pivot: {x: 0.5578583, y: 0.575281}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67d27e2f04c35864681ec3dbc40f9574
+      internalID: 658693612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pareti - Internal_7
+      rect:
+        serializedVersion: 2
+        x: 2182
+        y: 1670
+        width: 1158
+        height: 890
+      alignment: 9
+      pivot: {x: 0.4421416, y: 0.575281}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dc09f5a9304984448316f923eebcdf6
+      internalID: -1408997452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pareti - Internal_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 780
+        width: 1158
+        height: 890
+      alignment: 9
+      pivot: {x: 0.5578583, y: 0.424719}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc66fecf50404b5438228f93b5d50537
+      internalID: -1117713642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pareti - Internal_11
+      rect:
+        serializedVersion: 2
+        x: 2182
+        y: 780
+        width: 1158
+        height: 890
+      alignment: 9
+      pivot: {x: 0.4421416, y: 0.424719}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf567c4172c7f024c9fdfedeb2359f48
+      internalID: 1739845628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pareti - Internal_13
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 0
+        width: 890
+        height: 1158
+      alignment: 9
+      pivot: {x: 0.424719, y: 0.5578583}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c0d112c029b1674db27efecaa5c729b
+      internalID: -101890620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pareti - Internal_14
+      rect:
+        serializedVersion: 2
+        x: 1670
+        y: 0
+        width: 890
+        height: 1158
+      alignment: 9
+      pivot: {x: 0.575281, y: 0.5578583}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ec5903ce0a26c1459b38b52e1ad925c
+      internalID: 1248275747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Pareti - Internal_0: -1384977865
+      Pareti - Internal_1: 904912408
+      Pareti - Internal_10: 1990677438
+      Pareti - Internal_11: 1739845628
+      Pareti - Internal_12: -1056279633
+      Pareti - Internal_13: -101890620
+      Pareti - Internal_14: 1248275747
+      Pareti - Internal_15: -1318369808
+      Pareti - Internal_2: 142841399
+      Pareti - Internal_3: 775356222
+      Pareti - Internal_4: 658693612
+      Pareti - Internal_5: -1119991475
+      Pareti - Internal_6: -412630807
+      Pareti - Internal_7: -1408997452
+      Pareti - Internal_8: -1117713642
+      Pareti - Internal_9: -424786401
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
