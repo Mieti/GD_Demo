@@ -83,6 +83,12 @@ public class Door : MonoBehaviour
 
     protected virtual void MoveToNextRoom(){
         if(isFakePlayer){
+            Plug currentP = GameObject.FindGameObjectWithTag($"Plug{_level}{_side}").GetComponent<Plug>();
+            currentP.isFakePlayer = false;
+            Plug nextP = GameObject.FindGameObjectWithTag($"Plug{_level+1}{_side}").GetComponent<Plug>();
+            Door nextD = GameObject.FindGameObjectWithTag($"Door{_level+1}{_side}").GetComponent<Door>();
+            nextP.isFakePlayer=true;
+            nextD.isFakePlayer=true;
             return;
         }
         GameObject currentWireObject = GameObject.FindGameObjectWithTag($"Player{_level}{_side}");
