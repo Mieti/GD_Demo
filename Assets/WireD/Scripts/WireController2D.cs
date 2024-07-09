@@ -262,9 +262,9 @@ public class WireController2D : MonoBehaviour
             Vector2 direction = (segments[lastIdx].position - segments[lastIdx-1].position).normalized;
             segments[lastIdx].position = (Vector2)segments[lastIdx-1].position + direction * segmentsSeparation;
         }
-        EnableLastColliders(true);
+        EnableLastColliders(0, true);
         AddSegment();
-        EnableLastColliders(false);
+        EnableLastColliders(0, false);
 
         //The last current segment is rotated in the direction of selected position.
         if (usePhysics)
@@ -303,7 +303,7 @@ public class WireController2D : MonoBehaviour
         // destroy segment and remove from the list
         Destroy(segments[lastSegmentIdx].gameObject);
         segments.RemoveAt(lastSegmentIdx);
-        EnableLastColliders(false);
+        EnableLastColliders(0, false);
         RenderWireMesh();
     }
     /// <summary>
@@ -337,9 +337,9 @@ public class WireController2D : MonoBehaviour
         }
         RenderWireMesh();
     }
-    private void EnableLastColliders(bool enabled)
+    private void EnableLastColliders(int n, bool enabled)
     {
-        int n = 0;
+        // int n = 0;
         int lastIdx = segments.Count-1;
         for (int i = 0; i < n; i++)
         {
@@ -476,6 +476,7 @@ public class WireController2D : MonoBehaviour
 
     public void AddPlug(Vector2 position)
     {
+        EnableLastColliders(3, false);
         Transform endPlug = Instantiate(plugObjt, endAnchorTemp.position, Quaternion.identity, transform);
         endPlug.GetComponent<SpringJoint2D>().connectedBody = segments[^1].GetComponent<Rigidbody2D>();
         endAnchorTemp.GetComponent<SpringJoint2D>().connectedBody = null;
@@ -495,9 +496,9 @@ public class WireController2D : MonoBehaviour
         plug.position = endAnchorTemp.position;
         endAnchorTemp.GetComponent<SpringJoint2D>().connectedBody = segments[^1].GetComponent<Rigidbody2D>();
         plug.GetComponent<SpringJoint2D>().connectedBody = null;
-
         Destroy(plug.gameObject);
         RenderWireMesh();
+        EnableLastColliders(3, true);
     }
     public void CreateFixedWire()
     {
