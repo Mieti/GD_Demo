@@ -108,7 +108,28 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: IMG_0714 3_1
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 34
+        width: 1503
+        height: 821
+      alignment: 9
+      pivot: {x: 0.6437939, y: 0.56}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07575a41334b13742b385107db340247
+      internalID: -1411858772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +140,10 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      IMG_0714 3_0: -1938354103
+      IMG_0714 3_1: -1411858772
+      IMG_0714 3_2: -175024650
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
