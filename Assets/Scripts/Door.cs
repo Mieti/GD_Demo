@@ -78,7 +78,6 @@ public class Door : MonoBehaviour
         // Implement door opening logic (e.g., animation or enabling/disabling objects)
         GetComponent<SpriteRenderer>().sprite = open;        
         MoveToNextRoom();
-        GetComponent<SpriteRenderer>().sprite = close; 
     }
 
     protected virtual void MoveToNextRoom(){
@@ -101,14 +100,23 @@ public class Door : MonoBehaviour
             {
                 // detach the joint connencted body
                 Transform p = currentWire.DetachEnd();
-                // nextWire.AddSegment();
-                // nextWire.AddEndPlayer(p);
-                nextWire.AddSegmentAndPlayer(p);
-                // make sure the player can move
-                p.GetComponent<PlayerKinematicMovement>().freeze = false;
-
-                // destroy the current wire
-                Destroy(currentWireObject);
+                // Move to door
+                Vector3 wirePos = nextWire.GetStartingPoint();
+                StartCoroutine( MovePlayerToDoor(p, wirePos,
+                () => {
+                    // Stop animation
+                    p.GetComponent<PlayerKinematicMovement>().DisableAnimation();
+                    // attach player to next wire
+                    nextWire.AddSegmentAndPlayer(p);
+                    // make sure the player can move
+                    p.GetComponent<PlayerKinematicMovement>().freeze = false;
+                    // close door
+                    GetComponent<SpriteRenderer>().sprite = close; 
+                    // destroy the current wire
+                    currentWire.CreateFixedWire();
+                    Destroy(currentWireObject);
+                
+                }));
             }
             else
             {
@@ -120,6 +128,70 @@ public class Door : MonoBehaviour
                 Debug.Log($"Unable to find a wire object at level {_level}");
         }
 
+    }
+    private IEnumerator MovePlayerToDoor(Transform player, Vector3 wirePos, System.Action onComplete)
+    {
+        float epsilon = 0.05f;
+        float moveSpeed = 3f;
+        PlayerKinematicMovement playerMove = player.GetComponent<PlayerKinematicMovement>();
+
+        
+        // Move down first
+        float direction = transform.position.x - player.position.x;
+        player.GetComponent<PlayerKinematicMovement>().SetDirection(direction);
+        playerMove.EnambleAnimation();
+        float moveDown = transform.position.y-1.5f;
+        if (moveDown < player.position.y)
+        {
+            while (Mathf.Abs(player.position.y - moveDown) > epsilon)
+            {
+                Vector3 newPosition = new Vector3(player.position.x, Mathf.Lerp(player.position.y, moveDown, moveSpeed * Time.deltaTime), player.position.z);
+                player.position = newPosition;
+                yield return null;
+            }
+        }
+        
+        // Move on the x-axis first
+        Vector3 doorPosition = transform.position;
+        while (Mathf.Abs(player.position.x - doorPosition.x) > epsilon)
+        {
+            Vector3 newPosition = new Vector3(Mathf.Lerp(player.position.x, doorPosition.x, moveSpeed * Time.deltaTime), player.position.y, player.position.z);
+            player.position = newPosition;
+            yield return null;
+        }
+        
+        // Move on the y-axis next
+        while (Mathf.Abs(player.position.y - doorPosition.y) > epsilon)
+        {
+            Vector3 newPosition = new Vector3(player.position.x, Mathf.Lerp(player.position.y, doorPosition.y, moveSpeed * Time.deltaTime), player.position.z);
+            player.position = newPosition;
+            yield return null;
+        }
+        // REACHED THE DOOR
+
+        // to the wire
+        direction = wirePos.x - player.position.x;
+        player.GetComponent<PlayerKinematicMovement>().SetDirection(direction);
+        while (Mathf.Abs(player.position.y - wirePos.y) > epsilon)
+        {
+            Vector3 newPosition = new Vector3(player.position.x, Mathf.Lerp(player.position.y, wirePos.y, moveSpeed * Time.deltaTime), player.position.z);
+            player.position = newPosition;
+            yield return null;
+        }
+
+        while (Mathf.Abs(player.position.x - wirePos.x) > epsilon)
+        {
+            Vector3 newPosition = new Vector3(Mathf.Lerp(player.position.x, wirePos.x, moveSpeed * Time.deltaTime), player.position.y, player.position.z);
+            player.position = newPosition;
+            yield return null;
+        }
+        
+        // Ensure final position is exactly the target position
+        player.position = wirePos;
+        playerMove.DisableAnimation();
+
+        // Invoke the callback if provided
+        onComplete?.Invoke();
     }
     
 }

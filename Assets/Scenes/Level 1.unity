@@ -853,7 +853,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.90527356}
+  m_Offset: {x: 0, y: -0.724687}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.345}
@@ -864,7 +864,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 0.50945306}
+  m_Size: {x: 0.8, y: 0.8706262}
   m_EdgeRadius: 0
 --- !u!233 &137327112
 HingeJoint2D:
@@ -1112,9 +1112,6 @@ MonoBehaviour:
   minTension: 1
   retreatDistance: 3
   freeze: 0
-  interactableLayer:
-    serializedVersion: 2
-    m_Bits: 2048
   audioFootstep: {fileID: 460682953}
 --- !u!212 &137327118
 SpriteRenderer:
@@ -3519,6 +3516,134 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4632181369207816490}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &391745364
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 391745365}
+  - component: {fileID: 391745366}
+  m_Layer: 0
+  m_Name: AudioFootstep
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &391745365
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 391745364}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 58.016052, y: 34.117767, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 921521047}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &391745366
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 391745364}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: a8dc30b28787f5042879cd9320bca7d9, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &424237588
 GameObject:
   m_ObjectHideFlags: 0
@@ -6727,7 +6852,8 @@ Transform:
   m_LocalPosition: {x: 0.032779694, y: 1.7035484, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 391745365}
   m_Father: {fileID: 4632181369207816490}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &921521048
@@ -6762,7 +6888,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.90527356}
+  m_Offset: {x: 0, y: -0.724687}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.57, y: 0.345}
@@ -6773,7 +6899,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 0.50945306}
+  m_Size: {x: 0.8, y: 0.8706262}
   m_EdgeRadius: 0
 --- !u!60 &921521049
 PolygonCollider2D:
@@ -7308,7 +7434,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 921521046}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
@@ -7454,10 +7580,7 @@ MonoBehaviour:
   minTension: 1
   retreatDistance: 3
   freeze: 0
-  interactableLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  audioFootstep: {fileID: 0}
+  audioFootstep: {fileID: 391745364}
 --- !u!212 &921521056
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -27180,7 +27303,7 @@ MonoBehaviour:
   segment: {fileID: 4721452859494924073, guid: 5bb2a4481cec3ff4b818cb5e012ec8d4, type: 3}
   segmentNoPhysics: {fileID: 4721452859494924073, guid: f20646123e76cda489cb1a9d10cfdd0d, type: 3}
   endAnchorPoint: {fileID: 6099664760935116582, guid: 40e01bc18d2b5e744b235209abd3538f, type: 3}
-  plugObjt: {fileID: 0}
+  plugObjt: {fileID: 541287798638889147, guid: 165ed8e6ab40e554aa56551a46cee721, type: 3}
   selectPosition: {x: -61.010326, y: 18.00854, z: 0}
   mousePossHelper: {fileID: 8045422510970644280}
   presetJoint: {fileID: 2655988077585873504, guid: b5b7a191921435e4096a8455d4c64d29, type: 2}
@@ -27248,7 +27371,7 @@ MonoBehaviour:
   segment: {fileID: 4721452859494924073, guid: 5bb2a4481cec3ff4b818cb5e012ec8d4, type: 3}
   segmentNoPhysics: {fileID: 4721452859494924073, guid: f20646123e76cda489cb1a9d10cfdd0d, type: 3}
   endAnchorPoint: {fileID: 6099664760935116582, guid: 40e01bc18d2b5e744b235209abd3538f, type: 3}
-  plugObjt: {fileID: 0}
+  plugObjt: {fileID: 541287798638889147, guid: 165ed8e6ab40e554aa56551a46cee721, type: 3}
   selectPosition: {x: 33.985832, y: -9.991359, z: 0}
   mousePossHelper: {fileID: 7986432262460273789}
   presetJoint: {fileID: 2655988077585873504, guid: b5b7a191921435e4096a8455d4c64d29, type: 2}
@@ -27342,6 +27465,14 @@ PrefabInstance:
     - target: {fileID: 6241054818404888741, guid: 97f7475dbc0957c439043b491021ee06, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6241054818404888741, guid: 97f7475dbc0957c439043b491021ee06, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6241054818404888741, guid: 97f7475dbc0957c439043b491021ee06, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -909943347
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -27700,7 +27831,7 @@ MonoBehaviour:
   segment: {fileID: 4721452859494924073, guid: 5bb2a4481cec3ff4b818cb5e012ec8d4, type: 3}
   segmentNoPhysics: {fileID: 4721452859494924073, guid: f20646123e76cda489cb1a9d10cfdd0d, type: 3}
   endAnchorPoint: {fileID: 6099664760935116582, guid: 40e01bc18d2b5e744b235209abd3538f, type: 3}
-  plugObjt: {fileID: 0}
+  plugObjt: {fileID: 541287798638889147, guid: 165ed8e6ab40e554aa56551a46cee721, type: 3}
   selectPosition: {x: 35.00641, y: 46.018837, z: 0}
   mousePossHelper: {fileID: 5731534037428219414}
   presetJoint: {fileID: 2655988077585873504, guid: b5b7a191921435e4096a8455d4c64d29, type: 2}
@@ -27748,7 +27879,7 @@ MonoBehaviour:
   segment: {fileID: 4721452859494924073, guid: 5bb2a4481cec3ff4b818cb5e012ec8d4, type: 3}
   segmentNoPhysics: {fileID: 4721452859494924073, guid: f20646123e76cda489cb1a9d10cfdd0d, type: 3}
   endAnchorPoint: {fileID: 6099664760935116582, guid: 40e01bc18d2b5e744b235209abd3538f, type: 3}
-  plugObjt: {fileID: 0}
+  plugObjt: {fileID: 8190770768884734476, guid: 7c6d45f4cff56da47b9a6efafc897d2f, type: 3}
   selectPosition: {x: 37.99771, y: -33.990288, z: 0}
   mousePossHelper: {fileID: 4632181369848148614}
   presetJoint: {fileID: 2655988077585873504, guid: b5b7a191921435e4096a8455d4c64d29, type: 2}
@@ -27929,7 +28060,7 @@ MonoBehaviour:
   segment: {fileID: 4721452859494924073, guid: 5bb2a4481cec3ff4b818cb5e012ec8d4, type: 3}
   segmentNoPhysics: {fileID: 4721452859494924073, guid: f20646123e76cda489cb1a9d10cfdd0d, type: 3}
   endAnchorPoint: {fileID: 6099664760935116582, guid: 40e01bc18d2b5e744b235209abd3538f, type: 3}
-  plugObjt: {fileID: 0}
+  plugObjt: {fileID: 8190770768884734476, guid: 7c6d45f4cff56da47b9a6efafc897d2f, type: 3}
   selectPosition: {x: -56.80281, y: -33.42574, z: 0}
   mousePossHelper: {fileID: 4994633219538572859}
   presetJoint: {fileID: 2655988077585873504, guid: b5b7a191921435e4096a8455d4c64d29, type: 2}
@@ -28100,7 +28231,7 @@ MonoBehaviour:
   segment: {fileID: 4721452859494924073, guid: 5bb2a4481cec3ff4b818cb5e012ec8d4, type: 3}
   segmentNoPhysics: {fileID: 4721452859494924073, guid: f20646123e76cda489cb1a9d10cfdd0d, type: 3}
   endAnchorPoint: {fileID: 6099664760935116582, guid: 40e01bc18d2b5e744b235209abd3538f, type: 3}
-  plugObjt: {fileID: 0}
+  plugObjt: {fileID: 541287798638889147, guid: 165ed8e6ab40e554aa56551a46cee721, type: 3}
   selectPosition: {x: 40.98268, y: 17.981432, z: 0}
   mousePossHelper: {fileID: 5844552405490543748}
   presetJoint: {fileID: 2655988077585873504, guid: b5b7a191921435e4096a8455d4c64d29, type: 2}
@@ -29124,7 +29255,7 @@ MonoBehaviour:
   segment: {fileID: 4721452859494924073, guid: 5bb2a4481cec3ff4b818cb5e012ec8d4, type: 3}
   segmentNoPhysics: {fileID: 4721452859494924073, guid: f20646123e76cda489cb1a9d10cfdd0d, type: 3}
   endAnchorPoint: {fileID: 6099664760935116582, guid: 40e01bc18d2b5e744b235209abd3538f, type: 3}
-  plugObjt: {fileID: 0}
+  plugObjt: {fileID: 8190770768884734476, guid: 7c6d45f4cff56da47b9a6efafc897d2f, type: 3}
   selectPosition: {x: -57.31074, y: -8.906049, z: 0}
   mousePossHelper: {fileID: 155991195496828072}
   presetJoint: {fileID: 2655988077585873504, guid: b5b7a191921435e4096a8455d4c64d29, type: 2}
@@ -29711,7 +29842,7 @@ MonoBehaviour:
   segment: {fileID: 4721452859494924073, guid: 5bb2a4481cec3ff4b818cb5e012ec8d4, type: 3}
   segmentNoPhysics: {fileID: 4721452859494924073, guid: f20646123e76cda489cb1a9d10cfdd0d, type: 3}
   endAnchorPoint: {fileID: 6099664760935116582, guid: 40e01bc18d2b5e744b235209abd3538f, type: 3}
-  plugObjt: {fileID: 0}
+  plugObjt: {fileID: 541287798638889147, guid: 165ed8e6ab40e554aa56551a46cee721, type: 3}
   selectPosition: {x: -55.00222, y: 46.006355, z: 0}
   mousePossHelper: {fileID: 2044164267478015468}
   presetJoint: {fileID: 2655988077585873504, guid: b5b7a191921435e4096a8455d4c64d29, type: 2}

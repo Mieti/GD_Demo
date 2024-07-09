@@ -58,6 +58,7 @@ MonoBehaviour:
   maxDistanceToStarAnchor: 0
   segments: []
   undoSegments: 
+  startOffset: {x: 0, y: 1.5, z: 0}
   ropeMesh: {fileID: 5055458072506780262}
   startAnchorTemp: {fileID: 0}
   firstSegment: {fileID: 0}
@@ -67,7 +68,7 @@ MonoBehaviour:
   segment: {fileID: 4721452859494924073, guid: 5bb2a4481cec3ff4b818cb5e012ec8d4, type: 3}
   segmentNoPhysics: {fileID: 4721452859494924073, guid: f20646123e76cda489cb1a9d10cfdd0d, type: 3}
   endAnchorPoint: {fileID: 6099664760935116582, guid: 40e01bc18d2b5e744b235209abd3538f, type: 3}
-  plugObjt: {fileID: 0}
+  plugObjt: {fileID: 8190770768884734476, guid: 7c6d45f4cff56da47b9a6efafc897d2f, type: 3}
   selectPosition: {x: 0, y: 0, z: 0}
   mousePossHelper: {fileID: 541287800083086103}
   presetJoint: {fileID: 2655988077585873504, guid: b5b7a191921435e4096a8455d4c64d29, type: 2}

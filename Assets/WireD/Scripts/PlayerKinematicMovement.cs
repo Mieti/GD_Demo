@@ -16,15 +16,7 @@ public class PlayerKinematicMovement : MonoBehaviour
     private bool isFacingRight = true;
 
     [SerializeField] private Animator animator;
-    //[SerializeField]
-    //private SpriteRenderer spriteRenderer;
 
-    //[SerializeField]
-    //bool isGrounded = false;
-
-    //bool isGroundedCheckStop = false;
-
-    //public Sounds playerSopunds;
     [SerializeField]
     private float speed = 5f;
     [SerializeField]
@@ -41,18 +33,7 @@ public class PlayerKinematicMovement : MonoBehaviour
     // to freeze the player movement, e.g. when attached to a plug
     public bool freeze = false;
     private float interactionRadius = 1.0f;
-    [SerializeField] private LayerMask interactableLayer;
-
-    //[SerializeField]
-    //private Animator animator;
-    //[SerializeField]
-    private SpriteRenderer spriteRenderer;
-
-    //[SerializeField]
-    //bool isGrounded = false;
-
-    //bool isGroundedCheckStop = false;
-    //public Sounds playerSopunds;
+    private int interactableLayer;
     
     [SerializeField] private GameObject audioFootstep;
 
@@ -61,14 +42,14 @@ public class PlayerKinematicMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<BoxCollider2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
         //playerSounds = GetComponentInChildren<Sounds>();
         rb.isKinematic = true;
         wc = GetComponentInParent<WireController2D>();
 
-    if (animator == null){
-        animator = GetComponent<Animator>();
-    }
+        if (animator == null){
+            animator = GetComponent<Animator>();
+        }
+        interactableLayer = LayerMask.GetMask("Interactable");
     }
 
     void Start()
@@ -211,9 +192,8 @@ public class PlayerKinematicMovement : MonoBehaviour
     {
         if (context.performed)
         {
-            int layerMask = LayerMask.GetMask("Interactable");
             // Check for nearby interactable objects
-            Collider2D[] interactableColliders = Physics2D.OverlapCircleAll(transform.position, interactionRadius, layerMask);
+            Collider2D[] interactableColliders = Physics2D.OverlapCircleAll(transform.position, interactionRadius, interactableLayer);
             foreach (var collider in interactableColliders)
             {
                 Plug plug = collider.GetComponent<Plug>();
@@ -228,21 +208,6 @@ public class PlayerKinematicMovement : MonoBehaviour
 
     private void AddSegment()
     {
-        /* if (IsMoving)
-        {
-            if (wc.IsMaxLen()){
-                if (rb.isKinematic)
-                {
-                    wc.ChangeJoints();
-                    rb.isKinematic = false;
-                    rb.mass = wc.RopeMass();
-                }
-            }
-            else if (wc.RopeDistance())
-            {
-                wc.AddSegmentIncremental();
-            }
-        } */
         if (wc.RopeDistance(0.1f))
         {
             wc.AddSegmentIncremental();
@@ -259,17 +224,6 @@ public class PlayerKinematicMovement : MonoBehaviour
 
 
     }
-    /*
-    private bool CheckIfStuck()
-    {
-        Vector2 currentPosition = rb.position;
-        float distanceMoved = Vector2.Distance(currentPosition, previousPosition);
-        float avgT = wc.RopeTension(10);
-
-        // If the distance moved is less than the threshold, consider the player stuck
-        // stuck due to the rope if it's tight
-        return distanceMoved < stuckThreshold && avgT>maxTension;
-    }*/
     private void RewindRope()
     {
         if (rb.isKinematic)
@@ -303,6 +257,24 @@ public class PlayerKinematicMovement : MonoBehaviour
     {
         wc = wireController;
     }
-
+    public void SetDirection(float xDirection)
+    {
+        if ((xDirection<0 && isFacingRight) || (xDirection>0 && !isFacingRight)){
+            isFacingRight = !isFacingRight;
+            Vector3 scale  = transform.localScale;
+            scale.x *= -1;
+            transform.localScale = scale;
+        }
+    }
+    public void EnambleAnimation()
+    {
+        animator.SetFloat("Horizontal", 1);
+        animator.SetFloat("Speed", speed);
+    }
+    public void DisableAnimation()
+    {
+        animator.SetFloat("Horizontal", 0);
+        animator.SetFloat("Speed", 0);
+    }
 
 }

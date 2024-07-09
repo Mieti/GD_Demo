@@ -62,11 +62,11 @@ public class Plug : MonoBehaviour
     public void Interact(PlayerKinematicMovement p){
         isConnected = !isConnected;
         player = p;
+        WireController2D w = GameObject.FindGameObjectWithTag($"Player{_level}{_side}").GetComponent<WireController2D>();
         if(isConnected){
-            Debug.Log("Connected to plug");
             p.freeze = true;
             bool correct = CheckCorrectPoles();
-
+            w.AddPlug(new Vector2(transform.position.x, transform.position.y-0.657f));
             if(correct){
                 _light.sprite = lightCorrect;
                 doorL.PlayerCompletedRoom(_side);
@@ -78,7 +78,7 @@ public class Plug : MonoBehaviour
             
         }
         else{
-            Debug.Log("Disconnected from plug");
+            w.RemovePlug();
             p.freeze = false;
             _light.sprite = lightOff;
             doorL.PlayerDetached(_side);
@@ -94,7 +94,6 @@ public class Plug : MonoBehaviour
         GameObject[] correctPoleObjects = GameObject.FindGameObjectsWithTag(checkTagCorrect);
         // poles NOT to connect
         GameObject[] wrongPoleObjects = GameObject.FindGameObjectsWithTag(checkTagWrong);
-        Debug.Log(correctPoleObjects.Length);
         // ne basta 1 NON connesso
         foreach (GameObject poleObject in correctPoleObjects)
         {
@@ -119,7 +118,6 @@ public class Plug : MonoBehaviour
             }
         }
 
-        Debug.Log("Right");
         roomSolved = true;
         return true;
 

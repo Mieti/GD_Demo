@@ -114,11 +114,11 @@ public class WireController2D : MonoBehaviour
     {
         mousePossHelper.gameObject.SetActive(false);
 
-        if (endAnchorTemp == null)
+        /* if (endAnchorTemp == null)
         {
             GameObject mockEndAnchor = new GameObject("MockEndAnchor");
             endAnchorTemp = mockEndAnchor.transform;
-        }
+        } */
     }
 
     private void OnValidate()
@@ -174,7 +174,10 @@ public class WireController2D : MonoBehaviour
         /// </summary>
         SetMaxDistance();
     }
-
+    public Vector3 GetStartingPoint()
+    {
+        return startAnchorTemp.position + startOffset;
+    }
     public void AddStart()
     {
         if (startAnchorTemp == null)
@@ -336,7 +339,7 @@ public class WireController2D : MonoBehaviour
     }
     private void EnableLastColliders(bool enabled)
     {
-        int n = 2;
+        int n = 0;
         int lastIdx = segments.Count-1;
         for (int i = 0; i < n; i++)
         {
@@ -471,23 +474,46 @@ public class WireController2D : MonoBehaviour
         //}
     }
 
-    //public void AddPlug()
-    //{
-    //    // Instantiate the plug in the selected position.
-    //    plugTemp = Instantiate(plugObjt, selectPosition, plugObjt.transform.rotation, transform);
+    public void AddPlug(Vector2 position)
+    {
+        Transform endPlug = Instantiate(plugObjt, endAnchorTemp.position, Quaternion.identity, transform);
+        endPlug.GetComponent<SpringJoint2D>().connectedBody = segments[^1].GetComponent<Rigidbody2D>();
+        endAnchorTemp.GetComponent<SpringJoint2D>().connectedBody = null;
+        endPlug.position = position;
+        //endAnchorTemp = null;
+        plugTemp = endPlug;
 
-    //    // Set the tag to "Plug2L"
-    //    plugTemp.tag = "Plug2L";
+        RenderWireMesh();
+    }
+    public void RemovePlug()
+    {
+        var plug = plugTemp;
 
-    //    // Set the size to x:7, y:7
-    //    plugTemp.localScale = new Vector2(7, 7);
+        plugTemp=null;
+        // endAnchorTemp = endPlayer;
 
-    //    PlugController plugScritp = plugTemp.GetComponent<PlugController>();
+        plug.position = endAnchorTemp.position;
+        endAnchorTemp.GetComponent<SpringJoint2D>().connectedBody = segments[^1].GetComponent<Rigidbody2D>();
+        plug.GetComponent<SpringJoint2D>().connectedBody = null;
 
-    //    plugScritp.endAnchor = endAnchorTemp;
-    //    plugScritp.endAnchorRB = endAnchorTemp.GetComponent<Rigidbody>();
-    //    plugScritp.wireController2D = this;
-    //}
+        Destroy(plug.gameObject);
+        RenderWireMesh();
+    }
+    public void CreateFixedWire()
+    {
+        GameObject wire = new GameObject(tag.Replace("Player", "Wire"));
+        wire.transform.parent = transform.parent;
+        
+        GameObject plug = new GameObject("Plug");
+        plug.transform.position = plugTemp.position;
+        plug.transform.parent = wire.transform;
+        SpriteRenderer sr = plug.AddComponent<SpriteRenderer>();
+        sr.sprite = plugTemp.GetComponent<SpriteRenderer>().sprite;
+
+        RenderWireMesh();
+        Instantiate(ropeMesh, wire.transform);
+
+    }
 
     public void SetMaxDistance()
     {
@@ -689,7 +715,18 @@ public class WireController2D : MonoBehaviour
 
     public void DistanceBetweenStartAndEnd()
     {
-        currentDistanceToStartAnchor = Vector3.Distance(endAnchorTemp.position, startAnchorTemp.position);
+        if (endAnchorTemp != null)
+        {
+            currentDistanceToStartAnchor = Vector3.Distance(endAnchorTemp.position, startAnchorTemp.position);
+        }
+        else if (plugTemp != null)
+        {
+            currentDistanceToStartAnchor = Vector3.Distance(plugTemp.position, startAnchorTemp.position);
+        }
+        else
+        {
+            currentDistanceToStartAnchor = 0;
+        }
 
         if (currentDistanceToStartAnchor > maxDistanceToStarAnchor)
         {
@@ -716,7 +753,15 @@ public class WireController2D : MonoBehaviour
         {
             tempPos.Add(pos.localPosition);
         }
-        if (endAnchorTemp != null)
+
+        if (plugTemp != null)
+        {
+            tempPos.Add(plugTemp.position);
+            var pos = plugTemp.localPosition;
+            pos.y += 0.5f;
+            tempPos.Add(pos);
+        }
+        else if (endAnchorTemp != null)
         {
             var pos = endAnchorTemp.localPosition;
             tempPos.Add(pos);
@@ -733,6 +778,7 @@ public class WireController2D : MonoBehaviour
         Transform end = endAnchorTemp;
         end.GetComponent<SpringJoint2D>().connectedBody = null;
         this.endAnchorTemp = null;
+        end.parent = transform.parent;
         return end;
     }
 
@@ -760,7 +806,6 @@ public class WireController2D : MonoBehaviour
     {
         selectPosition = startAnchorTemp.position + startOffset;
         float difference = selectPosition.y - startAnchorTemp.position.y;
-        Debug.Log("Start-player difference: "+ difference);
         AddSegment();
         Transform lastSegment = segments[segments.Count - 1];
         player.position = lastSegment.position + (lastSegment.forward * .0005f);
