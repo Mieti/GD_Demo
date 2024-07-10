@@ -78,10 +78,15 @@ public class TubeRenderer2D : MonoBehaviour
     {
         _radius = radius;
         _radius = radius;
+        SetRadius();
     }
 
     public void SetRadius()
     {
+        if (_lineRenderer == null)
+        {
+            _lineRenderer = GetComponent<LineRenderer>();
+        }
         _lineRenderer.startWidth = _radius;
         _lineRenderer.endWidth = _radius;
     }

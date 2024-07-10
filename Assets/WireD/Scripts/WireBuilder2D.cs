@@ -45,6 +45,10 @@ public class WireBuilder2D : Editor
         {
             WireController2D.FinishNoPhysicsWire();
         }
+        if (GUILayout.Button("Change segments radius"))
+        {
+            WireController2D.ChangeRadius();
+        }
     }
     public void Update()
     {
@@ -83,7 +87,7 @@ public class WireBuilder2D : Editor
 
         //position = hit.point;
         position = pos;
-        Debug.Log("MousePos: " + pos);
+        // Debug.Log("MousePos: " + pos);
         WireController2D WireController2D = (WireController2D)target;
         WireController2D.SetPosition(position);
 

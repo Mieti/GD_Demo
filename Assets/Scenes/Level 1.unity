@@ -272,7 +272,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 5
 --- !u!212 &35262542
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -650,7 +650,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 5
 --- !u!212 &109048249
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1443,7 +1443,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 5
 --- !u!212 &166670133
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1921,7 +1921,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 5
 --- !u!212 &264495249
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2208,7 +2208,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 5
 --- !u!212 &289435998
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2425,7 +2425,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 5
 --- !u!212 &291391629
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2832,7 +2832,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 5
 --- !u!212 &362403469
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3231,7 +3231,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 5
 --- !u!212 &381933666
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3448,7 +3448,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 5
 --- !u!212 &385544265
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3919,7 +3919,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 5
 --- !u!212 &453299639
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6553,7 +6553,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 5
 --- !u!212 &872626749
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10565,7 +10565,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 5
 --- !u!212 &1243067250
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11962,7 +11962,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 5
 --- !u!212 &1412770154
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19881,7 +19881,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 5
 --- !u!212 &1467632181
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20597,7 +20597,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 5
 --- !u!212 &1639488474
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -24162,7 +24162,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 5
 --- !u!212 &1653561920
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -24414,7 +24414,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 5
 --- !u!212 &1720170946
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -25552,7 +25552,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 5
 --- !u!212 &1966281289
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -25769,7 +25769,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 5
 --- !u!212 &1993398885
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -26177,7 +26177,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 5
 --- !u!212 &2070907272
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -26519,7 +26519,16 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 3.1488755
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 3.1488755
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -26581,10 +26590,6 @@ PrefabInstance:
     - target: {fileID: 1108454633973877571, guid: 27827949f5522584ca7c47430a6c4c5a, type: 3}
       propertyPath: m_Name
       value: Door 1L
-      objectReference: {fileID: 0}
-    - target: {fileID: 1793584477439624344, guid: 27827949f5522584ca7c47430a6c4c5a, type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8800035573422743043, guid: 27827949f5522584ca7c47430a6c4c5a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -26684,7 +26689,16 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 3.1488755
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 3.1488755
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -26972,7 +26986,8 @@ MonoBehaviour:
   maxDistanceWithSelectedPos: 0.05
   segmentsSeparation: 0.2
   limitMax: 500
-  segmentsRadius: 0.1
+  segmentsRadius: 5
+  lineWidth: 0.15
   currentDistanceToStartAnchor: 0
   maxDistanceToStarAnchor: 0
   segments: []
@@ -26987,7 +27002,7 @@ MonoBehaviour:
   segment: {fileID: 4721452859494924073, guid: 5bb2a4481cec3ff4b818cb5e012ec8d4, type: 3}
   segmentNoPhysics: {fileID: 4721452859494924073, guid: f20646123e76cda489cb1a9d10cfdd0d, type: 3}
   endAnchorPoint: {fileID: 6099664760935116582, guid: 40e01bc18d2b5e744b235209abd3538f, type: 3}
-  plugObjt: {fileID: 541287798638889147, guid: 165ed8e6ab40e554aa56551a46cee721, type: 3}
+  plugObjt: {fileID: 8190770768884734476, guid: 7c6d45f4cff56da47b9a6efafc897d2f, type: 3}
   selectPosition: {x: -61.010326, y: 18.00854, z: 0}
   mousePossHelper: {fileID: 8045422510970644280}
   presetJoint: {fileID: 2655988077585873504, guid: b5b7a191921435e4096a8455d4c64d29, type: 2}
@@ -27040,7 +27055,8 @@ MonoBehaviour:
   maxDistanceWithSelectedPos: 0.05
   segmentsSeparation: 0.2
   limitMax: 500
-  segmentsRadius: 0.1
+  segmentsRadius: 5
+  lineWidth: 0.15
   currentDistanceToStartAnchor: 0
   maxDistanceToStarAnchor: 0
   segments: []
@@ -27055,7 +27071,7 @@ MonoBehaviour:
   segment: {fileID: 4721452859494924073, guid: 5bb2a4481cec3ff4b818cb5e012ec8d4, type: 3}
   segmentNoPhysics: {fileID: 4721452859494924073, guid: f20646123e76cda489cb1a9d10cfdd0d, type: 3}
   endAnchorPoint: {fileID: 6099664760935116582, guid: 40e01bc18d2b5e744b235209abd3538f, type: 3}
-  plugObjt: {fileID: 541287798638889147, guid: 165ed8e6ab40e554aa56551a46cee721, type: 3}
+  plugObjt: {fileID: 8190770768884734476, guid: 7c6d45f4cff56da47b9a6efafc897d2f, type: 3}
   selectPosition: {x: 33.985832, y: -9.991359, z: 0}
   mousePossHelper: {fileID: 7986432262460273789}
   presetJoint: {fileID: 2655988077585873504, guid: b5b7a191921435e4096a8455d4c64d29, type: 2}
@@ -27430,7 +27446,16 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 3.1488755
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 3.1488755
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -27500,7 +27525,8 @@ MonoBehaviour:
   maxDistanceWithSelectedPos: 0.05
   segmentsSeparation: 0.2
   limitMax: 500
-  segmentsRadius: 0.1
+  segmentsRadius: 5
+  lineWidth: 0.15
   currentDistanceToStartAnchor: 0
   maxDistanceToStarAnchor: 0
   segments: []
@@ -27515,7 +27541,7 @@ MonoBehaviour:
   segment: {fileID: 4721452859494924073, guid: 5bb2a4481cec3ff4b818cb5e012ec8d4, type: 3}
   segmentNoPhysics: {fileID: 4721452859494924073, guid: f20646123e76cda489cb1a9d10cfdd0d, type: 3}
   endAnchorPoint: {fileID: 6099664760935116582, guid: 40e01bc18d2b5e744b235209abd3538f, type: 3}
-  plugObjt: {fileID: 541287798638889147, guid: 165ed8e6ab40e554aa56551a46cee721, type: 3}
+  plugObjt: {fileID: 8190770768884734476, guid: 7c6d45f4cff56da47b9a6efafc897d2f, type: 3}
   selectPosition: {x: 35.00641, y: 46.018837, z: 0}
   mousePossHelper: {fileID: 5731534037428219414}
   presetJoint: {fileID: 2655988077585873504, guid: b5b7a191921435e4096a8455d4c64d29, type: 2}
@@ -27538,7 +27564,8 @@ MonoBehaviour:
   maxDistanceWithSelectedPos: 0.05
   segmentsSeparation: 0.2
   limitMax: 500
-  segmentsRadius: 0.1
+  segmentsRadius: 5
+  lineWidth: 0.15
   currentDistanceToStartAnchor: 0
   maxDistanceToStarAnchor: 2
   segments:
@@ -27630,7 +27657,16 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 3.1488755
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 3.1488755
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -27719,7 +27755,8 @@ MonoBehaviour:
   maxDistanceWithSelectedPos: 0.05
   segmentsSeparation: 0.2
   limitMax: 70
-  segmentsRadius: 0.5
+  segmentsRadius: 5
+  lineWidth: 0.15
   currentDistanceToStartAnchor: 0
   maxDistanceToStarAnchor: 2
   segments:
@@ -27811,7 +27848,16 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 3.1488755
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 3.1488755
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -27900,7 +27946,8 @@ MonoBehaviour:
   maxDistanceWithSelectedPos: 0.05
   segmentsSeparation: 0.2
   limitMax: 500
-  segmentsRadius: 0.1
+  segmentsRadius: 5
+  lineWidth: 0.15
   currentDistanceToStartAnchor: 0
   maxDistanceToStarAnchor: 0
   segments: []
@@ -27915,7 +27962,7 @@ MonoBehaviour:
   segment: {fileID: 4721452859494924073, guid: 5bb2a4481cec3ff4b818cb5e012ec8d4, type: 3}
   segmentNoPhysics: {fileID: 4721452859494924073, guid: f20646123e76cda489cb1a9d10cfdd0d, type: 3}
   endAnchorPoint: {fileID: 6099664760935116582, guid: 40e01bc18d2b5e744b235209abd3538f, type: 3}
-  plugObjt: {fileID: 541287798638889147, guid: 165ed8e6ab40e554aa56551a46cee721, type: 3}
+  plugObjt: {fileID: 8190770768884734476, guid: 7c6d45f4cff56da47b9a6efafc897d2f, type: 3}
   selectPosition: {x: 40.98268, y: 17.981432, z: 0}
   mousePossHelper: {fileID: 5844552405490543748}
   presetJoint: {fileID: 2655988077585873504, guid: b5b7a191921435e4096a8455d4c64d29, type: 2}
@@ -27972,7 +28019,16 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 3.1488755
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 3.1488755
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -28420,6 +28476,10 @@ PrefabInstance:
     - target: {fileID: 1317252332500588599, guid: 90910dcb21dff5e4eb91736e03a11155, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1988313410447690757, guid: 90910dcb21dff5e4eb91736e03a11155, type: 3}
+      propertyPath: roomSolved
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3639601231182345606, guid: 90910dcb21dff5e4eb91736e03a11155, type: 3}
       propertyPath: m_Enabled
@@ -28924,7 +28984,8 @@ MonoBehaviour:
   maxDistanceWithSelectedPos: 0.05
   segmentsSeparation: 0.2
   limitMax: 500
-  segmentsRadius: 0.1
+  segmentsRadius: 5
+  lineWidth: 0.15
   currentDistanceToStartAnchor: 0
   maxDistanceToStarAnchor: 0
   segments: []
@@ -29048,7 +29109,16 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 3.1488755
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 3.1488755
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -29406,7 +29476,16 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 3.1488755
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 3.1488755
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -29511,7 +29590,8 @@ MonoBehaviour:
   maxDistanceWithSelectedPos: 0.05
   segmentsSeparation: 0.2
   limitMax: 500
-  segmentsRadius: 0.1
+  segmentsRadius: 5
+  lineWidth: 0.15
   currentDistanceToStartAnchor: 0
   maxDistanceToStarAnchor: 0
   segments: []
@@ -29526,7 +29606,7 @@ MonoBehaviour:
   segment: {fileID: 4721452859494924073, guid: 5bb2a4481cec3ff4b818cb5e012ec8d4, type: 3}
   segmentNoPhysics: {fileID: 4721452859494924073, guid: f20646123e76cda489cb1a9d10cfdd0d, type: 3}
   endAnchorPoint: {fileID: 6099664760935116582, guid: 40e01bc18d2b5e744b235209abd3538f, type: 3}
-  plugObjt: {fileID: 541287798638889147, guid: 165ed8e6ab40e554aa56551a46cee721, type: 3}
+  plugObjt: {fileID: 8190770768884734476, guid: 7c6d45f4cff56da47b9a6efafc897d2f, type: 3}
   selectPosition: {x: -55.00222, y: 46.006355, z: 0}
   mousePossHelper: {fileID: 2044164267478015468}
   presetJoint: {fileID: 2655988077585873504, guid: b5b7a191921435e4096a8455d4c64d29, type: 2}

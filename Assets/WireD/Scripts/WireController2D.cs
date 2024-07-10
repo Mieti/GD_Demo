@@ -68,6 +68,8 @@ public class WireController2D : MonoBehaviour
     private int limit = 0;
     [Tooltip("A higher value improves the stability of the physics.")]
     public float segmentsRadius = 1.5f;
+
+    public float lineWidth = 0.05f;
     public float currentDistanceToStartAnchor;
     [Tooltip("Sets the maximum distance from the start anchor point to the end anchor point, based on the number of segments and the separation between them.")]
     public float maxDistanceToStarAnchor;
@@ -151,6 +153,7 @@ public class WireController2D : MonoBehaviour
                 newSegment.GetComponent<SpringJoint2D>().distance = segmentsSeparation;
                 newSegment.GetComponent<DistanceJoint2D>().connectedBody = segments[lastSegment].GetComponent<Rigidbody2D>();
                 newSegment.GetComponent<HingeJoint2D>().connectedBody = segments[lastSegment].GetComponent<Rigidbody2D>();
+                newSegment.GetComponent<CircleCollider2D>().radius = segmentsRadius;
                 //Debug.Log("New segment position" + newSegment.transform.position);
                 segments.Add(newSegment);
             }
@@ -220,6 +223,7 @@ public class WireController2D : MonoBehaviour
                 firstSegment.GetComponent<SpringJoint2D>().distance = segmentsSeparation;
                 firstSegment.GetComponent<DistanceJoint2D>().connectedBody = startAnchorTemp.GetComponent<Rigidbody2D>();
                 firstSegment.GetComponent<HingeJoint2D>().connectedBody = startAnchorTemp.GetComponent<Rigidbody2D>();
+                firstSegment.GetComponent<CircleCollider2D>().radius = segmentsRadius;
             }
             else
             {
@@ -504,6 +508,8 @@ public class WireController2D : MonoBehaviour
     {
         GameObject wire = new GameObject(tag.Replace("Player", "Wire"));
         wire.transform.parent = transform.parent;
+        // to avoid problems with lineRenderer
+        wire.transform.position = this.transform.position;
         
         GameObject plug = new GameObject("Plug");
         plug.transform.position = plugTemp.position;
@@ -512,7 +518,9 @@ public class WireController2D : MonoBehaviour
         sr.sprite = plugTemp.GetComponent<SpriteRenderer>().sprite;
 
         RenderWireMesh();
-        Instantiate(ropeMesh, wire.transform);
+        var tr = Instantiate(ropeMesh, wire.transform);
+        // LineRenderer lr = tr.GetComponent<LineRenderer>();
+        // lr.sortingLayerName = "Player";
 
     }
 
@@ -526,7 +534,7 @@ public class WireController2D : MonoBehaviour
     ///Increasing the radius usually improves the stability of the physics but makes the collisions less accurate in relation to the mesh.
     /// </summary>
 
-    private void ChangeRadius()
+    public void ChangeRadius()
     {
         if (usePhysics)
         {
@@ -757,7 +765,7 @@ public class WireController2D : MonoBehaviour
 
         if (plugTemp != null)
         {
-            tempPos.Add(plugTemp.position);
+            tempPos.Add(plugTemp.localPosition);
             var pos = plugTemp.localPosition;
             pos.y += 0.5f;
             tempPos.Add(pos);
@@ -772,6 +780,7 @@ public class WireController2D : MonoBehaviour
         //Debug.Log("ropeMesh: " + ropeMesh.ToString());
 
         ropeMesh.SetPositions(tempPos.ToArray());
+        ropeMesh.ChangeRadius(lineWidth);
     }
 
     public Transform DetachEnd()
