@@ -12,34 +12,35 @@ public class GameManager : NetworkBehaviour
         {
             // The host (server) also needs to spawn its player
             Debug.Log("Host is spawning its player.");
-            SpawnPlayerServerRpc(NetworkManager.Singleton.LocalClientId, true);
+            Vector3 hostPosition = new Vector3(0, 0, 0); // Replace with your desired position
+            SpawnPlayer(NetworkManager.Singleton.LocalClientId, true, hostPosition);
         }
         else if (IsClient)
         {
             // Clients request to spawn their player
             Debug.Log("Client is requesting to spawn its player.");
-            RequestSpawnPlayerServerRpc(NetworkManager.Singleton.LocalClientId);
+            Vector3 clientPosition = new Vector3(38, -36, 0); // Replace with your desired position
+            RequestSpawnPlayerServerRpc(NetworkManager.Singleton.LocalClientId, clientPosition);
         }
     }
 
     [ServerRpc(RequireOwnership = false)]
-    private void RequestSpawnPlayerServerRpc(ulong clientId, ServerRpcParams rpcParams = default)
+    private void RequestSpawnPlayerServerRpc(ulong clientId, Vector3 position, ServerRpcParams rpcParams = default)
     {
         Debug.Log($"Server received spawn request from client {clientId}.");
         // The server receives the request and spawns the player
-        SpawnPlayerServerRpc(clientId, false);
+        SpawnPlayer(clientId, false, position);
     }
 
-    [ServerRpc(RequireOwnership = false)]
-    private void SpawnPlayerServerRpc(ulong clientId, bool isHost)
+    private void SpawnPlayer(ulong clientId, bool isHost, Vector3 position)
     {
         WireController2D spawnPrefab = isHost ? _hostPrefab : _clientPrefab;
-        Debug.Log($"Spawning player for client {clientId} using prefab: {(isHost ? "HostPrefab" : "ClientPrefab")}.");
+        Debug.Log($"Spawning player for client {clientId} using prefab: {(isHost ? "HostPrefab" : "ClientPrefab")} at position {position}.");
 
-        var spawn = Instantiate(spawnPrefab);
+        var spawn = Instantiate(spawnPrefab, position, Quaternion.identity);
         spawn.NetworkObject.SpawnWithOwnership(clientId);
 
-        Debug.Log($"Player spawned for client {clientId}. IsHost: {isHost}");
+        Debug.Log($"Player spawned for client {clientId}. IsHost: {isHost}, Position: {position}");
     }
 
     public override void OnDestroy()
