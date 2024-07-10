@@ -6,23 +6,14 @@ TagManager:
   tags:
   - Correct Pole
   - Wrong Pole
-  - CorrectPole1L
-  - WrongPole1R
-  - WrongPole1L
   - Door1L
-  - CorrectPole1R
   - Door1R
-  - CorrectPole2L
-  - WrongPole2L
   - Door2L
-  - CorrectPole2R
-  - WrongPole2R
   - Door2R
   - Player1L
   - Player2L
   - Plug1L
   - Plug2L
-  - CorrectPole3L
   - CorrectPole4L
   - WrongPole3L
   - WrongPole4L
@@ -46,6 +37,11 @@ TagManager:
   - Player2R
   - Player3R
   - Player4R
+  - WrongPole2L
+  - WrongPole2R
+  - CorrectPole2L
+  - CorrectPole1L
+  - CorrectPole3L
   layers:
   - Default
   - TransparentFX

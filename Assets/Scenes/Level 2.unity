@@ -2807,6 +2807,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pole1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2102053885874034760, guid: 97f7475dbc0957c439043b491021ee06, type: 3}
+      propertyPath: m_TagString
+      value: Wrong Pole
+      objectReference: {fileID: 0}
     - target: {fileID: 2191348581777174233, guid: 97f7475dbc0957c439043b491021ee06, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5
@@ -6083,6 +6087,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pole1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2102053885874034760, guid: 97f7475dbc0957c439043b491021ee06, type: 3}
+      propertyPath: m_TagString
+      value: Wrong Pole
+      objectReference: {fileID: 0}
     - target: {fileID: 2191348581777174233, guid: 97f7475dbc0957c439043b491021ee06, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10
@@ -6915,6 +6923,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pole1_h
       objectReference: {fileID: 0}
+    - target: {fileID: 527086187378076575, guid: 2f1e11a36bade5a45b1685bd160fe0f7, type: 3}
+      propertyPath: m_TagString
+      value: Wrong Pole
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7038,6 +7050,10 @@ PrefabInstance:
     - target: {fileID: 527086187378076575, guid: 2f1e11a36bade5a45b1685bd160fe0f7, type: 3}
       propertyPath: m_Name
       value: Pole1_h (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 527086187378076575, guid: 2f1e11a36bade5a45b1685bd160fe0f7, type: 3}
+      propertyPath: m_TagString
+      value: Wrong Pole
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20785,6 +20801,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pole2
       objectReference: {fileID: 0}
+    - target: {fileID: 6290178229066738117, guid: e8832a38192a7c241889568fc52a150a, type: 3}
+      propertyPath: m_TagString
+      value: Wrong Pole
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22756,6 +22776,10 @@ PrefabInstance:
     - target: {fileID: 6089651855394454003, guid: 5a4d54da28614d44eac2e63c216754d7, type: 3}
       propertyPath: m_Name
       value: Pole2_h (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6089651855394454003, guid: 5a4d54da28614d44eac2e63c216754d7, type: 3}
+      propertyPath: m_TagString
+      value: Wrong Pole
       objectReference: {fileID: 0}
     - target: {fileID: 6323070553703288674, guid: 5a4d54da28614d44eac2e63c216754d7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -28683,6 +28707,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pole1_h (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 527086187378076575, guid: 2f1e11a36bade5a45b1685bd160fe0f7, type: 3}
+      propertyPath: m_TagString
+      value: Wrong Pole
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -29331,6 +29359,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pole1
       objectReference: {fileID: 0}
+    - target: {fileID: 2102053885874034760, guid: 97f7475dbc0957c439043b491021ee06, type: 3}
+      propertyPath: m_TagString
+      value: Wrong Pole
+      objectReference: {fileID: 0}
     - target: {fileID: 2191348581777174233, guid: 97f7475dbc0957c439043b491021ee06, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12
@@ -29622,6 +29654,10 @@ PrefabInstance:
     - target: {fileID: 6290178229066738117, guid: e8832a38192a7c241889568fc52a150a, type: 3}
       propertyPath: m_Name
       value: Pole2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6290178229066738117, guid: e8832a38192a7c241889568fc52a150a, type: 3}
+      propertyPath: m_TagString
+      value: Wrong Pole
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -29994,6 +30030,10 @@ PrefabInstance:
     - target: {fileID: 6089651855394454003, guid: 5a4d54da28614d44eac2e63c216754d7, type: 3}
       propertyPath: m_Name
       value: Pole2_h
+      objectReference: {fileID: 0}
+    - target: {fileID: 6089651855394454003, guid: 5a4d54da28614d44eac2e63c216754d7, type: 3}
+      propertyPath: m_TagString
+      value: Wrong Pole
       objectReference: {fileID: 0}
     - target: {fileID: 6323070553703288674, guid: 5a4d54da28614d44eac2e63c216754d7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -31019,6 +31059,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pole2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6290178229066738117, guid: e8832a38192a7c241889568fc52a150a, type: 3}
+      propertyPath: m_TagString
+      value: Wrong Pole
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -31903,6 +31947,10 @@ PrefabInstance:
     - target: {fileID: 2102053885874034760, guid: 97f7475dbc0957c439043b491021ee06, type: 3}
       propertyPath: m_Name
       value: Pole1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2102053885874034760, guid: 97f7475dbc0957c439043b491021ee06, type: 3}
+      propertyPath: m_TagString
+      value: Wrong Pole
       objectReference: {fileID: 0}
     - target: {fileID: 2191348581777174233, guid: 97f7475dbc0957c439043b491021ee06, type: 3}
       propertyPath: m_LocalPosition.x
@@ -34297,6 +34345,10 @@ PrefabInstance:
     - target: {fileID: 6089651855394454003, guid: 5a4d54da28614d44eac2e63c216754d7, type: 3}
       propertyPath: m_Name
       value: Pole2_h (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6089651855394454003, guid: 5a4d54da28614d44eac2e63c216754d7, type: 3}
+      propertyPath: m_TagString
+      value: Wrong Pole
       objectReference: {fileID: 0}
     - target: {fileID: 6323070553703288674, guid: 5a4d54da28614d44eac2e63c216754d7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -36742,6 +36794,10 @@ PrefabInstance:
     - target: {fileID: 6290178229066738117, guid: e8832a38192a7c241889568fc52a150a, type: 3}
       propertyPath: m_Name
       value: Pole2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6290178229066738117, guid: e8832a38192a7c241889568fc52a150a, type: 3}
+      propertyPath: m_TagString
+      value: Wrong Pole
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

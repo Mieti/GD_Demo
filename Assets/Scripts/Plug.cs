@@ -88,12 +88,17 @@ public class Plug : MonoBehaviour
     }
     private bool CheckCorrectPoles()
     {
-        string checkTagCorrect = gameObject.tag.Replace("Plug", "CorrectPole");
+        /* string checkTagCorrect = gameObject.tag.Replace("Plug", "CorrectPole");
         string checkTagWrong = gameObject.tag.Replace("Plug", "WrongPole");
         // poles to connect
         GameObject[] correctPoleObjects = GameObject.FindGameObjectsWithTag(checkTagCorrect);
         // poles NOT to connect
-        GameObject[] wrongPoleObjects = GameObject.FindGameObjectsWithTag(checkTagWrong);
+        GameObject[] wrongPoleObjects = GameObject.FindGameObjectsWithTag(checkTagWrong); */
+        List<GameObject> correctPoleObjects = FindInParentWithTag("Correct Pole");
+        List<GameObject> wrongPoleObjects = FindInParentWithTag("Wrong Pole");
+
+        Debug.Log("Found correct: "+ correctPoleObjects.Count);
+        Debug.Log("Found wrong: "+ wrongPoleObjects.Count);
         // ne basta 1 NON connesso
         foreach (GameObject poleObject in correctPoleObjects)
         {
@@ -121,6 +126,22 @@ public class Plug : MonoBehaviour
         roomSolved = true;
         return true;
 
+    }
+
+    private List<GameObject> FindInParentWithTag(string tag)
+    {
+        Transform parent = transform.parent;
+        List<GameObject> taggedObjects = new List<GameObject>();
+        foreach (Transform child in parent)
+        {
+            // Check if the child has the specified tag
+            if (child.CompareTag(tag))
+            {
+                taggedObjects.Add(child.gameObject);
+            }
+            // can ba added recursion if check in grandchildren
+        }
+        return taggedObjects;
     }
 
 }
