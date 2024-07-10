@@ -22091,7 +22091,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4909888927418174162}
   - component: {fileID: 6795768127492540923}
-  - component: {fileID: 4679193244027018347}
   - component: {fileID: 363273609513294436}
   - component: {fileID: 1398008078491735639}
   - component: {fileID: 802809936029933753}
@@ -22101,8 +22100,6 @@ GameObject:
   - component: {fileID: 8271876014260452588}
   - component: {fileID: 1215096689781710473}
   - component: {fileID: 2957621589993543002}
-  - component: {fileID: 7608847627093192663}
-  - component: {fileID: 7648672583966527754}
   m_Layer: 7
   m_Name: Player2
   m_TagString: Untagged
@@ -22612,27 +22609,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &3531935655728196410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6515303862190907714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2314799003
-  InScenePlacedSourceGlobalObjectIdHash: 0
-  AlwaysReplicateAsRoot: 0
-  SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
-  SceneMigrationSynchronization: 1
-  SpawnWithObservers: 1
-  DontDestroyWithOwner: 0
-  AutoObjectParentSync: 1
 --- !u!1 &3541794787193858828
 GameObject:
   m_ObjectHideFlags: 0
@@ -23140,27 +23116,6 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!114 &4679193244027018347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2415325187888588165}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 675733831
-  InScenePlacedSourceGlobalObjectIdHash: 545917775
-  AlwaysReplicateAsRoot: 0
-  SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
-  SceneMigrationSynchronization: 1
-  SpawnWithObservers: 1
-  DontDestroyWithOwner: 0
-  AutoObjectParentSync: 1
 --- !u!114 &4864348414973640153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24579,7 +24534,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7431882878840288703}
-  - component: {fileID: 3531935655728196410}
   - component: {fileID: 996157584019904259}
   m_Layer: 6
   m_Name: WireBuilder
@@ -24920,49 +24874,6 @@ MonoBehaviour:
   selectPosition: {x: -57.31074, y: -8.906049, z: 0}
   mousePossHelper: {fileID: 155991195496828072}
   presetJoint: {fileID: 2655988077585873504, guid: b5b7a191921435e4096a8455d4c64d29, type: 2}
---- !u!114 &7608847627093192663
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2415325187888588165}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e96cb6065543e43c4a752faaa1468eb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UseUnreliableDeltas: 0
-  SyncPositionX: 1
-  SyncPositionY: 1
-  SyncPositionZ: 1
-  SyncRotAngleX: 1
-  SyncRotAngleY: 1
-  SyncRotAngleZ: 1
-  SyncScaleX: 1
-  SyncScaleY: 1
-  SyncScaleZ: 1
-  PositionThreshold: 0.001
-  RotAngleThreshold: 0.01
-  ScaleThreshold: 0.01
-  UseQuaternionSynchronization: 0
-  UseQuaternionCompression: 0
-  UseHalfFloatPrecision: 0
-  InLocalSpace: 0
-  Interpolate: 1
-  SlerpPosition: 0
---- !u!114 &7648672583966527754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2415325187888588165}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80d7c879794dfda4687da0e400131852, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &7651460863256540376
 CircleCollider2D:
   m_ObjectHideFlags: 0
