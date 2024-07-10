@@ -24,6 +24,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 20879ecdb04188d4abb71070543b2e0b, type: 3}
+    - target: {fileID: 3677103195696694416, guid: 27827949f5522584ca7c47430a6c4c5a, type: 3}
+      propertyPath: m_Name
+      value: Doorframe
+      objectReference: {fileID: 0}
+    - target: {fileID: 6632481117795156346, guid: 27827949f5522584ca7c47430a6c4c5a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c071d806c22759419c98beab21972da, type: 3}
     - target: {fileID: 8800035573422743043, guid: 27827949f5522584ca7c47430a6c4c5a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
