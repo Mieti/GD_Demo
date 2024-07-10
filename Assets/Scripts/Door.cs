@@ -13,6 +13,8 @@ public class Door : MonoBehaviour
     [SerializeField] private Sprite close;
     [SerializeField] private Sprite open;
 
+    private AudioSource doorSound;
+
     private bool playerLCompleted = false;
     private bool playerRCompleted = false;
     
@@ -26,6 +28,13 @@ public class Door : MonoBehaviour
         // tag ex. "Plug1L" -> _level="1", _side="L"
         _level = int.Parse(tag[4..^1]);
         _side = tag[^1..];
+
+        if (doorSound == null )
+        {
+            AudioSource audioSource = GetComponent<AudioSource>();
+            doorSound = audioSource;
+            
+        }
 
     }
 
@@ -117,6 +126,7 @@ public class Door : MonoBehaviour
                     Destroy(currentWireObject);
                 
                 }));
+                doorSound.Play();
             }
             else
             {
