@@ -1029,22 +1029,6 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 137327117}
         m_TargetAssemblyTypeName: PlayerKinematicMovement, Assembly-CSharp
-        m_MethodName: OnLengthen
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 15f4c40c-1b53-4930-aad1-161a027de0fd
-    m_ActionName: Player/Lengthen[/Keyboard/e]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 137327117}
-        m_TargetAssemblyTypeName: PlayerKinematicMovement, Assembly-CSharp
         m_MethodName: OnInteract
         m_Mode: 0
         m_Arguments:
@@ -4047,10 +4031,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a8dc30b28787f5042879cd9320bca7d9, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 23b029d527dc38b4ea1214c465da1b19, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.585
-  m_Pitch: 1
+  m_Pitch: 0.65
   Loop: 1
   Mute: 0
   Spatialize: 0
