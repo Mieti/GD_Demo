@@ -12,6 +12,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plug V2
       objectReference: {fileID: 0}
+    - target: {fileID: 475005748108290165, guid: 90910dcb21dff5e4eb91736e03a11155, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2882583329418177215, guid: 90910dcb21dff5e4eb91736e03a11155, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7128102246277428848, guid: 90910dcb21dff5e4eb91736e03a11155, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1

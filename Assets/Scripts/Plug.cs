@@ -9,6 +9,10 @@ public class Plug : MonoBehaviour
     public bool isConnected = false;
 
     private PlayerKinematicMovement player;
+    private AudioSource plugSound;
+    private AudioSource roomCompleteSound;
+    private AudioSource roomFailSound;
+
 
     [SerializeField] private SpriteRenderer _light;
     [SerializeField] private Sprite lightOff;
@@ -38,6 +42,22 @@ public class Plug : MonoBehaviour
             Debug.LogError("One or both doors not found for level " + _level);
         }
 
+        // Ensure both audio sources are assigned
+        if (plugSound == null || roomCompleteSound == null || roomFailSound == null)
+        {
+            AudioSource[] audioSources = GetComponents<AudioSource>();
+            if (audioSources.Length >= 2)
+            {
+                plugSound = audioSources[0];
+                roomCompleteSound = audioSources[1];
+                roomFailSound = audioSources[2];
+            }
+            else
+            {
+                Debug.LogError("Not enough AudioSource components found on " + gameObject.name);
+            }
+        }
+
     }
 
     private void Update()
@@ -63,7 +83,9 @@ public class Plug : MonoBehaviour
         isConnected = !isConnected;
         player = p;
         WireController2D w = GameObject.FindGameObjectWithTag($"Player{_level}{_side}").GetComponent<WireController2D>();
-        if(isConnected){
+
+        plugSound.Play();
+        if (isConnected){
             p.freeze = true;
             bool correct = CheckCorrectPoles();
             w.AddPlug(new Vector2(transform.position.x, transform.position.y-0.657f));
@@ -105,6 +127,7 @@ public class Plug : MonoBehaviour
             PoleCollision pole = poleObject.GetComponent<PoleCollision>();
             if (pole != null && !pole.active)
             {
+                roomFailSound.Play();
                 Debug.Log("Wrong: A pole should be connected.");
                 roomSolved = false;
                 return false;
@@ -117,11 +140,14 @@ public class Plug : MonoBehaviour
 
             if (pole != null && pole.active)
             {
+                roomFailSound.Play();
                 Debug.Log("Wrong: A pole should not be connected");
                 roomSolved = true;
                 return false;
             }
         }
+
+        roomCompleteSound.Play();
 
         roomSolved = true;
         return true;
