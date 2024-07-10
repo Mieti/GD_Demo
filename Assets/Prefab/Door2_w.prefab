@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: close
       value: 
       objectReference: {fileID: 21300000, guid: 20879ecdb04188d4abb71070543b2e0b, type: 3}
+    - target: {fileID: 756714383487008045, guid: 27827949f5522584ca7c47430a6c4c5a, type: 3}
+      propertyPath: doorSound
+      value: 
+      objectReference: {fileID: 7346769053225719575}
     - target: {fileID: 1108454633973877571, guid: 27827949f5522584ca7c47430a6c4c5a, type: 3}
       propertyPath: m_Name
       value: Door2_w
@@ -77,3 +81,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27827949f5522584ca7c47430a6c4c5a, type: 3}
+--- !u!82 &7346769053225719575 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7856679565073773772, guid: 27827949f5522584ca7c47430a6c4c5a, type: 3}
+  m_PrefabInstance: {fileID: 647533147114759131}
+  m_PrefabAsset: {fileID: 0}

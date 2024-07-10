@@ -97,7 +97,10 @@ MonoBehaviour:
   lightOn: {fileID: 1525025072, guid: 8e094ed9edf5afa4893fe1f5c45691b0, type: 3}
   close: {fileID: 21300000, guid: 2cbc25fb71d48b74994183fa3baf5fc6, type: 3}
   open: {fileID: 21300000, guid: 6aa709ba14d8c6c498328518c1a3c1d2, type: 3}
+  doorSound: {fileID: 8454020964141911221}
+  gameManager: {fileID: 0}
   isFakePlayer: 0
+  levelComplete: {fileID: 7223722885054143066}
 --- !u!82 &7223722885054143066
 AudioSource:
   m_ObjectHideFlags: 0
@@ -194,3 +197,8 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!82 &8454020964141911221 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7856679565073773772, guid: 27827949f5522584ca7c47430a6c4c5a, type: 3}
+  m_PrefabInstance: {fileID: 1754784508477487225}
+  m_PrefabAsset: {fileID: 0}

@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: close
       value: 
       objectReference: {fileID: 21300000, guid: edf64575cd4d9cb44bfab54161776084, type: 3}
+    - target: {fileID: 756714383487008045, guid: 27827949f5522584ca7c47430a6c4c5a, type: 3}
+      propertyPath: doorSound
+      value: 
+      objectReference: {fileID: 1558525681825854801}
     - target: {fileID: 1108454633973877571, guid: 27827949f5522584ca7c47430a6c4c5a, type: 3}
       propertyPath: m_Name
       value: Door2_y
@@ -28,6 +32,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: edf64575cd4d9cb44bfab54161776084, type: 3}
+    - target: {fileID: 2591939123519918537, guid: 27827949f5522584ca7c47430a6c4c5a, type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3677103195696694416, guid: 27827949f5522584ca7c47430a6c4c5a, type: 3}
       propertyPath: m_Name
       value: Doorframe
@@ -81,3 +89,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27827949f5522584ca7c47430a6c4c5a, type: 3}
+--- !u!82 &1558525681825854801 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7856679565073773772, guid: 27827949f5522584ca7c47430a6c4c5a, type: 3}
+  m_PrefabInstance: {fileID: 8694329551960359325}
+  m_PrefabAsset: {fileID: 0}
