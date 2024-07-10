@@ -1,9 +1,10 @@
 using System;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 
-public class PlayerKinematicMovement : MonoBehaviour
+public class PlayerKinematicMovement : NetworkBehaviour
 {
     //[SerializeField]
     private Rigidbody2D rb;
@@ -275,6 +276,11 @@ public class PlayerKinematicMovement : MonoBehaviour
     {
         animator.SetFloat("Horizontal", 0);
         animator.SetFloat("Speed", 0);
+    }
+
+    public override void OnNetworkSpawn()
+    {
+        if (!IsOwner) Destroy(this);
     }
 
 }

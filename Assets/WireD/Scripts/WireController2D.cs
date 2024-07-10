@@ -5,13 +5,15 @@ using System.Drawing;
 using System.Threading.Tasks;
 using System;
 using Unity.VisualScripting;
+using Unity.Netcode;
+
 
 #if UNITY_EDITOR
 using UnityEditor.Presets;
 using UnityEditor;
 #endif
 
-public class WireController2D : MonoBehaviour
+public class WireController2D : NetworkBehaviour
 {
     // <summary>
     // Project setup:
@@ -822,5 +824,9 @@ public class WireController2D : MonoBehaviour
             DestroyImmediate(endAnchorTemp.GetComponent<Rigidbody2D>());
         }
         endAnchorTemp.GetComponent<PlayerKinematicMovement>().SetWireController(this);
+    }
+   
+    public override void OnNetworkSpawn() {
+        if (!IsOwner) Destroy(this);
     }
 }
