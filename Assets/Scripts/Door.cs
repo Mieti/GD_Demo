@@ -21,6 +21,8 @@ public class Door : MonoBehaviour
     private int _level;
     private string _side;
 
+    private GameManager gameManager;
+
     public bool isFakePlayer = false;
 
 
@@ -35,6 +37,7 @@ public class Door : MonoBehaviour
             doorSound = audioSource;
             
         }
+        gameManager = GetComponentInParent<GameManager>();
 
     }
 
@@ -78,6 +81,7 @@ public class Door : MonoBehaviour
     {
         if (playerLCompleted && playerRCompleted)
         {
+            gameManager.updateCount();
             OpenDoor();
         }
     }

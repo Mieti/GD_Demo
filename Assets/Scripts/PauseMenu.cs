@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -10,12 +11,9 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject pauseMenuUI;
     
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
+
     void Update()
     {
         readEscInputForPauseMenu();
@@ -54,6 +52,9 @@ public class PauseMenu : MonoBehaviour
     public void replay()
     {
         Debug.Log("Replay");
+        Time.timeScale = 1f;
+        GameIsPaused = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void options()
@@ -64,6 +65,7 @@ public class PauseMenu : MonoBehaviour
     public void quit()
     {
         Debug.Log("Quit");
-        Application.Quit();
+        //Application.Quit();
+        SceneManager.LoadScene(0);
     }
 }

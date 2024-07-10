@@ -105,8 +105,8 @@ MonoBehaviour:
   isConnected: 0
   _light: {fileID: 5763776860121300402}
   lightOff: {fileID: -426203178, guid: 9b12a1139436d0f438cc88f0ee6c86c9, type: 3}
-  lightCorrect: {fileID: -1772684983, guid: 709440e213d679e48abcc282ad481aba, type: 3}
-  lightWrong: {fileID: 1289583140, guid: 709440e213d679e48abcc282ad481aba, type: 3}
+  lightCorrect: {fileID: 1698415978, guid: 709440e213d679e48abcc282ad481aba, type: 3}
+  lightWrong: {fileID: 2130255151, guid: 709440e213d679e48abcc282ad481aba, type: 3}
   roomSolved: 0
   isFakePlayer: 0
 --- !u!61 &3639601231182345606

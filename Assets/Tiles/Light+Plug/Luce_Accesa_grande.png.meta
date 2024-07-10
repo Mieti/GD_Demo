@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Luce_Accesa_0
+      name: Luce_Accesa_grande_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1024
-        width: 1024
-        height: 1024
+        x: 220
+        y: 1255
+        width: 578
+        height: 567
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb5e815b150e4e3468a06beed80fd896
-      internalID: 1289583140
+      spriteID: 047645881da635348b4652a5e81a3758
+      internalID: 2130255151
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Luce_Accesa_1
+      name: Luce_Accesa_grande_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1024
-        height: 1024
+        x: 221
+        y: 224
+        width: 578
+        height: 567
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6036414aa81969c45a8d3ca34d8631ab
-      internalID: -1772684983
+      spriteID: 656fe5f603216e248b967b18c381f10c
+      internalID: 1698415978
       vertices: []
       indices: 
       edges: []
@@ -162,8 +162,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Luce_Accesa_0: 1289583140
-      Luce_Accesa_1: -1772684983
+      Luce_Accesa_grande_0: 2130255151
+      Luce_Accesa_grande_1: 1698415978
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
