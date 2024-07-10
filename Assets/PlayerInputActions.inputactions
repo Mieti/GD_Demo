@@ -24,15 +24,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Lengthen",
-                    "type": "Button",
-                    "id": "15f4c40c-1b53-4930-aad1-161a027de0fd",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Interact",
                     "type": "Button",
                     "id": "cb662f17-9490-4d5c-bf7f-99cea802598a",
@@ -178,7 +169,7 @@
                 {
                     "name": "",
                     "id": "1a0898f4-4553-4c47-b2d4-3549803c9dd6",
-                    "path": "<Keyboard>/r",
+                    "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -188,22 +179,44 @@
                 },
                 {
                     "name": "",
-                    "id": "b9ac90dc-a036-4052-8ab4-0f7d0ff5f0bc",
-                    "path": "<Keyboard>/e",
+                    "id": "4e7fb65d-9dcd-42a3-9d03-60a32a41c030",
+                    "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Lengthen",
+                    "groups": "Joystick",
+                    "action": "Rewind",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6fb00b20-8196-4210-bfd0-0d8e3a6e732e",
+                    "path": "<XInputController>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Rewind",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "9b72cb10-1e25-4f06-a160-967cb8946daf",
-                    "path": "<Keyboard>/q",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "57d49955-6d70-4cd9-b3f0-e59a220f7418",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
                     "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
