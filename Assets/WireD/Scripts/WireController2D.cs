@@ -832,4 +832,16 @@ public class WireController2D : MonoBehaviour
         }
         endAnchorTemp.GetComponent<PlayerKinematicMovement>().SetWireController(this);
     }
+
+    public void activateUI()
+    {
+        InGameUI ui = GetComponentInChildren<InGameUI>();
+        ui.appear();
+    }
+
+    public void disableUI()
+    {
+        InGameUI ui = GetComponentInChildren<InGameUI>();
+        ui.disappear();
+    }
 }

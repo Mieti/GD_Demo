@@ -126,7 +126,11 @@ public class Door : MonoBehaviour
                     Destroy(currentWireObject);
                 
                 }));
+
                 doorSound.Play();
+
+                nextWire.activateUI();
+                currentWire.disableUI();
             }
             else
             {
