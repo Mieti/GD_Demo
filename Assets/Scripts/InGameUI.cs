@@ -51,7 +51,6 @@ public class InGameUI : MonoBehaviour
 
     public void UpdateWC(WireController2D newWC)
     {
-        print("Updating wc");
         wc = newWC;
         maxLen = wc.limitMax;
         segments = wc.segments;
