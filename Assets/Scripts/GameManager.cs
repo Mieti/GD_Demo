@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
         //}
         if (count%2 == 0)
         {
-            ingameUI.lightUp(count);
+            ingameUI.lightUp(count/2);
         }
         
         
