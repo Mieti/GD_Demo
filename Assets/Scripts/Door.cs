@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class Door : MonoBehaviour
+public class Door : NetworkBehaviour
 {
 
     [SerializeField] private SpriteRenderer leftLight;
@@ -25,6 +26,31 @@ public class Door : MonoBehaviour
 
     public bool isFakePlayer = false;
 
+    private NetworkVariable<bool> _playerLCompleted = new NetworkVariable<bool>(false);
+    private NetworkVariable<bool> _playerRCompleted = new NetworkVariable<bool>(false);
+    public override void OnNetworkSpawn()
+    {
+        base.OnNetworkSpawn();
+        _playerLCompleted.OnValueChanged += OnValueChanged;
+        _playerRCompleted.OnValueChanged += OnValueChanged;
+    }
+
+    private void OnValueChanged(bool wasActive, bool isActive)
+    {
+        Debug.Log(isActive);
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    private void OnPlayerLCompletedServerRpc(bool isCompleted)
+    {
+        _playerLCompleted.Value = isCompleted;
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    private void OnPlayerRCompletedServerRpc(bool isCompleted)
+    {
+        _playerRCompleted.Value = isCompleted;
+    }
 
     public void Awake(){
         // tag ex. "Plug1L" -> _level="1", _side="L"
@@ -51,13 +77,15 @@ public class Door : MonoBehaviour
     {
         if (plugSide.Contains('L'))
         {
-            playerLCompleted = true;
+            OnPlayerLCompletedServerRpc(true);
+            //playerLCompleted = true;
             // leftLight.color = Color.green;
             leftLight.sprite = lightOn;
         }
         else if (plugSide.Contains('R'))
         {
-            playerRCompleted = true;
+            OnPlayerRCompletedServerRpc(true);
+            //playerRCompleted = true;
             // rightLight.color = Color.green;
             rightLight.sprite = lightOn;
         }
@@ -68,13 +96,15 @@ public class Door : MonoBehaviour
     {
         if (plugTag.Contains('L'))
         {
-            playerLCompleted = false;
+            OnPlayerLCompletedServerRpc(false);
+            //playerLCompleted = false;
             // leftLight.color = Color.white;
             leftLight.sprite = lightOff;
         }
         else if (plugTag.Contains('R'))
         {
-            playerRCompleted = false;
+            OnPlayerRCompletedServerRpc(false);
+            //playerRCompleted = false;
             // rightLight.color = Color.white;
             rightLight.sprite = lightOff;
         }
@@ -84,7 +114,8 @@ public class Door : MonoBehaviour
 
     private void CheckCompletion()
     {
-        if (playerLCompleted && playerRCompleted)
+        Debug.Log(_playerLCompleted.Value + ";   " + _playerRCompleted.Value);
+        if (_playerLCompleted.Value && _playerRCompleted.Value)
         {
             OpenDoor();
         }

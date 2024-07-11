@@ -171,6 +171,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7544766143734953781, guid: 9aa3bdc6beac63b4dae74d3a070ee760, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 2314913482
+      objectReference: {fileID: 0}
+    - target: {fileID: 7544766143734953781, guid: 9aa3bdc6beac63b4dae74d3a070ee760, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 2386650576
+      objectReference: {fileID: 0}
     - target: {fileID: 8117734416015527971, guid: 9aa3bdc6beac63b4dae74d3a070ee760, type: 3}
       propertyPath: m_Name
       value: LastDoor2
@@ -1035,6 +1043,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8059732012841823688, guid: 5f92193c47dc1c241840c8f953d20206, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 3815100884
+      objectReference: {fileID: 0}
+    - target: {fileID: 8059732012841823688, guid: 5f92193c47dc1c241840c8f953d20206, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 3070194066
+      objectReference: {fileID: 0}
     - target: {fileID: 8225847883240094896, guid: 5f92193c47dc1c241840c8f953d20206, type: 3}
       propertyPath: isFakePlayer
       value: 1
@@ -1539,6 +1555,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Door2R
       objectReference: {fileID: 0}
+    - target: {fileID: 2273722765251989390, guid: 73e1fe12fb2b8284394c60018939fe22, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 2567805262
+      objectReference: {fileID: 0}
+    - target: {fileID: 2273722765251989390, guid: 73e1fe12fb2b8284394c60018939fe22, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 42943508
+      objectReference: {fileID: 0}
     - target: {fileID: 8276629087913065944, guid: 73e1fe12fb2b8284394c60018939fe22, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1597,6 +1621,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 918865903}
     m_Modifications:
+    - target: {fileID: 96617004455160666, guid: ec7343cf3161c4b4686587678ce976c7, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 969438
+      objectReference: {fileID: 0}
     - target: {fileID: 3908697791963628541, guid: ec7343cf3161c4b4686587678ce976c7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.61
@@ -1640,6 +1668,10 @@ PrefabInstance:
     - target: {fileID: 5172800230108021846, guid: ec7343cf3161c4b4686587678ce976c7, type: 3}
       propertyPath: m_Name
       value: Plug V2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5172800230108021846, guid: ec7343cf3161c4b4686587678ce976c7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5172800230108021846, guid: ec7343cf3161c4b4686587678ce976c7, type: 3}
       propertyPath: m_TagString
@@ -1903,6 +1935,14 @@ PrefabInstance:
     - target: {fileID: 549010802648475800, guid: 73e1fe12fb2b8284394c60018939fe22, type: 3}
       propertyPath: m_TagString
       value: Door3R
+      objectReference: {fileID: 0}
+    - target: {fileID: 2273722765251989390, guid: 73e1fe12fb2b8284394c60018939fe22, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 3019245806
+      objectReference: {fileID: 0}
+    - target: {fileID: 2273722765251989390, guid: 73e1fe12fb2b8284394c60018939fe22, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 42943508
       objectReference: {fileID: 0}
     - target: {fileID: 8276629087913065944, guid: 73e1fe12fb2b8284394c60018939fe22, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3046,6 +3086,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 618302459}
     m_Modifications:
+    - target: {fileID: 96617004455160666, guid: ec7343cf3161c4b4686587678ce976c7, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 2481879712
+      objectReference: {fileID: 0}
     - target: {fileID: 3908697791963628541, guid: ec7343cf3161c4b4686587678ce976c7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.56
@@ -3089,6 +3133,10 @@ PrefabInstance:
     - target: {fileID: 5172800230108021846, guid: ec7343cf3161c4b4686587678ce976c7, type: 3}
       propertyPath: m_Name
       value: Plug V2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5172800230108021846, guid: ec7343cf3161c4b4686587678ce976c7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5172800230108021846, guid: ec7343cf3161c4b4686587678ce976c7, type: 3}
       propertyPath: m_TagString
@@ -3973,6 +4021,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Door2L
       objectReference: {fileID: 0}
+    - target: {fileID: 3638514088686391377, guid: 6d75b981c0a19a64ca1e6929dee22724, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 755079703
+      objectReference: {fileID: 0}
+    - target: {fileID: 3638514088686391377, guid: 6d75b981c0a19a64ca1e6929dee22724, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 764592868
+      objectReference: {fileID: 0}
     - target: {fileID: 6858707122788590087, guid: 6d75b981c0a19a64ca1e6929dee22724, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4035,6 +4091,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1248957033}
     m_Modifications:
+    - target: {fileID: 1093145520272577580, guid: 9359ec6424dd08b44bee261e66615958, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 2097619038
+      objectReference: {fileID: 0}
+    - target: {fileID: 1093145520272577580, guid: 9359ec6424dd08b44bee261e66615958, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 793333279
+      objectReference: {fileID: 0}
     - target: {fileID: 1673151769671021370, guid: 9359ec6424dd08b44bee261e66615958, type: 3}
       propertyPath: m_Name
       value: LastDoor1
@@ -4589,6 +4653,14 @@ PrefabInstance:
     - target: {fileID: 3057101840938088263, guid: 6d75b981c0a19a64ca1e6929dee22724, type: 3}
       propertyPath: m_TagString
       value: Door3L
+      objectReference: {fileID: 0}
+    - target: {fileID: 3638514088686391377, guid: 6d75b981c0a19a64ca1e6929dee22724, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 3598502355
+      objectReference: {fileID: 0}
+    - target: {fileID: 3638514088686391377, guid: 6d75b981c0a19a64ca1e6929dee22724, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 764592868
       objectReference: {fileID: 0}
     - target: {fileID: 6858707122788590087, guid: 6d75b981c0a19a64ca1e6929dee22724, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15913,6 +15985,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 325395724}
     m_Modifications:
+    - target: {fileID: 96617004455160666, guid: ec7343cf3161c4b4686587678ce976c7, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 501813145
+      objectReference: {fileID: 0}
     - target: {fileID: 3908697791963628541, guid: ec7343cf3161c4b4686587678ce976c7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.65
@@ -15956,6 +16032,10 @@ PrefabInstance:
     - target: {fileID: 5172800230108021846, guid: ec7343cf3161c4b4686587678ce976c7, type: 3}
       propertyPath: m_Name
       value: Plug V2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5172800230108021846, guid: ec7343cf3161c4b4686587678ce976c7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5172800230108021846, guid: ec7343cf3161c4b4686587678ce976c7, type: 3}
       propertyPath: m_TagString
@@ -16406,6 +16486,10 @@ PrefabInstance:
     - target: {fileID: 1988313410447690757, guid: 90910dcb21dff5e4eb91736e03a11155, type: 3}
       propertyPath: isFakePlayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5168878039751494804, guid: 90910dcb21dff5e4eb91736e03a11155, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 198409082
       objectReference: {fileID: 0}
     - target: {fileID: 8129754312757994547, guid: 90910dcb21dff5e4eb91736e03a11155, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20573,6 +20657,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Plug4L
       objectReference: {fileID: 0}
+    - target: {fileID: 5168878039751494804, guid: 90910dcb21dff5e4eb91736e03a11155, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 2051336006
+      objectReference: {fileID: 0}
     - target: {fileID: 8129754312757994547, guid: 90910dcb21dff5e4eb91736e03a11155, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.66
@@ -20697,6 +20785,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1612224718}
     m_Modifications:
+    - target: {fileID: 96617004455160666, guid: ec7343cf3161c4b4686587678ce976c7, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 225192493
+      objectReference: {fileID: 0}
     - target: {fileID: 3908697791963628541, guid: ec7343cf3161c4b4686587678ce976c7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.58
@@ -20740,6 +20832,10 @@ PrefabInstance:
     - target: {fileID: 5172800230108021846, guid: ec7343cf3161c4b4686587678ce976c7, type: 3}
       propertyPath: m_Name
       value: Plug V2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5172800230108021846, guid: ec7343cf3161c4b4686587678ce976c7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5172800230108021846, guid: ec7343cf3161c4b4686587678ce976c7, type: 3}
       propertyPath: m_TagString
@@ -20929,6 +21025,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 560175643}
     m_Modifications:
+    - target: {fileID: 96617004455160666, guid: ec7343cf3161c4b4686587678ce976c7, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 1908588017
+      objectReference: {fileID: 0}
     - target: {fileID: 3908697791963628541, guid: ec7343cf3161c4b4686587678ce976c7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.62
@@ -20972,6 +21072,10 @@ PrefabInstance:
     - target: {fileID: 5172800230108021846, guid: ec7343cf3161c4b4686587678ce976c7, type: 3}
       propertyPath: m_Name
       value: Plug V2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5172800230108021846, guid: ec7343cf3161c4b4686587678ce976c7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5172800230108021846, guid: ec7343cf3161c4b4686587678ce976c7, type: 3}
       propertyPath: m_TagString
@@ -21336,6 +21440,14 @@ PrefabInstance:
     - target: {fileID: 1108454633973877571, guid: 27827949f5522584ca7c47430a6c4c5a, type: 3}
       propertyPath: m_Name
       value: Door 1L
+      objectReference: {fileID: 0}
+    - target: {fileID: 1689304205568814165, guid: 27827949f5522584ca7c47430a6c4c5a, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 79707795
+      objectReference: {fileID: 0}
+    - target: {fileID: 1689304205568814165, guid: 27827949f5522584ca7c47430a6c4c5a, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 1559241388
       objectReference: {fileID: 0}
     - target: {fileID: 6632481117795156346, guid: 27827949f5522584ca7c47430a6c4c5a, type: 3}
       propertyPath: m_SpriteSortPoint
@@ -22691,6 +22803,10 @@ PrefabInstance:
     - target: {fileID: 3639601231182345606, guid: 90910dcb21dff5e4eb91736e03a11155, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5168878039751494804, guid: 90910dcb21dff5e4eb91736e03a11155, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 2629116726
       objectReference: {fileID: 0}
     - target: {fileID: 8129754312757994547, guid: 90910dcb21dff5e4eb91736e03a11155, type: 3}
       propertyPath: m_LocalPosition.x
