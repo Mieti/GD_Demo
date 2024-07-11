@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ingameUI = GameObject.Find("UI Ingame").GetComponent<RoomsUI>();
+        ingameUI = GameObject.Find("UI Rooms").GetComponent<RoomsUI>();
     }
 
     // Update is called once per frame
