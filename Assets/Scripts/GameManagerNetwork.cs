@@ -7,6 +7,11 @@ public class GameManagerNetwork : NetworkBehaviour
 {
     [SerializeField] private WireController2D _hostPrefab; // Prefab for the host
     [SerializeField] private WireController2D _clientPrefab; // Prefab for the client
+    [SerializeField] private CameraMovement _cameraController;
+    CameraMovement script;
+    private Vector3 hostPosition; // Camera offset
+    private Vector3 clientPosition; // Camera offset
+
 
     public override void OnNetworkSpawn()
     {
@@ -14,7 +19,7 @@ public class GameManagerNetwork : NetworkBehaviour
         {
             // The host (server) also needs to spawn its player
             Debug.Log("Host is spawning its player.");
-            Vector3 hostPosition = new Vector3(0, 0, 0); // Replace with your desired position
+            hostPosition = new Vector3(0, 0, 0); // Replace with your desired position
             SpawnPlayer(NetworkManager.Singleton.LocalClientId, true, hostPosition);
         }
         else if (IsClient)
@@ -42,7 +47,48 @@ public class GameManagerNetwork : NetworkBehaviour
         var spawn = Instantiate(spawnPrefab, position, Quaternion.identity);
         spawn.NetworkObject.SpawnWithOwnership(clientId);
 
+        // Assign the camera to follow the newly spawned player on the client side
+        AssignCameraClientRpc(spawn.NetworkObject.NetworkObjectId, clientId);
+
         Debug.Log($"Player spawned for client {clientId}. IsHost: {isHost}, Position: {position}");
+    }
+
+    [ClientRpc]
+    private void AssignCameraClientRpc(ulong networkObjectId, ulong clientId)
+    {
+        // Only set the camera for the local client
+        if (NetworkManager.Singleton.LocalClientId == clientId)
+        {
+            NetworkObject networkObject = NetworkManager.Singleton.SpawnManager.SpawnedObjects[networkObjectId];
+            Transform playerTransform = null;
+
+            // Check if the networkObject has the expected child objects
+            if (networkObject != null)
+            {
+                if (networkObject.OwnerClientId == 0)
+                {
+                    playerTransform = networkObject.transform.Find("Player1");
+                }
+                else if (networkObject.OwnerClientId == 1)
+                {
+                    playerTransform = networkObject.transform.Find("Player2");
+                }
+
+                if (playerTransform != null)
+                {
+                    _cameraController.target = playerTransform;
+                    _cameraController.offset = playerTransform.position;
+                }
+                else
+                {
+                    Debug.LogError("Player child object not found.");
+                }
+            }
+            else
+            {
+                Debug.LogError("NetworkObject not found.");
+            }
+        }
     }
 
     public override void OnDestroy()
