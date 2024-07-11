@@ -1279,7 +1279,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7910034541959311685, guid: f790da6618c48e64b8a07ff07352efca, type: 3}
       propertyPath: m_Name
-      value: UI Ingame
+      value: UI Rooms
       objectReference: {fileID: 0}
     - target: {fileID: 8154545749525413052, guid: f790da6618c48e64b8a07ff07352efca, type: 3}
       propertyPath: m_Pivot.x

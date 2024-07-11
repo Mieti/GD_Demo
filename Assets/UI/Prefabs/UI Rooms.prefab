@@ -243,7 +243,7 @@ GameObject:
   - component: {fileID: 1733778035638647841}
   - component: {fileID: 6360347976674043592}
   m_Layer: 5
-  m_Name: UI Ingame
+  m_Name: UI Rooms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
