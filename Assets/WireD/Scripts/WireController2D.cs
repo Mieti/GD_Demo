@@ -413,7 +413,9 @@ public class WireController2D : MonoBehaviour
         //float epsilon = 0.1f;
         float maxDistance = segmentsSeparation + epsilon;
         float distance = 0f;
-        for (int i = 0; i < segments.Count - 1; i++)
+        int len = segments.Count;
+        int start = (len<=10)? 0:(len<=70)? (int)((0.33f)*len): (len<=100)? (int)((0.5f)*len):(int)((0.66f)*len);
+        for (int i = start; i < len - 1; i++)
         {
             Vector3 segment1Pos = segments[i].position;
             Vector3 segment2Pos = segments[i + 1].position;
@@ -426,7 +428,7 @@ public class WireController2D : MonoBehaviour
             //}
             
         }
-        float avgDistance = distance / (segments.Count + 1);
+        float avgDistance = distance / (len - start + 1);
         //Debug.Log("Max distance: " + avgDistance + ", segments: " + segments.Count);
         if (avgDistance > maxDistance)
         {
