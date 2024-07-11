@@ -37,6 +37,6 @@ public class EndLevel : MonoBehaviour
     public void menu()
     {
         Debug.Log("Quit");
-        Application.Quit();
+        SceneManager.LoadScene(0);
     }
 }
