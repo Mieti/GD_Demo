@@ -108,12 +108,15 @@ public class WireController2D : NetworkBehaviour
     /// </summary>
     public Preset presetJoint;
 #endif
-
     //private Vector3 offset = new Vector3(0, 1.2f, 0);
 
 #if UNITY_EDITOR
     private void Start()
     {
+        if(IsOwner)
+        {
+            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraMovement>().SetTarget(endAnchorTemp);
+        }
         mousePossHelper.gameObject.SetActive(false);
 
         /* if (endAnchorTemp == null)
