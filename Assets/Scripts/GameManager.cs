@@ -9,10 +9,12 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] public GameObject endLevelCanvas;
     [SerializeField] public int count = 0;
+
+    RoomsUI ingameUI;
     // Start is called before the first frame update
     void Start()
     {
-        
+        ingameUI = GameObject.Find("UI Ingame").GetComponent<RoomsUI>();
     }
 
     // Update is called once per frame
@@ -22,6 +24,11 @@ public class GameManager : MonoBehaviour
         //{
         //    endLevelCanvas.SetActive(true);
         //}
+        if (count%2 == 0)
+        {
+            ingameUI.lightUp(count);
+        }
+        
         
     }
 
