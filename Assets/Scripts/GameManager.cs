@@ -10,11 +10,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] public GameObject endLevelCanvas;
     [SerializeField] public int count = 0;
 
-    RoomsUI ingameUI;
+    InGameUI ingameUI;
     // Start is called before the first frame update
     void Start()
     {
-        ingameUI = GameObject.Find("UI Rooms").GetComponent<RoomsUI>();
+        ingameUI = GameObject.Find("Ingame UI").GetComponent<InGameUI>();
     }
 
     // Update is called once per frame
@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
         //}
         if (count%2 == 0)
         {
-            ingameUI.lightUp(count/2);
+            ingameUI.LightUp(count/2);
         }
         
         
@@ -38,4 +38,9 @@ public class GameManager : MonoBehaviour
         //Debug.Log(count);
     }
     public void levelCompleted() { Debug.Log("Level ended"); endLevelCanvas.SetActive(true); }
+
+    public void UpdateUI(WireController2D wc)
+    {
+        ingameUI.UpdateWC(wc);
+    }
 }

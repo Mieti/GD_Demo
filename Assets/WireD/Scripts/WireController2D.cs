@@ -833,6 +833,8 @@ public class WireController2D : MonoBehaviour
         endAnchorTemp.GetComponent<PlayerKinematicMovement>().SetWireController(this);
     }
 
+    /*
+    // deprecated
     public void activateUI()
     {
         InGameUI ui = GetComponentInChildren<InGameUI>();
@@ -844,4 +846,5 @@ public class WireController2D : MonoBehaviour
         InGameUI ui = GetComponentInChildren<InGameUI>();
         ui.disappear();
     }
+    */
 }
