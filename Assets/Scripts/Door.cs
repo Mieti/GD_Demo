@@ -93,7 +93,9 @@ public class Door : MonoBehaviour
     private void OpenDoor()
     {
         // Implement door opening logic (e.g., animation or enabling/disabling objects)
-        GetComponent<SpriteRenderer>().sprite = open;        
+        GetComponent<SpriteRenderer>().sprite = open;
+        // Funziona anche per LastDoor
+        gameManager.updateCount();
         MoveToNextRoom();
     }
 
@@ -137,8 +139,12 @@ public class Door : MonoBehaviour
 
                 doorSound.Play();
 
+                /*
+                // deprecated
                 nextWire.activateUI();
                 currentWire.disableUI();
+                */
+                gameManager.UpdateUI(nextWire);
             }
             else
             {

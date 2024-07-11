@@ -22,17 +22,11 @@ public class PlayerKinematicMovement : MonoBehaviour
     [SerializeField]
     private WireController2D wc;
     [SerializeField]
-    float maxTension = 1.5f;
-    [SerializeField]
-    float minTension = 1f;
-    //[SerializeField]
-    //float stuckThreshold = 0.005f;
-    [SerializeField]
     float retreatDistance = 5f;
 
     // to freeze the player movement, e.g. when attached to a plug
     public bool freeze = false;
-    private float interactionRadius = 1.0f;
+    private float interactionRadius = 1.5f;
     private int interactableLayer;
     
     [SerializeField] private GameObject audioFootstep;
@@ -228,7 +222,7 @@ public class PlayerKinematicMovement : MonoBehaviour
     {
         if (rb.isKinematic)
         {
-            if (!wc.RopeDistance(0))
+            if (!wc.RopeDistance(0.01f))
             {
                 wc.RemoveLastSegment();
                 // if (!rb.isKinematic && !wc.IsMaxLen()){
