@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    [SerializeField] private Transform target;
+    [SerializeField] public Transform target;
     [SerializeField] private float cameraMovementSpeed = 10.0f;
     [SerializeField] private float zOffset = -30f;
+    public Vector3 offset;
+
 
     private void FollowTarget()
     {
