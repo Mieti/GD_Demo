@@ -32,6 +32,10 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void updateCount() { count++; Debug.Log(count); }
+    public void updateCount()
+    { 
+        count++;
+        //Debug.Log(count);
+    }
     public void levelCompleted() { Debug.Log("Level ended"); endLevelCanvas.SetActive(true); }
 }
