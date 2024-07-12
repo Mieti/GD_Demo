@@ -18,7 +18,10 @@ public class CameraMovement : MonoBehaviour
 
     private void Update()
     {
-        FollowTarget();
+        if (target != null)
+        {
+            FollowTarget();
+        }
     }
 
     public void SetTarget(Transform newTarget)
