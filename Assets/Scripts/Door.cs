@@ -206,7 +206,7 @@ public class Door : NetworkBehaviour
                 Transform p = currentWire.DetachEnd();
                 // Move to door
                 Vector3 wirePos = nextWire.GetStartingPoint();
-                StartCoroutine(MovePlayerToDoor(p, wirePos,
+                StartCoroutine(MovePlayerToDoor(p, transform.position, wirePos,
                 () => {
                     // Stop animation
                     p.GetComponent<PlayerKinematicMovement>().DisableAnimation();
@@ -250,8 +250,8 @@ public class Door : NetworkBehaviour
             nextD.isFakePlayer = true;
             return;
         }
-        GameObject currentWireObject = GameObject.FindGameObjectWithTag($"Player{_level}{"R"}");
-        GameObject nextWireObject = GameObject.FindGameObjectWithTag($"Player{_level + 1}{"R"}");
+        GameObject currentWireObject = GameObject.FindGameObjectWithTag($"Player{_level}R");
+        GameObject nextWireObject = GameObject.FindGameObjectWithTag($"Player{_level + 1}R");
         if (currentWireObject != null && nextWireObject != null)
         {
             Debug.Log("MOVETONEXTDOOR " + OwnerClientId + "      " + currentWireObject + "; " + nextWireObject);
@@ -264,7 +264,8 @@ public class Door : NetworkBehaviour
                 Transform p = currentWire.DetachEnd();
                 // Move to door
                 Vector3 wirePos = nextWire.GetStartingPoint();
-                StartCoroutine(MovePlayerToDoor(p, wirePos,
+                Vector3 doorRPosition = GameObject.FindGameObjectWithTag($"Door{_level}R").transform.position;
+                StartCoroutine(MovePlayerToDoor(p, doorRPosition, wirePos,
                 () => {
                     // Stop animation
                     p.GetComponent<PlayerKinematicMovement>().DisableAnimation();
@@ -296,7 +297,7 @@ public class Door : NetworkBehaviour
         }
 
     }
-    private IEnumerator MovePlayerToDoor(Transform player, Vector3 wirePos, System.Action onComplete)
+    private IEnumerator MovePlayerToDoor(Transform player,Vector3 doorPos, Vector3 wirePos, System.Action onComplete)
     {
         float epsilon = 0.05f;
         float moveSpeed = 3f;
@@ -319,18 +320,18 @@ public class Door : NetworkBehaviour
         }
 
         // Move on the x-axis first
-        Vector3 doorPosition = transform.position;
-        while (Mathf.Abs(player.position.x - doorPosition.x) > epsilon)
+        //Vector3 doorPosition = transform.position;
+        while (Mathf.Abs(player.position.x - doorPos.x) > epsilon)
         {
-            Vector3 newPosition = new Vector3(Mathf.Lerp(player.position.x, doorPosition.x, moveSpeed * Time.deltaTime), player.position.y, player.position.z);
+            Vector3 newPosition = new Vector3(Mathf.Lerp(player.position.x, doorPos.x, moveSpeed * Time.deltaTime), player.position.y, player.position.z);
             player.position = newPosition;
             yield return null;
         }
 
         // Move on the y-axis next
-        while (Mathf.Abs(player.position.y - doorPosition.y) > epsilon)
+        while (Mathf.Abs(player.position.y - doorPos.y) > epsilon)
         {
-            Vector3 newPosition = new Vector3(player.position.x, Mathf.Lerp(player.position.y, doorPosition.y, moveSpeed * Time.deltaTime), player.position.z);
+            Vector3 newPosition = new Vector3(player.position.x, Mathf.Lerp(player.position.y, doorPos.y, moveSpeed * Time.deltaTime), player.position.z);
             player.position = newPosition;
             yield return null;
         }
