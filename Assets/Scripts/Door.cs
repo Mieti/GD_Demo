@@ -39,16 +39,22 @@ public class Door : NetworkBehaviour
     {
         Debug.Log("value changed L from " + OwnerClientId + " " + _playerLCompleted.Value + ";   " + _playerRCompleted.Value);
         LightOnLClientRpc(current);
-        CheckCompletion();
+        if (IsHost)
+            CheckCompletion();
+        else
+            CheckCompletionClientRpc();
     }
 
     private void OnValueRChanged(bool previous, bool current)
     {
         Debug.Log("value changed R from " + OwnerClientId + " " + _playerLCompleted.Value + ";   " + _playerRCompleted.Value);
         LightOnRClientRpc(current);
-        CheckCompletion();
+        if (IsHost)
+            CheckCompletion();
+        else
+            CheckCompletionClientRpc();
     }
-
+   
     [Rpc(SendTo.Server)]
     private void OnPlayerLCompletedServerRpc(bool isCompleted)
     {
@@ -151,7 +157,7 @@ public class Door : NetworkBehaviour
         if (_playerLCompleted.Value && _playerRCompleted.Value)
         {
             Debug.Log("sei arrivato ad aprire la porta " + OwnerClientId);
-            OpenDoor();
+            OpenDoor2();
         }
     }
 
@@ -165,6 +171,15 @@ public class Door : NetworkBehaviour
         MoveToNextRoom();
     }
 
+    private void OpenDoor2()
+    {
+        // Implement door opening logic (e.g., animation or enabling/disabling objects)
+        GetComponent<SpriteRenderer>().sprite = open;
+        // Funziona anche per LastDoor
+        print(gameObject.tag + "updating count");
+        gameManager.updateCount();
+        MoveToNextRoom2();
+    }
     protected virtual void MoveToNextRoom()
     {
         if (isFakePlayer)
@@ -204,6 +219,64 @@ public class Door : NetworkBehaviour
                     // destroy the current wire
                     currentWire.CreateFixedWire();
                     Destroy(currentWireObject);
+
+                }));
+
+                doorSound.Play();
+
+                nextWire.activateUI();
+                currentWire.disableUI();
+            }
+            else
+            {
+                Debug.Log($"Unable to find a wire at level {_level}");
+            }
+        }
+        else
+        {
+            Debug.Log($"Unable to find a wire object at level {_level}");
+        }
+
+    }
+    protected virtual void MoveToNextRoom2()
+    {
+        if (isFakePlayer)
+        {
+            Plug currentP = GameObject.FindGameObjectWithTag($"Plug{_level}{_side}").GetComponent<Plug>();
+            currentP.isFakePlayer = false;
+            Plug nextP = GameObject.FindGameObjectWithTag($"Plug{_level + 1}{_side}").GetComponent<Plug>();
+            Door nextD = GameObject.FindGameObjectWithTag($"Door{_level + 1}{_side}").GetComponent<Door>();
+            nextP.isFakePlayer = true;
+            nextD.isFakePlayer = true;
+            return;
+        }
+        GameObject currentWireObject = GameObject.FindGameObjectWithTag($"Player{_level}{"R"}");
+        GameObject nextWireObject = GameObject.FindGameObjectWithTag($"Player{_level + 1}{"R"}");
+        if (currentWireObject != null && nextWireObject != null)
+        {
+            Debug.Log("MOVETONEXTDOOR " + OwnerClientId + "      " + currentWireObject + "; " + nextWireObject);
+            WireController2D currentWire = currentWireObject.GetComponent<WireController2D>();
+            WireController2D nextWire = nextWireObject.GetComponent<WireController2D>();
+            //Debug.Log("MOVETONEXTDOOR " + OwnerClientId + "      " + currentWire + "; " + nextWire);
+            if (currentWire != null && nextWire != null)
+            {
+                // detach the joint connencted body
+                Transform p = currentWire.DetachEnd();
+                // Move to door
+                Vector3 wirePos = nextWire.GetStartingPoint();
+                StartCoroutine(MovePlayerToDoor(p, wirePos,
+                () => {
+                    // Stop animation
+                    p.GetComponent<PlayerKinematicMovement>().DisableAnimation();
+                    // attach player to next wire
+                    nextWire.AddSegmentAndPlayer(p);
+                    // make sure the player can move
+                    p.GetComponent<PlayerKinematicMovement>().freeze = false;
+                    // close door
+                    GetComponent<SpriteRenderer>().sprite = close;
+                    // destroy the current wire
+                    currentWire.CreateFixedWire();
+                    //Destroy(currentWireObject);
 
                 }));
 
