@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 1232353290970192074}
   - component: {fileID: 5778854465397551893}
   - component: {fileID: -8426154572265192326}
+  - component: {fileID: 6625639216948276945}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -38,8 +39,7 @@ Transform:
   m_LocalPosition: {x: 0.02, y: -0.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 6767912997449117520}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7314246680345530143
@@ -109,11 +109,9 @@ MonoBehaviour:
   animator: {fileID: -8426154572265192326}
   speed: 5
   wc: {fileID: 0}
-  maxTension: 1.5
-  minTension: 1
   retreatDistance: 3
   freeze: 0
-  audioFootstep: {fileID: 7497750072488945313}
+  audioFootstep: {fileID: 6625639216948276945}
 --- !u!114 &-2166808696483272931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,22 +169,6 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 77b6a7ef-d0f3-48de-97da-850d67d80ddd
     m_ActionName: Player/Rewind[/Keyboard/r]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1041713560265696849}
-        m_TargetAssemblyTypeName: PlayerKinematicMovement, Assembly-CSharp
-        m_MethodName: OnLengthen
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 15f4c40c-1b53-4930-aad1-161a027de0fd
-    m_ActionName: Player/Lengthen[/Keyboard/e]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1041713560265696849}
@@ -457,52 +439,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1 &7497750072488945313
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6767912997449117520}
-  - component: {fileID: 7053782923723376961}
-  m_Layer: 0
-  m_Name: AudioFootstep
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &6767912997449117520
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7497750072488945313}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 58.016052, y: 34.117767, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6099664760935116582}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &7053782923723376961
+--- !u!82 &6625639216948276945
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7497750072488945313}
+  m_GameObject: {fileID: 262582080032652876}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a8dc30b28787f5042879cd9320bca7d9, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 23b029d527dc38b4ea1214c465da1b19, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
+  m_Volume: 0.585
+  m_Pitch: 0.65
   Loop: 1
   Mute: 0
   Spatialize: 0

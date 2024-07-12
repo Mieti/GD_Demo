@@ -29,7 +29,8 @@ public class PlayerKinematicMovement : MonoBehaviour
     private float interactionRadius = 1.5f;
     private int interactableLayer;
     
-    [SerializeField] private GameObject audioFootstep;
+    [SerializeField] private AudioSource audioFootstep;
+    [SerializeField] private AudioSource audioRewindRope;
 
 
     private void Awake()
@@ -93,12 +94,14 @@ public class PlayerKinematicMovement : MonoBehaviour
             {
                 animator.SetFloat("Horizontal", 0);
                 animator.SetFloat("Speed", 0);
-                audioFootstep.SetActive(false);
                 RewindRope();
+                playLoopAudioSource(audioRewindRope);
+                
             }
             else
             {
-                Move(); 
+                Move();
+                stopAudioSource(audioRewindRope);
             }
 
         }
@@ -117,14 +120,13 @@ public class PlayerKinematicMovement : MonoBehaviour
                     {
                         rb.MovePosition(newPosition);
                         AddSegment();
-                    }  
-                    
-                    audioFootstep.SetActive(true);
+                    }
+
+                    playLoopAudioSource(audioFootstep);
                 }
                 else
                 {
-                    if (audioFootstep)
-                        audioFootstep.SetActive(false);
+                    stopAudioSource(audioFootstep);
                 }
             }
             else
@@ -269,6 +271,18 @@ public class PlayerKinematicMovement : MonoBehaviour
     {
         animator.SetFloat("Horizontal", 0);
         animator.SetFloat("Speed", 0);
+    }
+
+    private void playLoopAudioSource(AudioSource audio)
+    {
+        if (!audio.isPlaying)
+            audio.Play();
+    }
+
+    private void stopAudioSource(AudioSource audio)
+    {
+        if (audio.isPlaying)
+            audio.Stop();
     }
 
 }
