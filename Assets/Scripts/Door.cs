@@ -18,7 +18,7 @@ public class Door : NetworkBehaviour
 
     private bool playerLCompleted = false;
     private bool playerRCompleted = false;
-    
+
     private int _level;
     private string _side;
 
@@ -31,41 +31,64 @@ public class Door : NetworkBehaviour
     public override void OnNetworkSpawn()
     {
         base.OnNetworkSpawn();
-        _playerLCompleted.OnValueChanged += OnValueChanged;
-        _playerRCompleted.OnValueChanged += OnValueChanged;
+        _playerLCompleted.OnValueChanged += OnValueLChanged;
+        _playerRCompleted.OnValueChanged += OnValueRChanged;
     }
 
-    private void OnValueChanged(bool wasActive, bool isActive)
+    private void OnValueLChanged(bool previous, bool current)
     {
-        Debug.Log(isActive);
+        Debug.Log("value changed L from " + OwnerClientId + " " + _playerLCompleted.Value + ";   " + _playerRCompleted.Value);
+        LightOnLClientRpc(current);
+        CheckCompletion();
     }
 
-    [ServerRpc(RequireOwnership = false)]
+    private void OnValueRChanged(bool previous, bool current)
+    {
+        Debug.Log("value changed R from " + OwnerClientId + " " + _playerLCompleted.Value + ";   " + _playerRCompleted.Value);
+        LightOnRClientRpc(current);
+        CheckCompletion();
+    }
+
+    [Rpc(SendTo.Server)]
     private void OnPlayerLCompletedServerRpc(bool isCompleted)
     {
         _playerLCompleted.Value = isCompleted;
+        leftLight.sprite = isCompleted ? lightOn : lightOff;
     }
 
-    [ServerRpc(RequireOwnership = false)]
+    [Rpc(SendTo.Server)]
     private void OnPlayerRCompletedServerRpc(bool isCompleted)
     {
         _playerRCompleted.Value = isCompleted;
+        rightLight.sprite = isCompleted ? lightOn : lightOff;
+    }
+    [Rpc(SendTo.NotServer)]
+    private void LightOnLClientRpc(bool isCompleted)
+    {
+        leftLight.sprite = isCompleted ? lightOn : lightOff;
     }
 
-    public void Awake(){
+    [Rpc(SendTo.NotServer)]
+    private void LightOnRClientRpc(bool isCompleted)
+    {
+        rightLight.sprite = isCompleted ? lightOn : lightOff;
+    }
+
+    public void Awake()
+    {
         // tag ex. "Plug1L" -> _level="1", _side="L"
         _level = int.Parse(tag[4..^1]);
         _side = tag[^1..];
 
-        if (doorSound == null )
+        if (doorSound == null)
         {
             //AudioSource[] audioSource = GetComponents<AudioSource>();
             //doorSound = audioSource[0];
             Debug.Log("No doorSound");
-            
+
         }
         gameManager = GetComponentInParent<GameManager>();
-        if(gameManager == null)
+        if (gameManager == null)
         {
             Debug.Log("No gameManager found");
         }
@@ -80,17 +103,16 @@ public class Door : NetworkBehaviour
             OnPlayerLCompletedServerRpc(true);
             //playerLCompleted = true;
             // leftLight.color = Color.green;
-            leftLight.sprite = lightOn;
+            //leftLight.sprite = lightOn;
         }
         else if (plugSide.Contains('R'))
         {
             OnPlayerRCompletedServerRpc(true);
             //playerRCompleted = true;
             // rightLight.color = Color.green;
-            rightLight.sprite = lightOn;
+            //rightLight.sprite = lightOn;
         }
 
-        CheckCompletion();
     }
     public void PlayerDetached(string plugTag)
     {
@@ -114,9 +136,21 @@ public class Door : NetworkBehaviour
 
     private void CheckCompletion()
     {
-        Debug.Log(_playerLCompleted.Value + ";   " + _playerRCompleted.Value);
+        //Debug.Log(_playerLCompleted.Value + ";   " + _playerRCompleted.Value + " ;clientId    " + OwnerClientId);
         if (_playerLCompleted.Value && _playerRCompleted.Value)
         {
+            Debug.Log("sei arrivato ad aprire la porta " + OwnerClientId);
+            OpenDoor();
+        }
+    }
+
+    [Rpc(SendTo.NotServer)]
+    private void CheckCompletionClientRpc()
+    {
+        //Debug.Log(_playerLCompleted.Value + ";   " + _playerRCompleted.Value + " ;clientId    " + OwnerClientId);
+        if (_playerLCompleted.Value && _playerRCompleted.Value)
+        {
+            Debug.Log("sei arrivato ad aprire la porta " + OwnerClientId);
             OpenDoor();
         }
     }
@@ -131,29 +165,33 @@ public class Door : NetworkBehaviour
         MoveToNextRoom();
     }
 
-    protected virtual void MoveToNextRoom(){
-        if(isFakePlayer){
+    protected virtual void MoveToNextRoom()
+    {
+        if (isFakePlayer)
+        {
             Plug currentP = GameObject.FindGameObjectWithTag($"Plug{_level}{_side}").GetComponent<Plug>();
             currentP.isFakePlayer = false;
-            Plug nextP = GameObject.FindGameObjectWithTag($"Plug{_level+1}{_side}").GetComponent<Plug>();
-            Door nextD = GameObject.FindGameObjectWithTag($"Door{_level+1}{_side}").GetComponent<Door>();
-            nextP.isFakePlayer=true;
-            nextD.isFakePlayer=true;
+            Plug nextP = GameObject.FindGameObjectWithTag($"Plug{_level + 1}{_side}").GetComponent<Plug>();
+            Door nextD = GameObject.FindGameObjectWithTag($"Door{_level + 1}{_side}").GetComponent<Door>();
+            nextP.isFakePlayer = true;
+            nextD.isFakePlayer = true;
             return;
         }
         GameObject currentWireObject = GameObject.FindGameObjectWithTag($"Player{_level}{_side}");
-        GameObject nextWireObject = GameObject.FindGameObjectWithTag($"Player{_level+1}{_side}");
+        GameObject nextWireObject = GameObject.FindGameObjectWithTag($"Player{_level + 1}{_side}");
         if (currentWireObject != null && nextWireObject != null)
         {
+            Debug.Log("MOVETONEXTDOOR " + OwnerClientId + "      " + currentWireObject + "; " + nextWireObject);
             WireController2D currentWire = currentWireObject.GetComponent<WireController2D>();
             WireController2D nextWire = nextWireObject.GetComponent<WireController2D>();
+            //Debug.Log("MOVETONEXTDOOR " + OwnerClientId + "      " + currentWire + "; " + nextWire);
             if (currentWire != null && nextWire != null)
             {
                 // detach the joint connencted body
                 Transform p = currentWire.DetachEnd();
                 // Move to door
                 Vector3 wirePos = nextWire.GetStartingPoint();
-                StartCoroutine( MovePlayerToDoor(p, wirePos,
+                StartCoroutine(MovePlayerToDoor(p, wirePos,
                 () => {
                     // Stop animation
                     p.GetComponent<PlayerKinematicMovement>().DisableAnimation();
@@ -162,11 +200,11 @@ public class Door : NetworkBehaviour
                     // make sure the player can move
                     p.GetComponent<PlayerKinematicMovement>().freeze = false;
                     // close door
-                    GetComponent<SpriteRenderer>().sprite = close; 
+                    GetComponent<SpriteRenderer>().sprite = close;
                     // destroy the current wire
                     currentWire.CreateFixedWire();
                     Destroy(currentWireObject);
-                
+
                 }));
 
                 doorSound.Play();
@@ -181,7 +219,7 @@ public class Door : NetworkBehaviour
         }
         else
         {
-                Debug.Log($"Unable to find a wire object at level {_level}");
+            Debug.Log($"Unable to find a wire object at level {_level}");
         }
 
     }
@@ -191,12 +229,12 @@ public class Door : NetworkBehaviour
         float moveSpeed = 3f;
         PlayerKinematicMovement playerMove = player.GetComponent<PlayerKinematicMovement>();
 
-        
+
         // Move down first
         float direction = transform.position.x - player.position.x;
         player.GetComponent<PlayerKinematicMovement>().SetDirection(direction);
         playerMove.EnambleAnimation();
-        float moveDown = transform.position.y-1.5f;
+        float moveDown = transform.position.y - 1.5f;
         if (moveDown < player.position.y)
         {
             while (Mathf.Abs(player.position.y - moveDown) > epsilon)
@@ -206,7 +244,7 @@ public class Door : NetworkBehaviour
                 yield return null;
             }
         }
-        
+
         // Move on the x-axis first
         Vector3 doorPosition = transform.position;
         while (Mathf.Abs(player.position.x - doorPosition.x) > epsilon)
@@ -215,7 +253,7 @@ public class Door : NetworkBehaviour
             player.position = newPosition;
             yield return null;
         }
-        
+
         // Move on the y-axis next
         while (Mathf.Abs(player.position.y - doorPosition.y) > epsilon)
         {
@@ -241,7 +279,7 @@ public class Door : NetworkBehaviour
             player.position = newPosition;
             yield return null;
         }
-        
+
         // Ensure final position is exactly the target position
         player.position = wirePos;
         playerMove.DisableAnimation();
@@ -249,5 +287,5 @@ public class Door : NetworkBehaviour
         // Invoke the callback if provided
         onComplete?.Invoke();
     }
-    
+
 }

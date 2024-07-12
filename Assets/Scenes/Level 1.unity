@@ -640,7 +640,7 @@ Transform:
   m_GameObject: {fileID: 140868364}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -58.25, y: -29.89, z: -10}
+  m_LocalPosition: {x: 37.75, y: -31.21, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -658,7 +658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69d0e3414869d3c4d8859582319f546a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1848114148}
+  target: {fileID: 1160981978}
   cameraMovementSpeed: 1
   zOffset: -30
   offset: {x: 0, y: 0, z: 0}
