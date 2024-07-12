@@ -24,7 +24,7 @@ public class Door : NetworkBehaviour
 
     public GameManager gameManager;
 
-    public bool isFakePlayer = false;
+    // public bool isFakePlayer = false;
 
     private NetworkVariable<bool> _playerLCompleted = new NetworkVariable<bool>(false);
     private NetworkVariable<bool> _playerRCompleted = new NetworkVariable<bool>(false);
@@ -182,7 +182,7 @@ public class Door : NetworkBehaviour
     }
     protected virtual void MoveToNextRoom()
     {
-        if (isFakePlayer)
+        /* if (isFakePlayer)
         {
             Plug currentP = GameObject.FindGameObjectWithTag($"Plug{_level}{_side}").GetComponent<Plug>();
             currentP.isFakePlayer = false;
@@ -191,7 +191,7 @@ public class Door : NetworkBehaviour
             nextP.isFakePlayer = true;
             nextD.isFakePlayer = true;
             return;
-        }
+        } */
         GameObject currentWireObject = GameObject.FindGameObjectWithTag($"Player{_level}{_side}");
         GameObject nextWireObject = GameObject.FindGameObjectWithTag($"Player{_level + 1}{_side}");
         if (currentWireObject != null && nextWireObject != null)
@@ -204,6 +204,8 @@ public class Door : NetworkBehaviour
             {
                 // detach the joint connencted body
                 Transform p = currentWire.DetachEnd();
+                if (p != null)
+                {
                 // Move to door
                 Vector3 wirePos = nextWire.GetStartingPoint();
                 StartCoroutine(MovePlayerToDoor(p, transform.position, wirePos,
@@ -219,13 +221,13 @@ public class Door : NetworkBehaviour
                     // destroy the current wire
                     currentWire.CreateFixedWire();
                     Destroy(currentWireObject);
-
                 }));
 
                 doorSound.Play();
 
                 nextWire.activateUI();
                 currentWire.disableUI();
+                }
             }
             else
             {
@@ -240,7 +242,7 @@ public class Door : NetworkBehaviour
     }
     protected virtual void MoveToNextRoom2()
     {
-        if (isFakePlayer)
+        /* if (isFakePlayer)
         {
             Plug currentP = GameObject.FindGameObjectWithTag($"Plug{_level}{_side}").GetComponent<Plug>();
             currentP.isFakePlayer = false;
@@ -249,12 +251,12 @@ public class Door : NetworkBehaviour
             nextP.isFakePlayer = true;
             nextD.isFakePlayer = true;
             return;
-        }
+        } */
         GameObject currentWireObject = GameObject.FindGameObjectWithTag($"Player{_level}R");
         GameObject nextWireObject = GameObject.FindGameObjectWithTag($"Player{_level + 1}R");
         if (currentWireObject != null && nextWireObject != null)
         {
-            Debug.Log("MOVETONEXTDOOR " + OwnerClientId + "      " + currentWireObject + "; " + nextWireObject);
+            // Debug.Log("MOVETONEXTDOOR " + OwnerClientId + "      " + currentWireObject + "; " + nextWireObject);
             WireController2D currentWire = currentWireObject.GetComponent<WireController2D>();
             WireController2D nextWire = nextWireObject.GetComponent<WireController2D>();
             //Debug.Log("MOVETONEXTDOOR " + OwnerClientId + "      " + currentWire + "; " + nextWire);
@@ -262,7 +264,9 @@ public class Door : NetworkBehaviour
             {
                 // detach the joint connencted body
                 Transform p = currentWire.DetachEnd();
-                // Move to door
+                if (p != null)
+                {
+                    // Move to door
                 Vector3 wirePos = nextWire.GetStartingPoint();
                 Vector3 doorRPosition = GameObject.FindGameObjectWithTag($"Door{_level}R").transform.position;
                 StartCoroutine(MovePlayerToDoor(p, doorRPosition, wirePos,
@@ -285,6 +289,7 @@ public class Door : NetworkBehaviour
 
                 nextWire.activateUI();
                 currentWire.disableUI();
+                }
             }
             else
             {

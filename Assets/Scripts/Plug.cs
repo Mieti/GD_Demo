@@ -30,7 +30,7 @@ public class Plug : NetworkBehaviour
     private Door doorL;
     private Door doorR;
 
-    public bool isFakePlayer = false;
+    // public bool isFakePlayer = false;
     
     private void Awake() {
         // tag ex. "Plug1L" -> _level="1", _side="L"
@@ -65,7 +65,7 @@ public class Plug : NetworkBehaviour
     {
         
         // only for testing purpuses
-        if (isFakePlayer)
+        /* if (isFakePlayer)
         {
             if (Keyboard.current.spaceKey.wasPressedThisFrame)
             {
@@ -74,7 +74,7 @@ public class Plug : NetworkBehaviour
                 doorL.PlayerCompletedRoom(_side);
                 doorR.PlayerCompletedRoom(_side);
             }
-        }
+        } */
         if(!isConnected && _light.sprite != lightOff)
         {
             _light.sprite = lightOff;
@@ -121,8 +121,8 @@ public class Plug : NetworkBehaviour
         List<GameObject> correctPoleObjects = FindInParentWithTag("Correct Pole");
         List<GameObject> wrongPoleObjects = FindInParentWithTag("Wrong Pole");
 
-        Debug.Log("Found correct: "+ correctPoleObjects.Count);
-        Debug.Log("Found wrong: "+ wrongPoleObjects.Count);
+        // Debug.Log("Found correct: "+ correctPoleObjects.Count);
+        // Debug.Log("Found wrong: "+ wrongPoleObjects.Count);
         // ne basta 1 NON connesso
         foreach (GameObject poleObject in correctPoleObjects)
         {

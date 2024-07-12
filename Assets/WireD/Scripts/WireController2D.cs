@@ -788,6 +788,10 @@ public class WireController2D : NetworkBehaviour
     public Transform DetachEnd()
     {
         Transform end = endAnchorTemp;
+        if (end == null)
+        {
+            return null;
+        }
         end.GetComponent<SpringJoint2D>().connectedBody = null;
         this.endAnchorTemp = null;
         end.parent = transform.parent;
