@@ -18,6 +18,7 @@ public class Door : NetworkBehaviour
 
     private bool playerLCompleted = false;
     private bool playerRCompleted = false;
+    public bool isAnimationCompleted = false;
 
     private int _level;
     private string _side;
@@ -79,7 +80,12 @@ public class Door : NetworkBehaviour
     {
         rightLight.sprite = isCompleted ? lightOn : lightOff;
     }
-
+    [Rpc(SendTo.Server)]
+    private void DestroyWireR_ServerRpc()
+    {
+        GameObject wire = GameObject.FindGameObjectWithTag($"Player{_level}R");
+        Destroy(wire);
+    }
     public void Awake()
     {
         // tag ex. "Plug1L" -> _level="1", _side="L"
@@ -99,6 +105,13 @@ public class Door : NetworkBehaviour
             Debug.Log("No gameManager found");
         }
 
+    }
+    public void Update()
+    {
+        if (GetComponent<SpriteRenderer>().sprite == open && isAnimationCompleted)
+        {
+            GetComponent<SpriteRenderer>().sprite = close;
+        }
     }
 
     // plugSide is "R" or "L"
@@ -218,6 +231,7 @@ public class Door : NetworkBehaviour
                     p.GetComponent<PlayerKinematicMovement>().freeze = false;
                     // close door
                     GetComponent<SpriteRenderer>().sprite = close;
+                    isAnimationCompleted = true;
                     // destroy the current wire
                     currentWire.CreateFixedWire();
                     Destroy(currentWireObject);
@@ -268,8 +282,8 @@ public class Door : NetworkBehaviour
                 {
                     // Move to door
                 Vector3 wirePos = nextWire.GetStartingPoint();
-                Vector3 doorRPosition = GameObject.FindGameObjectWithTag($"Door{_level}R").transform.position;
-                StartCoroutine(MovePlayerToDoor(p, doorRPosition, wirePos,
+                GameObject doorR = GameObject.FindGameObjectWithTag($"Door{_level}R");
+                StartCoroutine(MovePlayerToDoor(p, doorR.transform.position, wirePos,
                 () => {
                     // Stop animation
                     p.GetComponent<PlayerKinematicMovement>().DisableAnimation();
@@ -279,9 +293,17 @@ public class Door : NetworkBehaviour
                     p.GetComponent<PlayerKinematicMovement>().freeze = false;
                     // close door
                     GetComponent<SpriteRenderer>().sprite = close;
-                    // destroy the current wire
+                    doorR.GetComponent<Door>().isAnimationCompleted = true;
+                    // telling server to destroy the current wire?
                     currentWire.CreateFixedWire();
-                    //Destroy(currentWireObject);
+                    if(currentWireObject.GetComponent<NetworkObject>()!=null)
+                    {
+                        DestroyWireR_ServerRpc();
+                    }
+                    else
+                    {
+                        Destroy(currentWireObject);
+                    }
 
                 }));
 
