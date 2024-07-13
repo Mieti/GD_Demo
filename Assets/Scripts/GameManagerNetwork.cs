@@ -8,8 +8,8 @@ public class GameManagerNetwork : NetworkBehaviour
     [SerializeField] private WireController2D _clientPrefab; // Prefab for the client
     [SerializeField] private CameraMovement _cameraController;
     private List<NetworkObject> _spawnedObjects = new List<NetworkObject>();
-    private Vector3 hostPosition; // Camera offset
-    private Vector3 clientPosition; // Camera offset
+    [SerializeField] private Vector3 hostPosition; // Camera offset
+    [SerializeField] private Vector3 clientPosition; // Camera offset
 
     public override void OnNetworkSpawn()
     {
@@ -17,14 +17,14 @@ public class GameManagerNetwork : NetworkBehaviour
         {
             // The host (server) also needs to spawn its player
             Debug.Log("Host is spawning its player.");
-            hostPosition = new Vector3(0, 0, 0); // Replace with your desired position
+            // hostPosition = new Vector3(-58, -36, 0); // Replace with your desired position
             SpawnPlayer(NetworkManager.Singleton.LocalClientId, true, hostPosition);
         }
         else if (IsClient)
         {
             // Clients request to spawn their player
             Debug.Log("Client is requesting to spawn its player.");
-            Vector3 clientPosition = new Vector3(38, -36, 0); // Replace with your desired position
+            // clientPosition = new Vector3(38, -36, 0); // Replace with your desired position
             RequestSpawnPlayerServerRpc(NetworkManager.Singleton.LocalClientId, clientPosition);
         }
     }

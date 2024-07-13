@@ -19937,7 +19937,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _positions:
-  - {x: 7.986061, y: -11.913898, z: 0}
+  - {x: 12.9, y: -8, z: 0}
   _sides: 3
   _radiusOne: 0
   _radiusTwo: 0
@@ -20442,6 +20442,22 @@ PrefabInstance:
     - target: {fileID: 5381121307034108347, guid: 96c1a0c7d564c2a488e9e312c295bfb3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6232926222703058445, guid: 96c1a0c7d564c2a488e9e312c295bfb3, type: 3}
+      propertyPath: hostPosition.x
+      value: -58
+      objectReference: {fileID: 0}
+    - target: {fileID: 6232926222703058445, guid: 96c1a0c7d564c2a488e9e312c295bfb3, type: 3}
+      propertyPath: hostPosition.y
+      value: -36
+      objectReference: {fileID: 0}
+    - target: {fileID: 6232926222703058445, guid: 96c1a0c7d564c2a488e9e312c295bfb3, type: 3}
+      propertyPath: clientPosition.x
+      value: 38
+      objectReference: {fileID: 0}
+    - target: {fileID: 6232926222703058445, guid: 96c1a0c7d564c2a488e9e312c295bfb3, type: 3}
+      propertyPath: clientPosition.y
+      value: -36
       objectReference: {fileID: 0}
     - target: {fileID: 6232926222703058445, guid: 96c1a0c7d564c2a488e9e312c295bfb3, type: 3}
       propertyPath: _cameraController
@@ -21150,7 +21166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _positions:
-  - {x: -12.94, y: -7.96, z: 0}
+  - {x: -12.9, y: -8, z: 0}
   _sides: 3
   _radiusOne: 0
   _radiusTwo: 0

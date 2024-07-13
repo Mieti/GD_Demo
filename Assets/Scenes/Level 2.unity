@@ -30410,6 +30410,22 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6232926222703058445, guid: 96c1a0c7d564c2a488e9e312c295bfb3, type: 3}
+      propertyPath: hostPosition.x
+      value: -65
+      objectReference: {fileID: 0}
+    - target: {fileID: 6232926222703058445, guid: 96c1a0c7d564c2a488e9e312c295bfb3, type: 3}
+      propertyPath: hostPosition.y
+      value: -36
+      objectReference: {fileID: 0}
+    - target: {fileID: 6232926222703058445, guid: 96c1a0c7d564c2a488e9e312c295bfb3, type: 3}
+      propertyPath: clientPosition.x
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6232926222703058445, guid: 96c1a0c7d564c2a488e9e312c295bfb3, type: 3}
+      propertyPath: clientPosition.y
+      value: -36
+      objectReference: {fileID: 0}
+    - target: {fileID: 6232926222703058445, guid: 96c1a0c7d564c2a488e9e312c295bfb3, type: 3}
       propertyPath: _cameraController
       value: 
       objectReference: {fileID: 737448029}
@@ -35531,7 +35547,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -8.5}
+  m_Offset: {x: 0, y: -6.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
