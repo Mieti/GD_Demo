@@ -1,6 +1,5 @@
-using System;
+using System.Collections.Generic;
 using Unity.Netcode;
-using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class GameManagerNetwork : NetworkBehaviour
@@ -8,10 +7,9 @@ public class GameManagerNetwork : NetworkBehaviour
     [SerializeField] private WireController2D _hostPrefab; // Prefab for the host
     [SerializeField] private WireController2D _clientPrefab; // Prefab for the client
     [SerializeField] private CameraMovement _cameraController;
-    CameraMovement script;
+    private List<NetworkObject> _spawnedObjects = new List<NetworkObject>();
     private Vector3 hostPosition; // Camera offset
     private Vector3 clientPosition; // Camera offset
-
 
     public override void OnNetworkSpawn()
     {
@@ -46,6 +44,7 @@ public class GameManagerNetwork : NetworkBehaviour
 
         var spawn = Instantiate(spawnPrefab, position, Quaternion.identity);
         spawn.NetworkObject.SpawnWithOwnership(clientId);
+        _spawnedObjects.Add(spawn.NetworkObject); // Add the spawned object to the list
 
         // Assign the camera to follow the newly spawned player on the client side
         AssignCameraClientRpc(spawn.NetworkObject.NetworkObjectId, clientId);
@@ -94,6 +93,16 @@ public class GameManagerNetwork : NetworkBehaviour
     public override void OnDestroy()
     {
         base.OnDestroy();
-        if (NetworkManager.Singleton != null) NetworkManager.Singleton.Shutdown();
+
+        // Destroy all spawned network objects
+        foreach (var networkObject in _spawnedObjects)
+        {
+            if (networkObject != null)
+            {
+                networkObject.Despawn();
+                Destroy(networkObject.gameObject);
+            }
+        }
+        _spawnedObjects.Clear();
     }
 }

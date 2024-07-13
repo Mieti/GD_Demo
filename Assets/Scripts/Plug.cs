@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Plug : NetworkBehaviour
+public class Plug : MonoBehaviour
 {
     public bool isConnected = false;
 
