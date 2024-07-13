@@ -30,6 +30,7 @@ TagManager:
   - Player2R
   - Player3R
   - Player4R
+  - hiddenPoleCorrect
   layers:
   - Default
   - TransparentFX
