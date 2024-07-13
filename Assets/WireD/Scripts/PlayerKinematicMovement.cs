@@ -133,6 +133,14 @@ public class PlayerKinematicMovement : MonoBehaviour
             {
                 // dynamic body -> I can use velocity
                 rb.velocity = movementVector * speed;
+                if(IsMoving)
+                {
+                    playLoopAudioSource(audioFootstep);
+                }
+                else
+                {
+                    stopAudioSource(audioFootstep);
+                }
             }
     }
 
@@ -195,6 +203,10 @@ public class PlayerKinematicMovement : MonoBehaviour
                 Plug plug = collider.GetComponent<Plug>();
                 if (plug != null)
                 {
+                    PutKinematic();
+                    animator.SetFloat("Horizontal", 0);
+                    animator.SetFloat("Speed", 0);
+                    stopAudioSource(audioFootstep);
                     plug.Interact(this);
                 }
             }
@@ -235,12 +247,9 @@ public class PlayerKinematicMovement : MonoBehaviour
         }
         else
         {
-            // is dynamic, so: remove 1 segment + change back to dynamic
+            // is dynamic, so: remove 1 segment + change back to Kinematic
             wc.RemoveLastSegment();
-            wc.ResetJoints();
-            rb.velocity = Vector2.zero;
-            rb.angularVelocity = 0f;
-            rb.isKinematic = true;
+            PutKinematic();
         }
         
     }
@@ -283,6 +292,14 @@ public class PlayerKinematicMovement : MonoBehaviour
     {
         if (audio.isPlaying)
             audio.Stop();
+    }
+
+    private void PutKinematic()
+    {
+        wc.ResetJoints();
+        rb.velocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+        rb.isKinematic = true;
     }
 
 }
