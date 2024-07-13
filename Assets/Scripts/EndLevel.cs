@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class EndLevel : MonoBehaviour
 {
+    public TextMeshProUGUI levelText;
     // Start is called before the first frame update
     void Start()
     {
-        
+        levelText.text = "LEVEL " + SceneManager.GetActiveScene().buildIndex.ToString();
     }
 
     // Update is called once per frame
