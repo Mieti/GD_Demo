@@ -12197,6 +12197,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2003800619}
     m_Modifications:
+    - target: {fileID: -1860797925906383390, guid: 72a2148c9bc5f3b45b29e0f471a391c6, type: 3}
+      propertyPath: m_Size.y
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -1860797925906383390, guid: 72a2148c9bc5f3b45b29e0f471a391c6, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3797671958197843, guid: 72a2148c9bc5f3b45b29e0f471a391c6, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2102053885874034760, guid: 97f7475dbc0957c439043b491021ee06, type: 3}
       propertyPath: m_Name
       value: Pole1 (1)
@@ -12244,18 +12256,6 @@ PrefabInstance:
     - target: {fileID: 2191348581777174233, guid: 97f7475dbc0957c439043b491021ee06, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -1860797925906383390, guid: 72a2148c9bc5f3b45b29e0f471a391c6, type: 3}
-      propertyPath: m_Size.y
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: -1860797925906383390, guid: 72a2148c9bc5f3b45b29e0f471a391c6, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3797671958197843, guid: 72a2148c9bc5f3b45b29e0f471a391c6, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24755,6 +24755,22 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6232926222703058445, guid: 96c1a0c7d564c2a488e9e312c295bfb3, type: 3}
+      propertyPath: hostPosition.x
+      value: -58
+      objectReference: {fileID: 0}
+    - target: {fileID: 6232926222703058445, guid: 96c1a0c7d564c2a488e9e312c295bfb3, type: 3}
+      propertyPath: hostPosition.y
+      value: -36
+      objectReference: {fileID: 0}
+    - target: {fileID: 6232926222703058445, guid: 96c1a0c7d564c2a488e9e312c295bfb3, type: 3}
+      propertyPath: clientPosition.x
+      value: 38
+      objectReference: {fileID: 0}
+    - target: {fileID: 6232926222703058445, guid: 96c1a0c7d564c2a488e9e312c295bfb3, type: 3}
+      propertyPath: clientPosition.y
+      value: -36
+      objectReference: {fileID: 0}
+    - target: {fileID: 6232926222703058445, guid: 96c1a0c7d564c2a488e9e312c295bfb3, type: 3}
       propertyPath: _cameraController
       value: 
       objectReference: {fileID: 140868368}
@@ -26985,6 +27001,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2003800619}
     m_Modifications:
+    - target: {fileID: -1860797925906383390, guid: 72a2148c9bc5f3b45b29e0f471a391c6, type: 3}
+      propertyPath: m_Size.y
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -1860797925906383390, guid: 72a2148c9bc5f3b45b29e0f471a391c6, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3797671958197843, guid: 72a2148c9bc5f3b45b29e0f471a391c6, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2102053885874034760, guid: 97f7475dbc0957c439043b491021ee06, type: 3}
       propertyPath: m_Name
       value: Pole1
@@ -27044,18 +27072,6 @@ PrefabInstance:
     - target: {fileID: 6241054818404888741, guid: 97f7475dbc0957c439043b491021ee06, type: 3}
       propertyPath: m_SortingLayerID
       value: -909943347
-      objectReference: {fileID: 0}
-    - target: {fileID: -1860797925906383390, guid: 72a2148c9bc5f3b45b29e0f471a391c6, type: 3}
-      propertyPath: m_Size.y
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: -1860797925906383390, guid: 72a2148c9bc5f3b45b29e0f471a391c6, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3797671958197843, guid: 72a2148c9bc5f3b45b29e0f471a391c6, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}

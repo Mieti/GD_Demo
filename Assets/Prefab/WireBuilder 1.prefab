@@ -1203,7 +1203,7 @@ Transform:
   m_GameObject: {fileID: 4967889331108151528}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 37.997437, y: -34.105225, z: 0}
+  m_LocalPosition: {x: 0, y: 1.915507, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2240,7 +2240,7 @@ MonoBehaviour:
   - {x: 0, y: 1.5150054, z: 0}
   - {x: 0, y: 1.7150061, z: 0}
   - {x: 0, y: 1.9150069, z: 0}
-  - {x: 37.997437, y: -34.105225, z: 0}
+  - {x: 0, y: 1.915507, z: 0}
   _sides: 3
   _radiusOne: 0
   _radiusTwo: 0
@@ -2300,7 +2300,7 @@ LineRenderer:
   - {x: 0, y: 1.5150054, z: 0}
   - {x: 0, y: 1.7150061, z: 0}
   - {x: 0, y: 1.9150069, z: 0}
-  - {x: 37.997437, y: -34.105225, z: 0}
+  - {x: 0, y: 1.915507, z: 0}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.047636054

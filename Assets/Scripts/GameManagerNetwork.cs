@@ -11,11 +11,9 @@ public class GameManagerNetwork : NetworkBehaviour
     private List<NetworkObject> _spawnedObjects = new List<NetworkObject>();
     [SerializeField] private Vector3 hostPosition; // Camera offset
     [SerializeField] private Vector3 clientPosition; // Camera offset
-    private GameManager GM;
 
     public override void OnNetworkSpawn()
     {
-        GM = GameObject.Find("GameManager").GetComponent<GameManager>();
         if (IsServer)
         {
             // The host (server) also needs to spawn its player

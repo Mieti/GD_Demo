@@ -551,7 +551,7 @@ LineRenderer:
   - {x: 0, y: 1.4904711, z: 0}
   - {x: 0, y: 1.6904719, z: 0}
   - {x: 0, y: 1.8904727, z: 0}
-  - {x: -58.016113, y: -34.117798, z: 0}
+  - {x: 0, y: 1.890972, z: 0}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.047636054
@@ -2213,7 +2213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3513022662
+  GlobalObjectIdHash: 2333378152
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
