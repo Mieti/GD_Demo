@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
@@ -10,9 +11,11 @@ public class GameManagerNetwork : NetworkBehaviour
     private List<NetworkObject> _spawnedObjects = new List<NetworkObject>();
     [SerializeField] private Vector3 hostPosition; // Camera offset
     [SerializeField] private Vector3 clientPosition; // Camera offset
+    private GameManager GM;
 
     public override void OnNetworkSpawn()
     {
+        GM = GameObject.Find("GameManager").GetComponent<GameManager>();
         if (IsServer)
         {
             // The host (server) also needs to spawn its player
@@ -48,7 +51,6 @@ public class GameManagerNetwork : NetworkBehaviour
 
         // Assign the camera to follow the newly spawned player on the client side
         AssignCameraClientRpc(spawn.NetworkObject.NetworkObjectId, clientId);
-
         Debug.Log($"Player spawned for client {clientId}. IsHost: {isHost}, Position: {position}");
     }
 
@@ -60,7 +62,7 @@ public class GameManagerNetwork : NetworkBehaviour
         {
             NetworkObject networkObject = NetworkManager.Singleton.SpawnManager.SpawnedObjects[networkObjectId];
             Transform playerTransform = null;
-
+            
             // Check if the networkObject has the expected child objects
             if (networkObject != null)
             {

@@ -19,9 +19,6 @@ public class InGameUI : MonoBehaviour
         wc = GameObject.FindGameObjectWithTag(findTag);
         maxLen = wc.GetComponent<WireController2D>().limitMax;
         */
-        wc = GameObject.Find("Room 1L").GetComponentInChildren<WireController2D>();
-        maxLen = wc.limitMax;
-        segments = wc.segments;
 
         lights = GameObject.Find("UI Rooms").GetComponentsInChildren<UILightSwitch>();
     }

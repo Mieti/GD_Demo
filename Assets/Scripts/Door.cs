@@ -312,8 +312,6 @@ public class Door : NetworkBehaviour
 
                 doorSound.Play();
 
-                nextWire.activateUI();
-                currentWire.disableUI();
                 }
             }
             else
