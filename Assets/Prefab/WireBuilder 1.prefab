@@ -337,7 +337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3372428356
+  GlobalObjectIdHash: 320526958
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -385,7 +385,7 @@ MonoBehaviour:
   ropeMesh: {fileID: 8256865848486892056}
   startAnchorTemp: {fileID: 1249670920275773944}
   firstSegment: {fileID: 7189274057046986007}
-  endAnchorTemp: {fileID: 0}
+  endAnchorTemp: {fileID: 5281771935424565882}
   plugTemp: {fileID: 0}
   startAnchorPoint: {fileID: 1229081711585430608, guid: 400ba6985b22c9742a5f4791383338ec, type: 3}
   segment: {fileID: 4721452859494924073, guid: 5bb2a4481cec3ff4b818cb5e012ec8d4, type: 3}
@@ -2240,6 +2240,7 @@ MonoBehaviour:
   - {x: 0, y: 1.5150054, z: 0}
   - {x: 0, y: 1.7150061, z: 0}
   - {x: 0, y: 1.9150069, z: 0}
+  - {x: 37.997437, y: -34.105225, z: 0}
   _sides: 3
   _radiusOne: 0
   _radiusTwo: 0
@@ -2299,7 +2300,7 @@ LineRenderer:
   - {x: 0, y: 1.5150054, z: 0}
   - {x: 0, y: 1.7150061, z: 0}
   - {x: 0, y: 1.9150069, z: 0}
-  - {x: 0, y: 1.9155066, z: 0}
+  - {x: 37.997437, y: -34.105225, z: 0}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.047636054

@@ -49,6 +49,8 @@ public class GameManagerNetwork : NetworkBehaviour
         spawn.NetworkObject.SpawnWithOwnership(clientId);
         _spawnedObjects.Add(spawn.NetworkObject); // Add the spawned object to the list
 
+        //GM.UpdateUI(spawn.NetworkObject.gameObject.GetComponent<WireController2D>());
+
         // Assign the camera to follow the newly spawned player on the client side
         AssignCameraClientRpc(spawn.NetworkObject.NetworkObjectId, clientId);
         Debug.Log($"Player spawned for client {clientId}. IsHost: {isHost}, Position: {position}");
