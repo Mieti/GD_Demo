@@ -21,4 +21,12 @@ public class LastDoor : Door
         doorSound.Play();
         gameManager.levelCompleted();
     }
+
+    protected override void MoveToNextRoom2()
+    {
+        Debug.Log("Level completed!!");
+        levelComplete.Play();
+        doorSound.Play();
+        gameManager.levelCompleted();
+    }
 }

@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class EndLevel : MonoBehaviour
+public class EndLevel : NetworkBehaviour
 {
     public TextMeshProUGUI levelText;
     // Start is called before the first frame update
@@ -21,25 +23,37 @@ public class EndLevel : MonoBehaviour
     }
     public void next()
     {
-        // implement simplematchamaking
-        try
+        // Get the current active scene index
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = currentSceneIndex + 1;
+
+        // Check if the next scene index is within the valid range
+        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        } catch
+            // Get the path of the next scene
+            string nextScenePath = SceneUtility.GetScenePathByBuildIndex(nextSceneIndex);
+            // Extract the scene name from the path
+            string nextSceneName = Path.GetFileNameWithoutExtension(nextScenePath);
+
+            // Load the next scene using NetworkManager's SceneManager
+            NetworkManager.Singleton.SceneManager.LoadScene(nextSceneName, LoadSceneMode.Single);
+        }
+        else
         {
             Debug.Log("It was the last level");
-            SceneManager.LoadScene(0);
+            // Load the main menu or first scene
+            NetworkManager.Singleton.SceneManager.LoadScene("Menu", LoadSceneMode.Single);
         }
     }
 
     public void replay()
     {
         Debug.Log("Replay");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        NetworkManager.Singleton.SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
     }
     public void menu()
     {
-        Debug.Log("Quit");
-        SceneManager.LoadScene(0);
+        Debug.Log("Menu");
+        NetworkManager.Singleton.SceneManager.LoadScene("Menu", LoadSceneMode.Single);
     }
 }

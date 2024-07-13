@@ -5,13 +5,15 @@ using System.Drawing;
 using System.Threading.Tasks;
 using System;
 using Unity.VisualScripting;
+using Unity.Netcode;
+
 
 #if UNITY_EDITOR
 using UnityEditor.Presets;
 using UnityEditor;
 #endif
 
-public class WireController2D : MonoBehaviour
+public class WireController2D : NetworkBehaviour
 {
     // <summary>
     // Project setup:
@@ -790,6 +792,10 @@ public class WireController2D : MonoBehaviour
     public Transform DetachEnd()
     {
         Transform end = endAnchorTemp;
+        if (end == null)
+        {
+            return null;
+        }
         end.GetComponent<SpringJoint2D>().connectedBody = null;
         this.endAnchorTemp = null;
         end.parent = transform.parent;
@@ -851,4 +857,9 @@ public class WireController2D : MonoBehaviour
         ui.disappear();
     }
     */
+
+    public override void OnNetworkSpawn()
+    {
+        if (!IsOwner) Destroy(this);
+    }
 }
