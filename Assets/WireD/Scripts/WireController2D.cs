@@ -111,7 +111,7 @@ public class WireController2D : MonoBehaviour
 
     //private Vector3 offset = new Vector3(0, 1.2f, 0);
 
-#if UNITY_EDITOR
+//#if UNITY_EDITOR
     private void Start()
     {
         mousePossHelper.gameObject.SetActive(false);
@@ -185,11 +185,13 @@ public class WireController2D : MonoBehaviour
     {
         if (startAnchorTemp == null)
         {
+            /*
             #region unpack prefab
             //When the first segment is created, the prefab is unpacked, to avoid an error that causes references to be lost in play mode.
             if (PrefabUtility.IsPartOfAnyPrefab(this.gameObject))
                 PrefabUtility.UnpackPrefabInstance(this.gameObject, PrefabUnpackMode.Completely, InteractionMode.AutomatedAction);
             #endregion
+            */
             Debug.Log("starAnchor: " + selectPosition);
 
             startAnchorTemp = Instantiate(startAnchorPoint, selectPosition, Quaternion.identity, transform);
@@ -667,7 +669,7 @@ public class WireController2D : MonoBehaviour
     }
     #endregion
 
-#endif
+//#endif
 
     private void Update()
     {
