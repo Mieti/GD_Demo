@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 57238297944556660}
   m_Layer: 0
-  m_Name: Lever
+  m_Name: LeverBlu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,7 +106,7 @@ SpriteRenderer:
   m_SortingLayerID: 1624311423
   m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: 1027211641, guid: 8392811a200f5524bb0736fd26519786, type: 3}
+  m_Sprite: {fileID: 1759299793, guid: 977b2bf809baf8c46ac01bf85b5ac0e0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -3,7 +3,10 @@ using System.Collections;
 
 public class LeverController : MonoBehaviour
 {
-    private SpriteRenderer spriteRenderer;
+    //private SpriteRenderer spriteRenderer;
+    private Vector3 newScale = new Vector3(-1, 1, 1);
+    private Vector3 oldScale = new Vector3(1, 1, 1);
+    public GameObject lever;
     public GameObject toHidePole;
     public GameObject toShowPole;
     private int colliderCount = 0;
@@ -11,7 +14,7 @@ public class LeverController : MonoBehaviour
 
     private void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+
     }
 
     private void Update()
@@ -55,7 +58,9 @@ public class LeverController : MonoBehaviour
     private void ActivateLever()
     {
         active = true;
-        spriteRenderer.flipX = true;
+        //spriteRenderer.flipX = true;
+        lever.transform.localScale = newScale;
+        Debug.Log("Lever activaqtion");
         if (toShowPole != null)
         {
             toShowPole.SetActive(true);
@@ -72,7 +77,8 @@ public class LeverController : MonoBehaviour
     private void DeactivateLever()
     {
         active = false;
-        spriteRenderer.flipX = false;
+        //spriteRenderer.flipX = false;
+        lever.transform.localScale = oldScale;
         if (toShowPole != null)
         {
             toShowPole.SetActive(false);
