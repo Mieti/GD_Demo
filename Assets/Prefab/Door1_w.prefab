@@ -36,6 +36,10 @@ PrefabInstance:
       propertyPath: m_SpriteSortPoint
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7856679565073773772, guid: 27827949f5522584ca7c47430a6c4c5a, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 785708443968089831, guid: 0ed979ae1be83b244823d57266e146f3, type: 2}
     - target: {fileID: 8800035573422743043, guid: 27827949f5522584ca7c47430a6c4c5a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -98,7 +102,7 @@ AudioSource:
   m_GameObject: {fileID: 3057101840938088263}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 785708443968089831, guid: 0ed979ae1be83b244823d57266e146f3, type: 2}
   m_audioClip: {fileID: 8300000, guid: 9a600f6100964479db0b9600a516743a, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
