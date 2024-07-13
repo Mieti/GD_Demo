@@ -9,9 +9,10 @@ public class PauseMenu : MonoBehaviour
     public static bool GameIsPaused = false;
 
     [SerializeField] private GameObject pauseMenuUI;
-    
-    // Start is called before the first frame update
+    private GameObject[] menu;
 
+    // Start is called before the first frame update
+ 
     // Update is called once per frame
 
     void Update()
@@ -26,7 +27,7 @@ public class PauseMenu : MonoBehaviour
         {
             if (GameIsPaused)
             {
-                resume();
+                //resume();
             }
             else
             {

@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
         count++;
         //Debug.Log(count);
     }
-    public void levelCompleted() { Debug.Log("Level ended"); endLevelCanvas.SetActive(true); }
+    public void levelCompleted() { Debug.Log("Level ended"); Time.timeScale = 0f; endLevelCanvas.SetActive(true); }
 
     public void UpdateUI(WireController2D wc)
     {

@@ -1756,6 +1756,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lever
       objectReference: {fileID: 0}
+    - target: {fileID: 6154251529768259566, guid: eb5a786c33908444fb8683242f639e7f, type: 3}
+      propertyPath: lever
+      value: 
+      objectReference: {fileID: 945806812}
+    - target: {fileID: 6154251529768259566, guid: eb5a786c33908444fb8683242f639e7f, type: 3}
+      propertyPath: toShowPole
+      value: 
+      objectReference: {fileID: 1703773480}
     - target: {fileID: 6289245931358434720, guid: eb5a786c33908444fb8683242f639e7f, type: 3}
       propertyPath: m_SpriteSortPoint
       value: 1
@@ -9727,6 +9735,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1741539523}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &945806812 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4232851079129514103, guid: eb5a786c33908444fb8683242f639e7f, type: 3}
+  m_PrefabInstance: {fileID: 210861307}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &961684031
 GameObject:
   m_ObjectHideFlags: 0
@@ -15485,6 +15498,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1741539523}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1703773480 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6290178229066738117, guid: e8832a38192a7c241889568fc52a150a, type: 3}
+  m_PrefabInstance: {fileID: 1104251601}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1706108560
 GameObject:
   m_ObjectHideFlags: 0
@@ -25834,6 +25852,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeverBlu
       objectReference: {fileID: 0}
+    - target: {fileID: 6154251529768259566, guid: ef2c64acbb7bb574286b51dc597d7a32, type: 3}
+      propertyPath: toShowPole
+      value: 
+      objectReference: {fileID: 1518844813}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
