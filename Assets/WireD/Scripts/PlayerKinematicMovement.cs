@@ -279,11 +279,13 @@ public class PlayerKinematicMovement : NetworkBehaviour
     {
         animator.SetFloat("Horizontal", 1);
         animator.SetFloat("Speed", speed);
+        playLoopAudioSource(audioFootstep);
     }
     public void DisableAnimation()
     {
         animator.SetFloat("Horizontal", 0);
         animator.SetFloat("Speed", 0);
+        stopAudioSource(audioFootstep);
     }
 
     private void playLoopAudioSource(AudioSource audio)
