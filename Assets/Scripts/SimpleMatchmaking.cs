@@ -20,16 +20,76 @@ using UnityEngine.SceneManagement;
 using ParrelSync;
 #endif
 
-public class SimpleMatchmaking : MonoBehaviour
+public class SimpleMatchmaking : NetworkBehaviour
 {
     private static Lobby _connectedLobby;
     private QueryResponse _lobbies;
     private UnityTransport _transport;
     private const string JoinCodeKey = "j";
     private string _playerId;
-
+    private readonly Dictionary<ulong, bool> _playersInLobby = new();
+    public static event Action<Dictionary<ulong, bool>> LobbyPlayersUpdated;
     private void Awake() => _transport = FindObjectOfType<UnityTransport>();
 
+    public override void OnNetworkSpawn()
+    {
+        if (IsServer)
+        {
+            
+            NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnectedCallback;
+            _playersInLobby.Add(NetworkManager.Singleton.LocalClientId, false);
+            UpdateInterface();
+        }
+
+        // Client uses this in case host destroys the lobby
+        //NetworkManager.Singleton.OnClientDisconnectCallback += OnClientDisconnectCallback;
+
+
+    }
+
+    private void OnClientConnectedCallback(ulong playerId)
+    {
+        if (!IsServer) return;
+
+        // Add locally
+        if (!_playersInLobby.ContainsKey(playerId)) _playersInLobby.Add(playerId, false);
+
+        PropagateToClients();
+
+        UpdateInterface();
+    }
+
+    private void PropagateToClients()
+    {
+        foreach (var player in _playersInLobby) UpdatePlayerClientRpc(player.Key, player.Value);
+    }
+
+    [ClientRpc]
+    private void UpdatePlayerClientRpc(ulong clientId, bool isReady)
+    {
+        if (IsServer) return;
+
+        if (!_playersInLobby.ContainsKey(clientId)) _playersInLobby.Add(clientId, isReady);
+        else _playersInLobby[clientId] = isReady;
+        UpdateInterface();
+    }
+
+ 
+
+    [ClientRpc]
+    private void RemovePlayerClientRpc(ulong clientId)
+    {
+        if (IsServer) return;
+
+        if (_playersInLobby.ContainsKey(clientId)) _playersInLobby.Remove(clientId);
+        UpdateInterface();
+    }
+
+    private void UpdateInterface()
+    {
+        LobbyPlayersUpdated?.Invoke(_playersInLobby);
+
+    }
     public async void CreateOrJoinLobby()
     {
         //await Authenticate();
