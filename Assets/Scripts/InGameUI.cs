@@ -8,27 +8,32 @@ public class InGameUI : MonoBehaviour
     public float wireAmount = 100f;
     private float maxLen = 0;
     private List<Transform> segments;
-    private WireController2D wc;
+    [SerializeField] private WireController2D wc;
+    [SerializeField] private string wcName;
 
     public UILightSwitch[] lights;
 
     private void Start()
     {
         /*
-        string findTag = gameObject.tag.Replace("UI", "Player");
-        wc = GameObject.FindGameObjectWithTag(findTag);
-        maxLen = wc.GetComponent<WireController2D>().limitMax;
-        */
         wc = GameObject.Find("WireBuilder(Clone)").GetComponentInChildren<WireController2D>();
         maxLen = wc.limitMax;
         segments = wc.segments;
+        */
 
         lights = GameObject.Find("UI Rooms").GetComponentsInChildren<UILightSwitch>();
     }
 
     private void Update()
     {
-        UpdateWireBar(maxLen - segments.Count);
+        if (wc != null)
+        {
+            UpdateWireBar(maxLen - segments.Count);
+        }
+        else if (wcName != "")
+        {
+            InitializeWC(wcName);
+        }
     }
 
     public void UpdateWireBar(float len)
@@ -52,9 +57,22 @@ public class InGameUI : MonoBehaviour
     }
     */
 
+    public void InitializeWC(string newName)
+    {
+        if (newName != "")
+        {
+            wcName = newName;
+            wc = GameObject.Find(wcName).GetComponent<WireController2D>();
+            if (wc != null)
+            {
+                maxLen = wc.limitMax;
+                segments = wc.segments;
+            }
+        }
+    }
+
     public void UpdateWC(WireController2D newWC)
     {
-        print("---------------" + newWC.name);
         wc = newWC;
         maxLen = wc.limitMax;
         segments = wc.segments;
