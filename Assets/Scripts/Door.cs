@@ -336,10 +336,10 @@ public class Door : NetworkBehaviour
 
 
         // Move down first
-        float direction = transform.position.x - player.position.x;
+        float direction = doorPos.x - player.position.x;
         player.GetComponent<PlayerKinematicMovement>().SetDirection(direction);
         playerMove.EnambleAnimation();
-        float moveDown = transform.position.y - 1.5f;
+        float moveDown = doorPos.y - 1.5f;
         if (moveDown < player.position.y)
         {
             while (Mathf.Abs(player.position.y - moveDown) > epsilon)
