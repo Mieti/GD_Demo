@@ -30,6 +30,7 @@ public class EndLevel : NetworkBehaviour
         // Check if the next scene index is within the valid range
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
+            Time.timeScale = 1f;
             // Get the path of the next scene
             string nextScenePath = SceneUtility.GetScenePathByBuildIndex(nextSceneIndex);
             // Extract the scene name from the path
