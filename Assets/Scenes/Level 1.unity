@@ -26058,7 +26058,7 @@ MonoBehaviour:
   usePhysics: 1
   maxDistanceWithSelectedPos: 0.05
   segmentsSeparation: 0.2
-  limitMax: 500
+  limitMax: 100
   segmentsRadius: 5
   lineWidth: 0.15
   currentDistanceToStartAnchor: 0
@@ -26127,7 +26127,7 @@ MonoBehaviour:
   usePhysics: 1
   maxDistanceWithSelectedPos: 0.05
   segmentsSeparation: 0.2
-  limitMax: 500
+  limitMax: 100
   segmentsRadius: 5
   lineWidth: 0.15
   currentDistanceToStartAnchor: 0
@@ -26597,7 +26597,7 @@ MonoBehaviour:
   usePhysics: 1
   maxDistanceWithSelectedPos: 0.05
   segmentsSeparation: 0.2
-  limitMax: 500
+  limitMax: 160
   segmentsRadius: 5
   lineWidth: 0.15
   currentDistanceToStartAnchor: 0
@@ -27018,7 +27018,7 @@ MonoBehaviour:
   usePhysics: 1
   maxDistanceWithSelectedPos: 0.05
   segmentsSeparation: 0.2
-  limitMax: 500
+  limitMax: 100
   segmentsRadius: 5
   lineWidth: 0.15
   currentDistanceToStartAnchor: 0
@@ -28068,7 +28068,7 @@ MonoBehaviour:
   usePhysics: 1
   maxDistanceWithSelectedPos: 0.05
   segmentsSeparation: 0.2
-  limitMax: 500
+  limitMax: 100
   segmentsRadius: 5
   lineWidth: 0.15
   currentDistanceToStartAnchor: 0
@@ -28674,7 +28674,7 @@ MonoBehaviour:
   usePhysics: 1
   maxDistanceWithSelectedPos: 0.05
   segmentsSeparation: 0.2
-  limitMax: 500
+  limitMax: 160
   segmentsRadius: 5
   lineWidth: 0.15
   currentDistanceToStartAnchor: 0
