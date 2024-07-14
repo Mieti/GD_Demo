@@ -16,7 +16,6 @@ public class GameManagerNetwork : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
-
         if (IsServer)
         {
 
@@ -37,6 +36,7 @@ public class GameManagerNetwork : NetworkBehaviour
             // clientPosition = new Vector3(38, -36, 0); // Replace with your desired position
             RequestSpawnPlayerServerRpc(NetworkManager.Singleton.LocalClientId, clientPosition);
         }
+        Time.timeScale = 1f;
     }
 
     [ServerRpc(RequireOwnership = false)]
