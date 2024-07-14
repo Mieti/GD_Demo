@@ -1,9 +1,10 @@
 using System;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 
-public class PlayerKinematicMovement : MonoBehaviour
+public class PlayerKinematicMovement : NetworkBehaviour
 {
     //[SerializeField]
     private Rigidbody2D rb;
@@ -300,6 +301,11 @@ public class PlayerKinematicMovement : MonoBehaviour
         rb.velocity = Vector2.zero;
         rb.angularVelocity = 0f;
         rb.isKinematic = true;
+    }
+    
+    public override void OnNetworkSpawn()
+    {
+        if (!IsOwner) Destroy(this);
     }
 
 }

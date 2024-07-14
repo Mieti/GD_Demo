@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -29,9 +30,9 @@ public class Plug : MonoBehaviour
     private Door doorL;
     private Door doorR;
 
-    public bool isFakePlayer = false;
+    // public bool isFakePlayer = false;
     
-    private void Awake(){
+    private void Awake() {
         // tag ex. "Plug1L" -> _level="1", _side="L"
         _level = tag[4..^1];
         _side = tag[^1..];
@@ -62,8 +63,9 @@ public class Plug : MonoBehaviour
 
     private void Update()
     {
+        
         // only for testing purpuses
-        if(isFakePlayer)
+        /* if (isFakePlayer)
         {
             if (Keyboard.current.spaceKey.wasPressedThisFrame)
             {
@@ -72,7 +74,7 @@ public class Plug : MonoBehaviour
                 doorL.PlayerCompletedRoom(_side);
                 doorR.PlayerCompletedRoom(_side);
             }
-        }
+        } */
         if(!isConnected && _light.sprite != lightOff)
         {
             _light.sprite = lightOff;
@@ -89,7 +91,7 @@ public class Plug : MonoBehaviour
             p.freeze = true;
             bool correct = CheckCorrectPoles();
             w.AddPlug(new Vector2(transform.position.x, transform.position.y-0.657f));
-            if(correct){
+            if (correct) {
                 _light.sprite = lightCorrect;
                 doorL.PlayerCompletedRoom(_side);
                 doorR.PlayerCompletedRoom(_side);
@@ -119,8 +121,8 @@ public class Plug : MonoBehaviour
         List<GameObject> correctPoleObjects = FindInParentWithTag("Correct Pole");
         List<GameObject> wrongPoleObjects = FindInParentWithTag("Wrong Pole");
 
-        Debug.Log("Found correct: "+ correctPoleObjects.Count);
-        Debug.Log("Found wrong: "+ wrongPoleObjects.Count);
+        // Debug.Log("Found correct: "+ correctPoleObjects.Count);
+        // Debug.Log("Found wrong: "+ wrongPoleObjects.Count);
         // ne basta 1 NON connesso
         foreach (GameObject poleObject in correctPoleObjects)
         {

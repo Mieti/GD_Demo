@@ -1,5 +1,10 @@
 fileFormatVersion: 2
-guid: 10af0f22d0c4b4d52a4ab178bbee399a
+<<<<<<<< HEAD:Assets/Scenes/Level 3.unity.meta
+guid: 493d04c6aa7df7c449f5be5122c786e3
+========
+guid: a25a5f967ffb11149a92ac801d4e7844
+folderAsset: yes
+>>>>>>>> newNetcode:Assets/Plugins.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

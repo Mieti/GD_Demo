@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
 
     public void UpdateUI(WireController2D wc)
     {
+        print("++++++++++++" + wc.gameObject.name);
         ingameUI.UpdateWC(wc);
     }
 }

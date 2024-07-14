@@ -19,7 +19,7 @@ public class InGameUI : MonoBehaviour
         wc = GameObject.FindGameObjectWithTag(findTag);
         maxLen = wc.GetComponent<WireController2D>().limitMax;
         */
-        wc = GameObject.Find("Room 1L").GetComponentInChildren<WireController2D>();
+        wc = GameObject.Find("WireBuilder(Clone)").GetComponentInChildren<WireController2D>();
         maxLen = wc.limitMax;
         segments = wc.segments;
 
@@ -37,6 +37,8 @@ public class InGameUI : MonoBehaviour
         wireBar.fillAmount = wireAmount / maxLen;
     }
 
+    /*
+    // deprecated
     public void Appear()
     {
         Canvas canvasObject = gameObject.GetComponentInChildren<Canvas>();
@@ -48,9 +50,11 @@ public class InGameUI : MonoBehaviour
         Canvas canvasObject = gameObject.GetComponentInChildren<Canvas>();
         canvasObject.enabled = false;
     }
+    */
 
     public void UpdateWC(WireController2D newWC)
     {
+        print("---------------" + newWC.name);
         wc = newWC;
         maxLen = wc.limitMax;
         segments = wc.segments;
