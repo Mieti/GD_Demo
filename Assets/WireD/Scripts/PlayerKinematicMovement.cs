@@ -33,6 +33,7 @@ public class PlayerKinematicMovement : NetworkBehaviour
     [SerializeField] private AudioSource audioFootstep;
     [SerializeField] private AudioSource audioRewindRope;
 
+    private InGameUI ui;
 
     private void Awake()
     {
@@ -46,11 +47,13 @@ public class PlayerKinematicMovement : NetworkBehaviour
             animator = GetComponent<Animator>();
         }
         interactableLayer = LayerMask.GetMask("Interactable");
+
     }
 
     void Start()
     {
-        
+        ui = GameObject.Find("Ingame UI").GetComponent<InGameUI>();
+        ui.UpdateWC(wc);
     }
 
     /* private void Update()

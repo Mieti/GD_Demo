@@ -308,9 +308,12 @@ public class Door : NetworkBehaviour
                         Destroy(currentWireObject);
                     }
 
+
                 }));
 
                 doorSound.Play();
+
+                gameManager.UpdateUI(nextWire);
 
                 }
             }

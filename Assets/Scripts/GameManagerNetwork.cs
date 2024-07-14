@@ -25,8 +25,10 @@ public class GameManagerNetwork : NetworkBehaviour
             // hostPosition = new Vector3(-58, -36, 0); // Replace with your desired position
             SpawnPlayer(NetworkManager.Singleton.LocalClientId, true, hostPosition);
 
+            /*
             ui = GameObject.Find("Ingame UI").GetComponent<InGameUI>();
             ui.InitializeWC(_hostPrefab.name + "(Clone)");
+            */
         }
         else if (IsClient)
         {
@@ -91,8 +93,10 @@ public class GameManagerNetwork : NetworkBehaviour
                     Debug.LogError("Player child object not found.");
                 }
 
+                /*
                 ui = GameObject.Find("Ingame UI").GetComponent<InGameUI>();
                 ui.InitializeWC(_clientPrefab.name + "(Clone)");
+                */
             }
             else
             {
