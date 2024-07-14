@@ -1435,7 +1435,7 @@ SpringJoint2D:
   m_Enabled: 1
   serializedVersion: 4
   m_EnableCollision: 1
-  m_ConnectedRigidBody: {fileID: 0}
+  m_ConnectedRigidBody: {fileID: 4117693382946773500}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_BreakAction: 0
