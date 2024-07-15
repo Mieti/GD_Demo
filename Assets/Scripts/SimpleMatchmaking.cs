@@ -97,7 +97,7 @@ public class SimpleMatchmaking : NetworkBehaviour
         if (_connectedLobby != null)
         {
             await LockLobby();
-            NetworkManager.Singleton.SceneManager.LoadScene("Level 1", LoadSceneMode.Single);
+            NetworkManager.Singleton.SceneManager.LoadScene("Level 3", LoadSceneMode.Single);
         }
     }
 

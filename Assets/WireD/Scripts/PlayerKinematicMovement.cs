@@ -230,7 +230,7 @@ public class PlayerKinematicMovement : NetworkBehaviour
             {
                 wc.ChangeJoints();
                 rb.isKinematic = false;
-                rb.mass = wc.RopeMass();
+                rb.mass = 2*wc.RopeMass();
             }
         }
 
