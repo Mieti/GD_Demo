@@ -13,6 +13,7 @@ public class LeverController : NetworkBehaviour
     public GameObject toShowPole;
     private int colliderCount = 0;
     private bool active = false;
+    private bool hasBeenActivated = false;
     private NetworkVariable<bool> _leverActivated = new NetworkVariable<bool>(false);
 
     [SerializeField] private AudioSource soundLeverActivation;
@@ -75,10 +76,14 @@ public class LeverController : NetworkBehaviour
         colliderCount++;
         if (colliderCount > 0)
         {
-            ActivateLever();
-            if (!soundLeverActivation.isPlaying)
+            if (!hasBeenActivated)
             {
-                soundLeverActivation.Play();
+                ActivateLever();
+                if (!soundLeverActivation.isPlaying)
+                {
+                    soundLeverActivation.Play();
+                }
+                hasBeenActivated = true;
             }
         }
     }
@@ -102,6 +107,7 @@ public class LeverController : NetworkBehaviour
             {
                 soundLeverDeactivation.Play();
             }
+            hasBeenActivated = false;
         }
     }
 

@@ -4978,7 +4978,7 @@ MonoBehaviour:
   usePhysics: 1
   maxDistanceWithSelectedPos: 0.05
   segmentsSeparation: 0.2
-  limitMax: 500
+  limitMax: 220
   segmentsRadius: 5
   lineWidth: 0.15
   currentDistanceToStartAnchor: 0
@@ -10671,7 +10671,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2191348581777174233, guid: 97f7475dbc0957c439043b491021ee06, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 2191348581777174233, guid: 97f7475dbc0957c439043b491021ee06, type: 3}
       propertyPath: m_LocalPosition.z
@@ -15088,7 +15088,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2191348581777174233, guid: 97f7475dbc0957c439043b491021ee06, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 2191348581777174233, guid: 97f7475dbc0957c439043b491021ee06, type: 3}
       propertyPath: m_LocalPosition.z
@@ -15917,7 +15917,7 @@ MonoBehaviour:
   usePhysics: 1
   maxDistanceWithSelectedPos: 0.05
   segmentsSeparation: 0.2
-  limitMax: 500
+  limitMax: 470
   segmentsRadius: 5
   lineWidth: 0.15
   currentDistanceToStartAnchor: 0
@@ -16571,7 +16571,7 @@ MonoBehaviour:
   usePhysics: 1
   maxDistanceWithSelectedPos: 0.05
   segmentsSeparation: 0.2
-  limitMax: 500
+  limitMax: 250
   segmentsRadius: 5
   lineWidth: 0.15
   currentDistanceToStartAnchor: 0
@@ -26567,7 +26567,7 @@ MonoBehaviour:
   usePhysics: 1
   maxDistanceWithSelectedPos: 0.05
   segmentsSeparation: 0.2
-  limitMax: 500
+  limitMax: 470
   segmentsRadius: 5
   lineWidth: 0.15
   currentDistanceToStartAnchor: 0
