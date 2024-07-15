@@ -48,6 +48,8 @@ MonoBehaviour:
   lever: {fileID: 0}
   toHidePole: {fileID: 0}
   toShowPole: {fileID: 0}
+  soundLeverActivation: {fileID: -291499756928540097, guid: eb5a786c33908444fb8683242f639e7f, type: 3}
+  soundLeverDeactivation: {fileID: -2917626728311239784, guid: eb5a786c33908444fb8683242f639e7f, type: 3}
 --- !u!1 &4232851079129514103
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,6 +332,8 @@ MonoBehaviour:
   lever: {fileID: 4232851079129514103}
   toHidePole: {fileID: 0}
   toShowPole: {fileID: 0}
+  soundLeverActivation: {fileID: 0}
+  soundLeverDeactivation: {fileID: 0}
 --- !u!60 &6041842761628487670
 PolygonCollider2D:
   m_ObjectHideFlags: 0
