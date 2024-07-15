@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -55,7 +56,7 @@ public class PauseMenu : MonoBehaviour
         Debug.Log("Replay");
         Time.timeScale = 1f;
         GameIsPaused = false;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        NetworkManager.Singleton.SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
     }
 
     public void options()
@@ -67,6 +68,7 @@ public class PauseMenu : MonoBehaviour
     {
         Debug.Log("Quit");
         //Application.Quit();
-        SceneManager.LoadScene(0);
+        NetworkManager.Singleton.SceneManager.LoadScene("Menu", LoadSceneMode.Single);
+        //NetworkManager.Singleton.Shutdown();
     }
 }
