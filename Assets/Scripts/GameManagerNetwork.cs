@@ -12,14 +12,22 @@ public class GameManagerNetwork : NetworkBehaviour
     [SerializeField] private Vector3 hostPosition; // Camera offset
     [SerializeField] private Vector3 clientPosition; // Camera offset
 
+    private InGameUI ui;
+
     public override void OnNetworkSpawn()
     {
         if (IsServer)
         {
+
             // The host (server) also needs to spawn its player
             Debug.Log("Host is spawning its player.");
             // hostPosition = new Vector3(-58, -36, 0); // Replace with your desired position
             SpawnPlayer(NetworkManager.Singleton.LocalClientId, true, hostPosition);
+
+            /*
+            ui = GameObject.Find("Ingame UI").GetComponent<InGameUI>();
+            ui.InitializeWC(_hostPrefab.name + "(Clone)");
+            */
         }
         else if (IsClient)
         {
@@ -28,6 +36,7 @@ public class GameManagerNetwork : NetworkBehaviour
             // clientPosition = new Vector3(38, -36, 0); // Replace with your desired position
             RequestSpawnPlayerServerRpc(NetworkManager.Singleton.LocalClientId, clientPosition);
         }
+        Time.timeScale = 1f;
     }
 
     [ServerRpc(RequireOwnership = false)]
@@ -36,6 +45,7 @@ public class GameManagerNetwork : NetworkBehaviour
         Debug.Log($"Server received spawn request from client {clientId}.");
         // The server receives the request and spawns the player
         SpawnPlayer(clientId, false, position);
+
     }
 
     private void SpawnPlayer(ulong clientId, bool isHost, Vector3 position)
@@ -46,8 +56,6 @@ public class GameManagerNetwork : NetworkBehaviour
         var spawn = Instantiate(spawnPrefab, position, Quaternion.identity);
         spawn.NetworkObject.SpawnWithOwnership(clientId);
         _spawnedObjects.Add(spawn.NetworkObject); // Add the spawned object to the list
-
-        //GM.UpdateUI(spawn.NetworkObject.gameObject.GetComponent<WireController2D>());
 
         // Assign the camera to follow the newly spawned player on the client side
         AssignCameraClientRpc(spawn.NetworkObject.NetworkObjectId, clientId);
@@ -84,6 +92,11 @@ public class GameManagerNetwork : NetworkBehaviour
                 {
                     Debug.LogError("Player child object not found.");
                 }
+
+                /*
+                ui = GameObject.Find("Ingame UI").GetComponent<InGameUI>();
+                ui.InitializeWC(_clientPrefab.name + "(Clone)");
+                */
             }
             else
             {

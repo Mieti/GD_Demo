@@ -5816,6 +5816,22 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6232926222703058445, guid: 96c1a0c7d564c2a488e9e312c295bfb3, type: 3}
+      propertyPath: hostPosition.x
+      value: -65
+      objectReference: {fileID: 0}
+    - target: {fileID: 6232926222703058445, guid: 96c1a0c7d564c2a488e9e312c295bfb3, type: 3}
+      propertyPath: hostPosition.y
+      value: -36
+      objectReference: {fileID: 0}
+    - target: {fileID: 6232926222703058445, guid: 96c1a0c7d564c2a488e9e312c295bfb3, type: 3}
+      propertyPath: clientPosition.x
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6232926222703058445, guid: 96c1a0c7d564c2a488e9e312c295bfb3, type: 3}
+      propertyPath: clientPosition.y
+      value: -36
+      objectReference: {fileID: 0}
+    - target: {fileID: 6232926222703058445, guid: 96c1a0c7d564c2a488e9e312c295bfb3, type: 3}
       propertyPath: _cameraController
       value: 
       objectReference: {fileID: 737448029}
@@ -36180,7 +36196,7 @@ MonoBehaviour:
   usePhysics: 1
   maxDistanceWithSelectedPos: 0.05
   segmentsSeparation: 0.2
-  limitMax: 500
+  limitMax: 250
   segmentsRadius: 5
   lineWidth: 0.15
   currentDistanceToStartAnchor: 0
@@ -36598,7 +36614,7 @@ MonoBehaviour:
   usePhysics: 1
   maxDistanceWithSelectedPos: 0.05
   segmentsSeparation: 0.2
-  limitMax: 500
+  limitMax: 365
   segmentsRadius: 0.5
   lineWidth: 0.15
   currentDistanceToStartAnchor: 0
@@ -37436,7 +37452,7 @@ MonoBehaviour:
   usePhysics: 1
   maxDistanceWithSelectedPos: 0.05
   segmentsSeparation: 0.2
-  limitMax: 500
+  limitMax: 265
   segmentsRadius: 5
   lineWidth: 0.15
   currentDistanceToStartAnchor: 0
@@ -38201,7 +38217,7 @@ MonoBehaviour:
   usePhysics: 1
   maxDistanceWithSelectedPos: 0.05
   segmentsSeparation: 0.2
-  limitMax: 500
+  limitMax: 340
   segmentsRadius: 5
   lineWidth: 0.15
   currentDistanceToStartAnchor: 0

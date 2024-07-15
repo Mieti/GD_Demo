@@ -33,6 +33,7 @@ public class PlayerKinematicMovement : NetworkBehaviour
     [SerializeField] private AudioSource audioFootstep;
     [SerializeField] private AudioSource audioRewindRope;
 
+    private InGameUI ui;
 
     private void Awake()
     {
@@ -46,11 +47,13 @@ public class PlayerKinematicMovement : NetworkBehaviour
             animator = GetComponent<Animator>();
         }
         interactableLayer = LayerMask.GetMask("Interactable");
+
     }
 
     void Start()
     {
-        
+        ui = GameObject.Find("Ingame UI").GetComponent<InGameUI>();
+        ui.UpdateWC(wc);
     }
 
     /* private void Update()
@@ -276,11 +279,13 @@ public class PlayerKinematicMovement : NetworkBehaviour
     {
         animator.SetFloat("Horizontal", 1);
         animator.SetFloat("Speed", speed);
+        playLoopAudioSource(audioFootstep);
     }
     public void DisableAnimation()
     {
         animator.SetFloat("Horizontal", 0);
         animator.SetFloat("Speed", 0);
+        stopAudioSource(audioFootstep);
     }
 
     private void playLoopAudioSource(AudioSource audio)

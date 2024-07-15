@@ -83,9 +83,42 @@ public class Door : NetworkBehaviour
     [Rpc(SendTo.Server)]
     private void DestroyWireR_ServerRpc()
     {
+
+        DisableAudio();
         GameObject wire = GameObject.FindGameObjectWithTag($"Player{_level}R");
         Destroy(wire);
     }
+
+    private void DisableAudio()
+    {
+        List<GameObject> correctPoleObjects = FindInParentWithTag("Correct Pole");
+        foreach (GameObject poleObject in correctPoleObjects)
+        {
+            AudioSource[] audioS = poleObject.GetComponents<AudioSource>();
+            for (int i = 0; i < audioS.Length; i++)
+            {
+                AudioSource audioSource = audioS[i];
+                audioSource.mute = true;
+            }
+        }
+    }
+
+    private List<GameObject> FindInParentWithTag(string tag)
+    {
+        Transform parent = transform.parent;
+        List<GameObject> taggedObjects = new List<GameObject>();
+        foreach (Transform child in parent)
+        {
+            // Check if the child has the specified tag
+            if (child.CompareTag(tag))
+            {
+                taggedObjects.Add(child.gameObject);
+            }
+            // can ba added recursion if check in grandchildren
+        }
+        return taggedObjects;
+    }
+
     public void Awake()
     {
         // tag ex. "Plug1L" -> _level="1", _side="L"
@@ -308,9 +341,12 @@ public class Door : NetworkBehaviour
                         Destroy(currentWireObject);
                     }
 
+
                 }));
 
                 doorSound.Play();
+
+                gameManager.UpdateUI(nextWire);
 
                 }
             }
@@ -333,10 +369,10 @@ public class Door : NetworkBehaviour
 
 
         // Move down first
-        float direction = transform.position.x - player.position.x;
+        float direction = doorPos.x - player.position.x;
         player.GetComponent<PlayerKinematicMovement>().SetDirection(direction);
         playerMove.EnambleAnimation();
-        float moveDown = transform.position.y - 1.5f;
+        float moveDown = doorPos.y - 1.5f;
         if (moveDown < player.position.y)
         {
             while (Mathf.Abs(player.position.y - moveDown) > epsilon)
