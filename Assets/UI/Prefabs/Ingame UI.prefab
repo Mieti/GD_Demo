@@ -176,7 +176,7 @@ RectTransform:
   m_GameObject: {fileID: 2415032703044761559}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 0}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 0}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3649634049672725235}
@@ -185,9 +185,9 @@ RectTransform:
   - {fileID: 289663881079121344}
   m_Father: {fileID: 1141589819651840817}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -1065}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 440, y: -1060}
   m_SizeDelta: {x: 3840, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1047964511649317282
@@ -429,6 +429,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wireBar: {fileID: 8597094331110803469}
   wireAmount: 100
+  wc: {fileID: 0}
+  wcName: 
   lights: []
 --- !u!1 &6342937344588556233
 GameObject:
@@ -725,7 +727,7 @@ RectTransform:
   m_GameObject: {fileID: 8276813144099930308}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 4.9, y: 4.9, z: 4.9}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4995255089688746662}
