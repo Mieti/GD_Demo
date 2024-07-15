@@ -90,6 +90,21 @@ public class Plug : MonoBehaviour
         if (isConnected){
             p.freeze = true;
             bool correct = CheckCorrectPoles();
+
+            //fix for PlugLeverExt
+            if (correct)
+            {
+                roomCompleteSound.Play();
+
+                roomSolved = true;
+            }
+            else
+            {
+                roomFailSound.Play();
+                roomSolved = false;
+            }
+            //endfix
+
             w.AddPlug(new Vector2(transform.position.x, transform.position.y-0.657f));
             if (correct) {
                 _light.sprite = lightCorrect;
@@ -129,9 +144,9 @@ public class Plug : MonoBehaviour
             PoleCollision pole = poleObject.GetComponent<PoleCollision>();
             if (pole != null && !pole.active)
             {
-                roomFailSound.Play();
-                Debug.Log("Wrong: A pole should be connected.");
-                roomSolved = false;
+                //roomFailSound.Play();
+                //Debug.Log("Wrong: A pole should be connected.");
+                //roomSolved = false;
                 return false;
             }
         }
@@ -142,16 +157,16 @@ public class Plug : MonoBehaviour
 
             if (pole != null && pole.active)
             {
-                roomFailSound.Play();
-                Debug.Log("Wrong: A pole should not be connected");
-                roomSolved = false;
+                //roomFailSound.Play();
+                //Debug.Log("Wrong: A pole should not be connected");
+                //roomSolved = false;
                 return false;
             }
         }
 
-        roomCompleteSound.Play();
+        //roomCompleteSound.Play();
 
-        roomSolved = true;
+        //roomSolved = true;
         return true;
 
     }
