@@ -15,9 +15,15 @@ public class Room : MonoBehaviour
     {
         SimpleMatchmaking.LobbyPlayersUpdated += NetworkLobbyPlayersUpdated;
     }
-    
+
+    private void OnDisable()
+    {
+        SimpleMatchmaking.LobbyPlayersUpdated -= NetworkLobbyPlayersUpdated;
+    }
     private void NetworkLobbyPlayersUpdated(Dictionary<ulong, bool> players)
     {
+        player1.SetActive(false);
+        player2.SetActive(false);
         foreach (var player in players)
         {
             if (player.Key == 0)

@@ -37,12 +37,13 @@ public class SimpleMatchmaking : NetworkBehaviour
         {
             
             NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnectedCallback;
+            NetworkManager.Singleton.OnClientDisconnectCallback += OnClientDisconnectCallback;
             _playersInLobby.Add(NetworkManager.Singleton.LocalClientId, false);
             UpdateInterface();
         }
 
         // Client uses this in case host destroys the lobby
-        //NetworkManager.Singleton.OnClientDisconnectCallback += OnClientDisconnectCallback;
+        NetworkManager.Singleton.OnClientDisconnectCallback += OnClientDisconnectCallback;
 
 
     }
@@ -57,6 +58,21 @@ public class SimpleMatchmaking : NetworkBehaviour
         PropagateToClients();
 
         UpdateInterface();
+    }
+
+    private void OnClientDisconnectCallback(ulong playerId)
+    {
+        if (IsServer)
+        {
+            // Handle locally
+            if (_playersInLobby.ContainsKey(playerId)) _playersInLobby.Remove(playerId);
+
+            // Propagate all clients
+            RemovePlayerClientRpc(playerId);
+
+            UpdateInterface();
+        }
+      
     }
 
     private void PropagateToClients()
@@ -121,7 +137,8 @@ public class SimpleMatchmaking : NetworkBehaviour
     {
         try
         {
-            await Authenticate();
+            if (_playerId == null)
+                await Authenticate();
             // Attempt to join a lobby in progress
             var lobby = await Lobbies.Instance.QuickJoinLobbyAsync();
 
@@ -148,7 +165,8 @@ public class SimpleMatchmaking : NetworkBehaviour
     {
         try
         {
-            await Authenticate();
+            if (_playerId == null)
+                await Authenticate();
             const int maxPlayers = 100;
 
             // Create a relay allocation and generate a join code to share with the lobby
@@ -176,7 +194,7 @@ public class SimpleMatchmaking : NetworkBehaviour
         }
         catch (Exception e)
         {
-            Debug.LogFormat("Failed creating a lobby");
+            Debug.LogFormat("Failed creating a lobby: " + e);
             //return null;
         }
     }
@@ -206,6 +224,24 @@ public class SimpleMatchmaking : NetworkBehaviour
         {
             Debug.Log($"Failed closing lobby: {e}");
         }
+    }
+
+    public async void LeaveLobby()
+    {
+        _playersInLobby.Clear();
+        NetworkManager.Singleton.Shutdown();
+        
+        if (_connectedLobby != null)
+            try
+            {
+                if (_connectedLobby.HostId == _playerId) await Lobbies.Instance.DeleteLobbyAsync(_connectedLobby.Id);
+                else await Lobbies.Instance.RemovePlayerAsync(_connectedLobby.Id, _playerId);
+                _connectedLobby = null;
+            }
+            catch (Exception e)
+            {
+                Debug.Log(e);
+            }
     }
 
     private void OnDestroy()
