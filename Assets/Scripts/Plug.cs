@@ -15,20 +15,20 @@ public class Plug : MonoBehaviour
     private AudioSource roomFailSound;
 
 
-    [SerializeField] private SpriteRenderer _light;
-    [SerializeField] private Sprite lightOff;
-    [SerializeField] private Sprite lightCorrect;
-    [SerializeField] private Sprite lightWrong;
+    [SerializeField] protected SpriteRenderer _light;
+    [SerializeField] protected Sprite lightOff;
+    [SerializeField] protected Sprite lightCorrect;
+    [SerializeField] protected Sprite lightWrong;
 
     private string _level;
-    private string _side;
+    protected string _side;
 
 
 // this room has been solved (for this player)?
     public bool roomSolved = false;
 
-    private Door doorL;
-    private Door doorR;
+    protected Door doorL;
+    protected Door doorR;
 
     // public bool isFakePlayer = false;
     
@@ -61,7 +61,7 @@ public class Plug : MonoBehaviour
 
     }
 
-    private void Update()
+    protected void Update()
     {
         
         // only for testing purpuses
@@ -110,7 +110,7 @@ public class Plug : MonoBehaviour
         }
 
     }
-    private bool CheckCorrectPoles()
+    protected bool CheckCorrectPoles()
     {
         /* string checkTagCorrect = gameObject.tag.Replace("Plug", "CorrectPole");
         string checkTagWrong = gameObject.tag.Replace("Plug", "WrongPole");
@@ -144,7 +144,7 @@ public class Plug : MonoBehaviour
             {
                 roomFailSound.Play();
                 Debug.Log("Wrong: A pole should not be connected");
-                roomSolved = true;
+                roomSolved = false;
                 return false;
             }
         }

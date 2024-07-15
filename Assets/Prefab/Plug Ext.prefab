@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6357641176924317529
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 82667815527424920, guid: 90910dcb21dff5e4eb91736e03a11155, type: 3}
+      propertyPath: m_Name
+      value: Plug Ext
+      objectReference: {fileID: 0}
+    - target: {fileID: 5168878039751494804, guid: 90910dcb21dff5e4eb91736e03a11155, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 3544274849
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129754312757994547, guid: 90910dcb21dff5e4eb91736e03a11155, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129754312757994547, guid: 90910dcb21dff5e4eb91736e03a11155, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129754312757994547, guid: 90910dcb21dff5e4eb91736e03a11155, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129754312757994547, guid: 90910dcb21dff5e4eb91736e03a11155, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129754312757994547, guid: 90910dcb21dff5e4eb91736e03a11155, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129754312757994547, guid: 90910dcb21dff5e4eb91736e03a11155, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129754312757994547, guid: 90910dcb21dff5e4eb91736e03a11155, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129754312757994547, guid: 90910dcb21dff5e4eb91736e03a11155, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129754312757994547, guid: 90910dcb21dff5e4eb91736e03a11155, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129754312757994547, guid: 90910dcb21dff5e4eb91736e03a11155, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1988313410447690757, guid: 90910dcb21dff5e4eb91736e03a11155, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 82667815527424920, guid: 90910dcb21dff5e4eb91736e03a11155, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 4302221942943285560}
+  m_SourcePrefab: {fileID: 100100000, guid: 90910dcb21dff5e4eb91736e03a11155, type: 3}
+--- !u!212 &1713598163779918571 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5763776860121300402, guid: 90910dcb21dff5e4eb91736e03a11155, type: 3}
+  m_PrefabInstance: {fileID: 6357641176924317529}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6421940688004760769 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 82667815527424920, guid: 90910dcb21dff5e4eb91736e03a11155, type: 3}
+  m_PrefabInstance: {fileID: 6357641176924317529}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4302221942943285560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6421940688004760769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3064b91904c8a4981b1c53a1e5aecc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isConnected: 0
+  _light: {fileID: 1713598163779918571}
+  lightOff: {fileID: -426203178, guid: 9b12a1139436d0f438cc88f0ee6c86c9, type: 3}
+  lightCorrect: {fileID: 1698415978, guid: 709440e213d679e48abcc282ad481aba, type: 3}
+  lightWrong: {fileID: 2130255151, guid: 709440e213d679e48abcc282ad481aba, type: 3}
+  roomSolved: 0
