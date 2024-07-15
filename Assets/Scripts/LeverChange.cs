@@ -12,6 +12,10 @@ public class LeverController : MonoBehaviour
     private int colliderCount = 0;
     private bool active = false;
 
+    [SerializeField] private AudioSource soundLeverActivation;
+    [SerializeField] private AudioSource soundLeverDeactivation;
+
+    
     private void Start()
     {
 
@@ -34,6 +38,10 @@ public class LeverController : MonoBehaviour
         if (colliderCount == 1)
         {
             ActivateLever();
+            if (!soundLeverActivation.isPlaying)
+            {
+                soundLeverActivation.Play();
+            }
         }
     }
 
@@ -52,6 +60,10 @@ public class LeverController : MonoBehaviour
         if (colliderCount <= 0)
         {
             DeactivateLever();
+            if (!soundLeverDeactivation.isPlaying)
+            {
+                soundLeverDeactivation.Play();
+            }
         }
     }
 

@@ -6,15 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="d60fb799-5f5d-4fed-9d4f-f96b7f16f4fb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.pole-interactions/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pole-interactions/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Door1_w.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Door1_w.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Door1_y.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Door1_y.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/LastDoor1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/LastDoor1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/LastDoor2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/LastDoor2.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Plug.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Plug.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Pole1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Pole1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Pole2_h.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Pole2_h.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level 1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WireD/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WireD/Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/WireBuilder 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/WireBuilder 1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/WireBuilder.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/WireBuilder.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level 3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level 3.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LeverChange.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LeverChange.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.learn.iet-framework/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.learn.iet-framework/Settings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +102,10 @@
       <option name="presentableId" value="Default" />
       <updated>1720804976702</updated>
       <workItem from="1720804984877" duration="2136000" />
-      <workItem from="1720859476451" duration="3003000" />
+      <workItem from="1720859476451" duration="3640000" />
+      <workItem from="1720890022999" duration="2806000" />
+      <workItem from="1720951284795" duration="3343000" />
+      <workItem from="1721038977793" duration="766000" />
     </task>
     <servers />
   </component>
