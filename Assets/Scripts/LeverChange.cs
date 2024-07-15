@@ -1,7 +1,9 @@
 using UnityEngine;
 using System.Collections;
+using Unity.Netcode;
+using Newtonsoft.Json.Linq;
 
-public class LeverController : MonoBehaviour
+public class LeverController : NetworkBehaviour
 {
     //private SpriteRenderer spriteRenderer;
     private Vector3 newScale = new Vector3(-1, 1, 1);
@@ -11,11 +13,47 @@ public class LeverController : MonoBehaviour
     public GameObject toShowPole;
     private int colliderCount = 0;
     private bool active = false;
+    private NetworkVariable<bool> _leverActivated = new NetworkVariable<bool>(false);
 
     [SerializeField] private AudioSource soundLeverActivation;
     [SerializeField] private AudioSource soundLeverDeactivation;
 
-    
+    public override void OnNetworkSpawn()
+    {
+        base.OnNetworkSpawn();
+        _leverActivated.OnValueChanged += OnValueChanged;
+    }
+
+    private void OnValueChanged(bool previous, bool current)
+    {
+        //Debug.Log("value changed L from " + OwnerClientId + " " + _playerLCompleted.Value + ";   " + _playerRCompleted.Value);
+        if (IsHost)
+        {
+            toShowPole.SetActive(current);
+            if (toHidePole != null)
+            {
+                toHidePole.SetActive(!current);
+            }
+        }
+        ActivateLeverClientRpc(current);
+    }
+
+    [Rpc(SendTo.Server)]
+    private void OnLeverActivatedServerRpc(bool value)
+    {
+        _leverActivated.Value = value;
+    }
+
+    [Rpc(SendTo.NotServer)]
+    private void ActivateLeverClientRpc(bool value)
+    {
+        toShowPole.SetActive(value);
+        if (toHidePole != null)
+        {
+            toHidePole.SetActive(!value);
+        }
+
+    }
     private void Start()
     {
 
@@ -35,7 +73,7 @@ public class LeverController : MonoBehaviour
         
 
         colliderCount++;
-        if (colliderCount == 1)
+        if (colliderCount > 0)
         {
             ActivateLever();
             if (!soundLeverActivation.isPlaying)
@@ -69,6 +107,7 @@ public class LeverController : MonoBehaviour
 
     private void ActivateLever()
     {
+        OnLeverActivatedServerRpc(true);
         active = true;
         //spriteRenderer.flipX = true;
         lever.transform.localScale = newScale;
@@ -88,6 +127,7 @@ public class LeverController : MonoBehaviour
 
     private void DeactivateLever()
     {
+        OnLeverActivatedServerRpc(false);
         active = false;
         //spriteRenderer.flipX = false;
         lever.transform.localScale = oldScale;
