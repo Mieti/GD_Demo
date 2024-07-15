@@ -36615,7 +36615,7 @@ MonoBehaviour:
   maxDistanceWithSelectedPos: 0.05
   segmentsSeparation: 0.2
   limitMax: 365
-  segmentsRadius: 0.5
+  segmentsRadius: 5
   lineWidth: 0.15
   currentDistanceToStartAnchor: 0
   maxDistanceToStarAnchor: 0
