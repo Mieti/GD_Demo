@@ -1496,6 +1496,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3445887501298408440, guid: a9e2fc638cee3a64bbc622e06932c0e3, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 1253743114
+      objectReference: {fileID: 0}
     - target: {fileID: 4402917437203827733, guid: a9e2fc638cee3a64bbc622e06932c0e3, type: 3}
       propertyPath: m_Name
       value: PauseMenuCanvas
@@ -7250,7 +7254,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.13672486, g: 0.13785179, b: 0.13962269, a: 0}
+  m_BackGroundColor: {r: 0.16470589, g: 0.16470589, b: 0.16470589, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -30362,20 +30366,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 1226950667}
     m_Modifications:
     - target: {fileID: 96617004455160666, guid: ec7343cf3161c4b4686587678ce976c7, type: 3}
-      propertyPath: InScenePlacedSourceGlobalObjectIdHash
-      value: 3172252845
-      objectReference: {fileID: 0}
-    - target: {fileID: 5172800230108021846, guid: ec7343cf3161c4b4686587678ce976c7, type: 3}
-      propertyPath: m_Name
-      value: Plug V2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5172800230108021846, guid: ec7343cf3161c4b4686587678ce976c7, type: 3}
-      propertyPath: m_TagString
-      value: Plug3L
-      objectReference: {fileID: 0}
-    - target: {fileID: 96617004455160666, guid: ec7343cf3161c4b4686587678ce976c7, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 1341039756
+      objectReference: {fileID: 0}
+    - target: {fileID: 96617004455160666, guid: ec7343cf3161c4b4686587678ce976c7, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 3172252845
       objectReference: {fileID: 0}
     - target: {fileID: 3908697791963628541, guid: ec7343cf3161c4b4686587678ce976c7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -30416,6 +30412,14 @@ PrefabInstance:
     - target: {fileID: 3908697791963628541, guid: ec7343cf3161c4b4686587678ce976c7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5172800230108021846, guid: ec7343cf3161c4b4686587678ce976c7, type: 3}
+      propertyPath: m_Name
+      value: Plug V2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5172800230108021846, guid: ec7343cf3161c4b4686587678ce976c7, type: 3}
+      propertyPath: m_TagString
+      value: Plug3L
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
