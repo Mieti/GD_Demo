@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1093145520272577580, guid: 9359ec6424dd08b44bee261e66615958, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 2386650576
+      objectReference: {fileID: 0}
     - target: {fileID: 1673151769671021370, guid: 9359ec6424dd08b44bee261e66615958, type: 3}
       propertyPath: m_Name
       value: LastDoor2
@@ -71,6 +75,14 @@ PrefabInstance:
     - target: {fileID: 7096052934588327546, guid: 9359ec6424dd08b44bee261e66615958, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7223722885054143066, guid: 9359ec6424dd08b44bee261e66615958, type: 3}
+      propertyPath: m_Volume
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8454020964141911221, guid: 9359ec6424dd08b44bee261e66615958, type: 3}
+      propertyPath: m_Volume
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8454020964141911221, guid: 9359ec6424dd08b44bee261e66615958, type: 3}
       propertyPath: OutputAudioMixerGroup

@@ -12,6 +12,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LastDoor1
       objectReference: {fileID: 0}
+    - target: {fileID: 1689304205568814165, guid: 27827949f5522584ca7c47430a6c4c5a, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 793333279
+      objectReference: {fileID: 0}
+    - target: {fileID: 7856679565073773772, guid: 27827949f5522584ca7c47430a6c4c5a, type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8800035573422743043, guid: 27827949f5522584ca7c47430a6c4c5a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -98,8 +106,8 @@ MonoBehaviour:
   close: {fileID: 21300000, guid: 2cbc25fb71d48b74994183fa3baf5fc6, type: 3}
   open: {fileID: 21300000, guid: 6aa709ba14d8c6c498328518c1a3c1d2, type: 3}
   doorSound: {fileID: 8454020964141911221}
+  isAnimationCompleted: 0
   gameManager: {fileID: 0}
-  isFakePlayer: 0
   levelComplete: {fileID: 7223722885054143066}
 --- !u!82 &7223722885054143066
 AudioSource:
@@ -113,7 +121,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 785708443968089831, guid: 0ed979ae1be83b244823d57266e146f3, type: 2}
   m_audioClip: {fileID: 8300000, guid: e55e61d51889145ffa0dc4229a3fde87, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
