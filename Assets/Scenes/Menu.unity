@@ -511,6 +511,38 @@ PrefabInstance:
       propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2329047480815089180, guid: 33b9678d4f66a184db11eede2143cf79, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329047480815089180, guid: 33b9678d4f66a184db11eede2143cf79, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329047480815089180, guid: 33b9678d4f66a184db11eede2143cf79, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 767283979}
+    - target: {fileID: 2329047480815089180, guid: 33b9678d4f66a184db11eede2143cf79, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329047480815089180, guid: 33b9678d4f66a184db11eede2143cf79, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329047480815089180, guid: 33b9678d4f66a184db11eede2143cf79, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.AudioSource, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329047480815089180, guid: 33b9678d4f66a184db11eede2143cf79, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329047480815089180, guid: 33b9678d4f66a184db11eede2143cf79, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3126688414809581145, guid: 33b9678d4f66a184db11eede2143cf79, type: 3}
       propertyPath: m_Name
       value: Levels
@@ -818,7 +850,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 785708443968089831, guid: 0ed979ae1be83b244823d57266e146f3, type: 2}
   m_audioClip: {fileID: 8300000, guid: d22c737a70d3f744cb8cd6f95d78661f, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
