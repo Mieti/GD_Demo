@@ -83,13 +83,11 @@ public class Door : NetworkBehaviour
     [Rpc(SendTo.Server)]
     private void DestroyWireR_ServerRpc()
     {
-
-        DisableAudio();
         GameObject wire = GameObject.FindGameObjectWithTag($"Player{_level}R");
         Destroy(wire);
     }
 
-    private void DisableAudio()
+    private void DisablePoleAudio()
     {
         List<GameObject> correctPoleObjects = FindInParentWithTag("Correct Pole");
         foreach (GameObject poleObject in correctPoleObjects)
@@ -97,8 +95,7 @@ public class Door : NetworkBehaviour
             AudioSource[] audioS = poleObject.GetComponents<AudioSource>();
             for (int i = 0; i < audioS.Length; i++)
             {
-                AudioSource audioSource = audioS[i];
-                audioSource.mute = true;
+                audioS[i].mute = true;
             }
         }
     }
@@ -264,6 +261,8 @@ public class Door : NetworkBehaviour
                     // close door
                     GetComponent<SpriteRenderer>().sprite = close;
                     isAnimationCompleted = true;
+
+                    DisablePoleAudio();
                     // destroy the current wire
                     currentWire.CreateFixedWire();
                     Destroy(currentWireObject);
@@ -330,6 +329,8 @@ public class Door : NetworkBehaviour
                     // close door
                     GetComponent<SpriteRenderer>().sprite = close;
                     doorR.GetComponent<Door>().isAnimationCompleted = true;
+
+                    DisablePoleAudio();
                     // telling server to destroy the current wire?
                     currentWire.CreateFixedWire();
                     if(currentWireObject.GetComponent<NetworkObject>()!=null)
