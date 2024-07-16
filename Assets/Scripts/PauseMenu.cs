@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class PauseMenu : MonoBehaviour
+public class PauseMenu : NetworkBehaviour
 {
     public static bool GameIsPaused = false;
 
@@ -59,9 +59,23 @@ public class PauseMenu : MonoBehaviour
         NetworkManager.Singleton.SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
     }
 
+    [ServerRpc(RequireOwnership = false)]
+    public void RequestReplayServerRpc()
+    {
+        Debug.Log("reuqested replay from client");
+        replay();
+
+    }
     public void options()
     {
         Debug.Log("Options");
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void RequestQuitServerRpc()
+    {
+        Debug.Log("reuqested quit from client");
+        quit();
     }
 
     public void quit()

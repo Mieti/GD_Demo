@@ -29,7 +29,11 @@ public class SimpleMatchmaking : NetworkBehaviour
     private string _playerId;
     private readonly Dictionary<ulong, bool> _playersInLobby = new();
     public static event Action<Dictionary<ulong, bool>> LobbyPlayersUpdated;
-    private void Awake() => _transport = FindObjectOfType<UnityTransport>();
+    private void Awake()
+    { 
+        _playerId = Auth._playerId;
+        _transport = FindObjectOfType<UnityTransport>(); 
+    }
 
     public override void OnNetworkSpawn()
     {
@@ -137,8 +141,9 @@ public class SimpleMatchmaking : NetworkBehaviour
     {
         try
         {
-            if (_playerId == null)
-                await Authenticate();
+            
+            //if (_playerId == null)
+            //await Authenticate();
             // Attempt to join a lobby in progress
             var lobby = await Lobbies.Instance.QuickJoinLobbyAsync();
 
@@ -165,8 +170,9 @@ public class SimpleMatchmaking : NetworkBehaviour
     {
         try
         {
-            if (_playerId == null)
-                await Authenticate();
+            
+            //if (_playerId == null)
+                //await Authenticate();
             const int maxPlayers = 100;
 
             // Create a relay allocation and generate a join code to share with the lobby

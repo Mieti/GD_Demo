@@ -772,6 +772,7 @@ GameObject:
   - component: {fileID: 8436659030767991523}
   - component: {fileID: 2314519466977321189}
   - component: {fileID: 7198228849400316669}
+  - component: {fileID: -3445887501298408440}
   - component: {fileID: 8802385632543269744}
   m_Layer: 5
   m_Name: PauseMenuCanvas
@@ -865,6 +866,27 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &-3445887501298408440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4402917437203827733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 1025853239
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!114 &8802385632543269744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1001,7 +1023,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8802385632543269744}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: replay
+        m_MethodName: RequestReplayServerRpc
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1695,6 +1717,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8802385632543269744}
+    - target: {fileID: 4956153433275801768, guid: e7112a97a684ba24c9b98d1e6625c7cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RequestQuitServerRpc
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
