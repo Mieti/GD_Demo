@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d60fb799-5f5d-4fed-9d4f-f96b7f16f4fb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.pole-interactions/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pole-interactions/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.learn.iet-framework/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.learn.iet-framework/Settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Prefabs/Settings.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Prefabs/Settings.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,6 +102,7 @@
       <workItem from="1720890022999" duration="2806000" />
       <workItem from="1720951284795" duration="3343000" />
       <workItem from="1721038977793" duration="1295000" />
+      <workItem from="1721148364549" duration="1621000" />
     </task>
     <servers />
   </component>
