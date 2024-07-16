@@ -126,7 +126,7 @@ public class SimpleMatchmaking : NetworkBehaviour
         {
             await LockLobby();
             LoadingClientRpc();
-            NetworkManager.Singleton.SceneManager.LoadScene("Level 3", LoadSceneMode.Single);
+            NetworkManager.Singleton.SceneManager.LoadScene("Level 1", LoadSceneMode.Single);
         }
     }
 
