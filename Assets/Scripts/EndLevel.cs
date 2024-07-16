@@ -13,7 +13,8 @@ public class EndLevel : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        levelText.text = "LEVEL " + SceneManager.GetActiveScene().buildIndex.ToString();
+        int sceneNumber = SceneManager.GetActiveScene().buildIndex - 1;
+        levelText.text = "LEVEL " + sceneNumber.ToString();
     }
 
     // Update is called once per frame
@@ -47,14 +48,40 @@ public class EndLevel : NetworkBehaviour
         }
     }
 
+    [ServerRpc(RequireOwnership = false)]
+    public void RequestNextServerRpc()
+    {
+        Debug.Log("reuqested replay from client");
+        next();
+
+
+    }
     public void replay()
     {
         Debug.Log("Replay");
         NetworkManager.Singleton.SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
     }
-    public void menu()
+
+    [ServerRpc(RequireOwnership = false)]
+    public void RequestReplayServerRpc()
     {
-        Debug.Log("Menu");
+        Debug.Log("reuqested replay from client");
+        replay();
+
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void RequestQuitServerRpc()
+    {
+        Debug.Log("reuqested quit from client");
+        quit();
+    }
+
+    public void quit()
+    {
+        Debug.Log("Quit");
+        //Application.Quit();
         NetworkManager.Singleton.SceneManager.LoadScene("Menu", LoadSceneMode.Single);
+        //NetworkManager.Singleton.Shutdown();
     }
 }
