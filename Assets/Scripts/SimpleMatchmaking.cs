@@ -29,6 +29,9 @@ public class SimpleMatchmaking : NetworkBehaviour
     private string _playerId;
     private readonly Dictionary<ulong, bool> _playersInLobby = new();
     public static event Action<Dictionary<ulong, bool>> LobbyPlayersUpdated;
+
+    [SerializeField] private GameObject lobbyCanvas;
+    [SerializeField] private GameObject LoadingCanvas;
     private void Awake()
     { 
         _playerId = Auth._playerId;
@@ -94,7 +97,12 @@ public class SimpleMatchmaking : NetworkBehaviour
         UpdateInterface();
     }
 
- 
+    [ClientRpc]
+    public void LoadingClientRpc()
+    {
+        LoadingCanvas.SetActive(true);
+        lobbyCanvas.SetActive(false);
+    }
 
     [ClientRpc]
     private void RemovePlayerClientRpc(ulong clientId)
@@ -117,6 +125,7 @@ public class SimpleMatchmaking : NetworkBehaviour
         if (_connectedLobby != null)
         {
             await LockLobby();
+            LoadingClientRpc();
             NetworkManager.Singleton.SceneManager.LoadScene("Level 3", LoadSceneMode.Single);
         }
     }
